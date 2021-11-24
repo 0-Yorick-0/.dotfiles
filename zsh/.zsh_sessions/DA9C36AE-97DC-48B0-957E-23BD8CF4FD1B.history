@@ -1,0 +1,40 @@
+tmux
+zsh
+vim Documents/Yorick/Songs/Telearbeit.md
+clear
+ls /System/Library/Extensions | grep flower
+ls /System/Library/Extensions/ | grep flower
+ls /System/Extensions/ | grep flower
+ls /Library/Extensions | grep flower
+rm rf /Library/Extensions/Soundflower.kext
+rm -rf /Library/Extensions/Soundflower.kext
+sudo rm -rf /Library/Extensions/Soundflower.kext
+sudo -rf /var/db/receipts/com.cycling74.soundflower.*
+sudo rm -rf /var/db/receipts/com.cycling74.soundflower.*
+ls Library/Application\ Support
+ls Library/Application\ Support | grep flower
+ls Library/Application\ Scripts | grep flower
+ls Library/Caches | grep flower
+ls Library/Preference | grep flower
+ls Library/Preferences | grep flower
+ls /private/var/db/receipts
+ls /private/var/db/receipts | grep flower
+ls /Library/Receipts
+ls /Library/Extensions/
+clear
+cd /
+ls
+ls Volumes
+cd Volumes/Krieger
+ls
+find *.wbfs .
+locate *.wbfs .
+locate *.wbfs
+find /Volumes/Krieger/ *.wbfs 
+find /Volumes/Krieger/ -type wbfs
+find -h
+man find
+test "$?BASH_VERSION" = "0" || eval 'setenv() { export "$1=$2"; }';                setenv PATH "/Applications/Wine Stable.app/Contents/Resources/start/bin:/Applications/Wine Stable.app/Contents/Resources/wine/bin:$PATH"; winehelp --clear
+.exe wine ~/Downloads/WBFS-Manager\ x32-x64/setup.exe
+wine ~/Downloads/WBFS-Manager\ x32-x64/setup.exe
+wine winecfg
