@@ -1,0 +1,9 @@
+.zsh_sessions/
+
+.zcompdump
+.zhistory
+.zlogin
+.zsh_history
+completion.zsh
+
+*~
