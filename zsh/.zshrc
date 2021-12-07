@@ -3,7 +3,7 @@
 fpath=($DOTFILES/zsh/plugins $fpath)
 
 #launch tmux at startup
-if [ "$TMUX" = "" ]; then tmux; fi
+if [ -z "$TMUX" ]; then tmux -f $XDG_CONFIG_HOME/tmux/.tmux.conf; fi
 
 # +------------+
 # | NAVIGATION |
