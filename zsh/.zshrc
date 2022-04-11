@@ -5,6 +5,9 @@ fpath=($DOTFILES/zsh/plugins $fpath)
 #launch tmux at startup
 if [ -z "$TMUX" ]; then tmux -f $XDG_CONFIG_HOME/tmux/.tmux.conf; fi
 
+#loading ssh-key to keychain
+eval $(keychain --eval --quiet id_ed25519 id_rsa ~/.ssh/id_rsa)
+
 # +------------+
 # | NAVIGATION |
 # +------------+
@@ -119,3 +122,9 @@ source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+
+# +------+
+# | Node |
+# +------+
+
+source /usr/share/nvm/init-nvm.sh

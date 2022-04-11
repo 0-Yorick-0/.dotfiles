@@ -49,6 +49,8 @@ alias gss='git status -s'
 alias ga='git add'
 alias gp='git push'
 alias gpo='git push origin'
+alias gplo='git pull origin'
+alias gbr='git branch -r'
 alias gc='git commit'
 alias gd='git diff'
 alias gco='git checkout '
@@ -57,3 +59,5 @@ alias gr='git remote'
 alias glo='git log --pretty="oneline"'
 alias glol='git log --graph --oneline --decorate'
 alias gclean="git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d" # Delete local branches merged with master 
+alias gst="git stash"
+alias gsta="git stash apply"
