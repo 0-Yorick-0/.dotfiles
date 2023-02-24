@@ -29,6 +29,8 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+-- settings font for tree
+vim.opt.guifont = "materialdesignicons-webfont:h21"
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"

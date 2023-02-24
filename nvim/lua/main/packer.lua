@@ -134,13 +134,24 @@ return require('packer').startup(function(use)
     --Enhance Netrw Experience
     use 'tpope/vim-vinegar'
 
+
     use {
-        'nvim-tree/nvim-tree.lua',
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
         requires = {
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        }
     }
+
+    -- install without yarn or npm
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
+    use 'ryanoasis/vim-devicons'
 
     if is_bootstrap then
         require('packer').sync()
