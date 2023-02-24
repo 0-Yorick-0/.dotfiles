@@ -1,0 +1,6 @@
+#ignore all vim backup files
+*.*~
+
+tags
+
+tmp
