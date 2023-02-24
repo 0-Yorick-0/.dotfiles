@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+if [ ! -d "$XDG_CONFIG_HOME/nvim" ]
+	then
+		mkdir "$XDG_CONFIG_HOME/nvim"
+    
+    # install neovim plugin manager
+    sh -c 'curl -fLo ~/.dotfiles/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+fi
+
+ln -sf "$DOTFILES/nvim/init.vim" "$VIMCONFIG" 
+ln -sf "$DOTFILES/nvim/init.lua" "$VIMCONFIG"
+ln -sf "$DOTFILES/nvim/init_plugins.vim" "$VIMCONFIG" 
+
+# plugin autoload
+ln -sf "$DOTFILES/nvim/autoload" "$VIMCONFIG"
+
+# Install all mandatory folders if they don't exist already
+mkdir -p "$VIMCONFIG/plugged"
+mkdir -p "$VIMCONFIG/backup"
+mkdir -p "$VIMCONFIG/undo"
+mkdir -p "$VIMCONFIG/ftplugin"
+
+# color schemes
+ln -sf "$DOTFILES/nvim/colors" "$VIMCONFIG"
+
+# configuration of different plugins
+ln -sF "$DOTFILES/nvim/init.vim.d" "$VIMCONFIG"
+
+# configuration of netrw mapping
+ln -sF "$DOTFILES/nvim/ftplugin" "$VIMCONFIG"
+
+# configuration of vim settings
+ln -sF "$DOTFILES/nvim/settings.vim" "$VIMCONFIG/settings.vim"
+
+# configuration of vim mappings
+ln -sF "$DOTFILES/nvim/mappings.vim" "$VIMCONFIG/mappings.vim"
+
+# configuration of vim themes
+ln -sF "$DOTFILES/nvim/themes" "$VIMCONFIG/themes"
+
+# configuration of coc langages settings
+ln -sF "$DOTFILES/nvim/init.vim.d/coc-settings.json" "$VIMCONFIG"
+
+# configuration of gutentags cache dir
+if [ ! -d "$XDG_CONFIG_HOME/nvim/gutentags_cache_dir" ]
+	then
+		mkdir "$XDG_CONFIG_HOME/nvim/gutentags_cache_dir"
+fi

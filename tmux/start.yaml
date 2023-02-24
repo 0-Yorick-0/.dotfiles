@@ -1,0 +1,44 @@
+session_name: base-work
+
+start_directory: $HOME
+
+windows: 
+  #  - window_name: spotify
+  #    layout: tiled
+  #    shell_command_before:
+  #      - brew services restart spotifyd
+  #      - spt
+  #    panes:
+  #      - 
+  - window_name: .dotfiles
+    layout: tiled
+    shell_command_before:
+      - cd ~/.dotfiles
+    panes:
+      - nvim
+  - window_name : WhiteBook
+    layout: tiled
+    shell_command_before:
+      - cd ~/Documents/WhiteBook
+    panes:
+      - nvim
+  - window_name : database
+    layout: tiled
+    shell_command_before:
+      - cd ~/workspace
+        # rtlmutu staging
+      - mycli -d rtlmutu_staging_ro
+    panes:
+      -
+  - window_name : workspace
+    layout: tiled
+    shell_command_before:
+        - cd ~/workspace
+    panes:
+      - 
+  - window_name : terminal
+    layout: tiled
+    shell_command_before:
+      - cd ~/workspace
+    panes:
+      - 

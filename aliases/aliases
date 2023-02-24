@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+
+# +---------+
+# | System  |  
+# +---------+
+
+alias shutdown='echo "faut dépointer gros !" && sleep 2 && sudo shutdown -h now'
+alias restart='sudo reboot'
+alias suspend='pmset sleepnow'
+
+alias bigf='find / -xdev -type f -size +1G' #display big files > 1G
+alias bigd='find / -xdev -type d -size +1G' #display big directories > 1G
+
+# +-----+
+# | Zsh |  
+# +-----+
+
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index #directory stack
+
+# +----+
+# | ls |  
+# +----+
+
+alias ls='ls -G'
+alias ll='ls -lahF'
+alias lls='ls -lahFtr'
+
+# +-----------+
+# | cli tools |  
+# +-----------+
+
+alias grep='ggrep --color=auto'
+alias sed='ssed'
+alias awk='gawk'
+
+# +----+
+# | cp |  
+# +----+
+
+alias cp='cp -iv'
+alias mv='=mv -iv'
+alias rm='rm -i'
+
+# +-----+
+# | git |  
+# +-----+
+
+alias gs='git status'
+alias gss='git status -s'
+alias ga='git add'
+alias gp='git push'
+alias gpo='git push origin'
+alias gplo='git pull origin'
+alias gbr='git branch -r'
+alias gc='git commit'
+alias gd='git diff'
+alias gco='git checkout '
+alias gl'git log'
+alias gr='git remote'
+alias glo='git log --pretty="oneline"'
+alias glol='git log --graph --oneline --decorate'
+alias gclean="git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d" # Delete local branches merged with master 
+alias gst="git stash"
+alias gsta="git stash apply"
+
+# +------+
+# | tmux |  
+# +------+
+
+alias tmuxl='tmux list-sessions'
+alias tmuxk='tmux kill-server'
+alias start='tmuxp load start -y'
+
+# +-----+
+# | Mac |  
+# +-----+
+
+alias settings='open "x-apple.systempreferences:com.apple.preference"'
+
+# +--------+
+# | Docker |
+# +--------+
+
+alias drmi='docker rmi -f $(docker images -aq)'
+alias dstopa='docker stop $(docker ps -aq)'
+alias drmca='docker rm -f $(docker ps -aq)'
+
