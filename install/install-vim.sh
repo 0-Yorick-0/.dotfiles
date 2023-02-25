@@ -13,10 +13,7 @@ ln -sf "$DOTFILES/nvim/init.lua" "$VIMCONFIG"
 ln -sF "$DOTFILES/nvim/after" "$VIMCONFIG"
 
 # Install all mandatory folders if they don't exist already
-mkdir -p "$VIMCONFIG/after"
-#mkdir -p "$VIMCONFIG/backup"
 mkdir -p "$VIMCONFIG/undo"
-#mkdir -p "$VIMCONFIG/ftplugin"
 
 # configuration of different plugins
 ln -sF "$DOTFILES/nvim/lua" "$VIMCONFIG"
@@ -26,5 +23,5 @@ if [ ! -d "$XDG_CONFIG_HOME/phpactor" ]
     then
         mkdir "XDG_CONFIG_HOME/phpactor"
 fi
-ln -sf "$DOTFILES/phpactor/phpactor.json "$XDG_CONFIG_HOME/phpactor/phpactor.json"
+ln -sf "$DOTFILES/phpactor/phpactor.json" "$XDG_CONFIG_HOME/phpactor/phpactor.json"
 

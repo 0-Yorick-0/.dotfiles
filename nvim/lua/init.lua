@@ -1,1 +1,0 @@
-/Users/yorickferlin/.dotfiles/nvim/init.lua
