@@ -140,7 +140,7 @@ return require('packer').startup(function(use)
         branch = "v2.x",
         requires = {
             "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "ryanoasis/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
         }
     }
@@ -151,7 +151,9 @@ return require('packer').startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
+    -- need both to finally have devicons in tree
     use 'ryanoasis/vim-devicons'
+    use 'kyazdani42/nvim-web-devicons'
 
     if is_bootstrap then
         require('packer').sync()

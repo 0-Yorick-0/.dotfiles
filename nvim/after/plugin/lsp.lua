@@ -15,6 +15,16 @@ lsp.ensure_installed({
     'rust_analyzer',
 })
 
+lsp.configure('lua-language-server', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -22,6 +32,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
+    ['<Tab>'] = nil,
+    ['<S-Tab>'] = nil
 })
 
 lsp.setup_nvim_cmp({
@@ -34,103 +46,88 @@ lsp.setup_nvim_cmp({
     }),
 })
 
-local function config(_config)
+-- base config
+local function config(client, bufnr)
+    local opts = { buffer = bufnr, remap = false }
+
+    vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "[G]o [D]efinition" })
+    vim.keymap.set("n", "fmt", function() vim.lsp.buf.format({ async = true }) end, { desc = "[F]or[M]a[T]" })
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
+    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
+    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, { desc = "[V]iew [D]iagnostic" })
+    vim.keymap.set("n", "$d", function() vim.diagnostic.goto_next() end, { desc = "Next occurrence" })
+    vim.keymap.set("n", "ùd", function() vim.diagnostic.goto_prev() end, { desc = "Previous occurence" })
+    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { desc = "[V]iew [C]ode [A]ction" })
+    vim.keymap.set("n", "<leader>vco", function()
+        vim.lsp.buf.code_action({
+            filter = function(code_action)
+                if not code_action or not code_action.data then
+                    return false
+                end
+
+                local data = code_action.data.id
+                return string.sub(data, #data - 1, #data) == ":0"
+            end,
+            apply = true
+        })
+    end, { desc = "[V]iew [C]ode actions [O]thers" })
+    vim.keymap.set("n", "<leader>vcr", function() vim.lsp.buf.references() end, { desc = "[V]iew [C]ode [R]eferences" })
+    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { desc = "[V]iew [R]e[N]ame" })
+end
+
+local function merge_config(_config, config)
     return vim.tbl_deep_extend("force", {
-
-        on_attach = function(client, bufnr)
-            local opts = { buffer = bufnr, remap = false }
-
-            vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-            vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-            vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-            vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-            vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-            vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-            vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-            vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-            vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-            vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        end
+        on_attach = config()
     }, _config or {})
 end
 
-require("lspconfig").phpactor.setup(config({
-    init_options = {
-        ["language_server_phpstan.enabled"] = false,
-        ["language_server_psalm.enabled"] = false,
-    },
+lsp.on_attach(config())
 
-    on_attach = function()
-        print('phpactor loaded')
-        vim.keymap.set("n", "gd", ":PhpactorGotoDefinition<CR>")
-        vim.keymap.set("n", "gdv", ":PhpactorGotoDefinition vsplit<CR>")
-        vim.keymap.set("n", "<leader>j", ":PhpactorImportClass<CR>")
-        vim.keymap.set("n", "<leader>cf", ":PhpactorCopyFile<CR>")
-        vim.keymap.set("n", "<leader>cc", ":PhpactorCopyClassName<CR>")
-        -- find usages in quifix list
-        vim.keymap.set("n", "<leader>fr", ":PhpactorFindReferences<CR>")
-        -- jump to parent class
-        vim.keymap.set("n", "<leader>nv", ":PhpactorNavigate<CR>")
-    end,
-
-    filetypes = { 'php', 'cucumber' }
-}))
-
-
-
-require("lspconfig").gopls.setup(config({
-    cmd = { "gopls", "serve" },
-    settings = {
-        gopls = {
-            analyses = {
-                unusedparams = true,
+-- then for each specific language, we overload the config
+require("lspconfig").phpactor.setup(
+    merge_config(
+        {
+            init_options = {
+                ["language_server_phpstan.enabled"] = false,
+                ["language_server_psalm.enabled"] = false,
             },
-            staticcheck = true,
+
+            on_attach = function()
+                print('phpactor loaded')
+                vim.keymap.set("n", "gd", ":PhpactorGotoDefinition<CR>")
+                vim.keymap.set("n", "gdv", ":PhpactorGotoDefinition vsplit<CR>")
+                vim.keymap.set("n", "<leader>j", ":PhpactorImportClass<CR>")
+                vim.keymap.set("n", "<leader>cf", ":PhpactorCopyFile<CR>")
+                vim.keymap.set("n", "<leader>cc", ":PhpactorCopyClassName<CR>")
+                -- find usages in quifix list
+                vim.keymap.set("n", "<leader>fr", ":PhpactorFindReferences<CR>")
+                -- jump to parent class
+                vim.keymap.set("n", "<leader>nv", ":PhpactorNavigate<CR>")
+            end,
+
+            filetypes = { 'php', 'cucumber' },
         },
-    },
-}))
+        config
+    )
+)
 
----------------------------------
--- Formatting
----------------------------------
-local diagnostics = require("null-ls").builtins.diagnostics
-local formatting = require("null-ls").builtins.formatting
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
--- see https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-require("null-ls").setup({
-    sources = {
-        formatting.black,
-        formatting.rustfmt,
-        formatting.phpcsfixer,
-        formatting.prettier,
-        formatting.stylua,
-        formatting.gofmt,
-        formatting.goimports,
-        formatting.sqlformat,
-        formatting.terraform_fmt,
-        formatting.markdownlint,
-    },
-    on_attach = function(client, bufnr)
-        if client.name == "tsserver" or client.name == "rust_analyzer" or client.name == "pyright" then
-            client.resolved_capabilities.document_formatting = false
-        end
-
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                callback = function()
-                    vim.lsp.buf.format()
-                end,
-            })
-        end
-    end,
-})
-
----------------------------------
--- Auto commands
----------------------------------
-vim.cmd([[ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync() ]])
+require("lspconfig").gopls.setup(
+    merge_config(
+        {
+            cmd = { "gopls", "serve" },
+            settings = {
+                gopls = {
+                    analyses = {
+                        unusedparams = true,
+                    },
+                    staticcheck = true,
+                },
+            },
+        },
+        config
+    )
+)
 
 lsp.setup()

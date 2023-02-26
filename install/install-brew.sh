@@ -14,11 +14,21 @@ brew install gawk
 
 brew list python3 || brew install python3
 
-# +-----+
-# | PHP |
-# +-----+
+# +----+
+# | GO |
+# +----+
+
+brew install go
+go install golang.org/x/tools/cmd/goimports@latest
+
+# +---------+
+# | NULL-LS |
+# +---------+
 
 brew install php-cs-fixer
+brew install prettier
+brew install stylua
+brew install gofmt
 
 # +---------+
 # | Git-Sim |
