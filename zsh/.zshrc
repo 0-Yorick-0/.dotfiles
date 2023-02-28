@@ -54,7 +54,7 @@ source $DOTFILES/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
 
 autoload -U compinit; compinit
 _comp_options+=(globdots) # With hidden files
-source $DOTFILES/zsh/completion.zsh
+source $DOTFILES/zsh/plugins/completion.zsh
 
 # Command Completion
 fpath=($DOTFILES/zsh/plugins/zsh-completions/src $fpath)
