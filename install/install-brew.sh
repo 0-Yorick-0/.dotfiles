@@ -6,6 +6,9 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+# useful Unix commands like gdate
+brew install coreutils
+
 # useful devtools 
 brew install --cask devtoys
 

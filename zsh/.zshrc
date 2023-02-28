@@ -16,10 +16,10 @@ sources=($DOTFILES/zsh/config/*.zsh)
 # try to include all sources
 foreach file (`echo $sources`)
     if [[ -a $file ]]; then
-        # sourceIncludeTimeStart=$(gdate +%s%N)
+        sourceIncludeTimeStart=$(gdate +%s%N)
         source $file
-        # sourceIncludeDuration=$((($(gdate +%s%N) - $sourceIncludeTimeStart)/1000000))
-        # echo $sourceIncludeDuration ms runtime for $file
+        sourceIncludeDuration=$((($(gdate +%s%N) - $sourceIncludeTimeStart)/1000000))
+        echo $sourceIncludeDuration ms runtime for $file
     fi
 end
 #bootTimeEnd=$(gdate +%s%N 2>/dev/null || date +%s%N)
