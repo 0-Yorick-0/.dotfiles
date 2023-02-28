@@ -32,7 +32,6 @@ require("null-ls").setup({
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    print("format")
                     vim.lsp.buf.format({ bufnr = bufnr })
                 end,
             })
