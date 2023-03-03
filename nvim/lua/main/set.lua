@@ -1,41 +1,46 @@
 vim.g.mapleader = " "
+vim.g.gofmt_command = "goimports"
+
+local set = vim.opt
 
 -- line numbers && relative line numbers
-vim.opt.nu = true
-vim.opt.relativenumber = true
+set.nu = true
+set.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+set.tabstop = 4
+set.softtabstop = 4
+set.shiftwidth = 4
+set.expandtab = true
 
-vim.opt.smartindent = true
-vim.opt.cursorline = true -- Enable highlighting of the current line
+set.smartindent = true
+set.cursorline = true -- Enable highlighting of the current line
 
-vim.opt.wrap = false
+-- When on, lines longer than the width of the window will wrap and displaying continues on the next line
+set.wrap = false
 
 -- split in a more natural way
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+set.splitbelow = true
+set.splitright = true
 
 -- let undotree manage backup
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/$VIMCONFIG/undodir"
-vim.opt.undofile = true
+set.swapfile = false
+set.backup = false
+set.undodir = os.getenv("HOME") .. "/$VIMCONFIG/undodir"
+set.undofile = true
 
 -- disable highlightsearch && enable incremental search
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+set.hlsearch = false
+set.incsearch = true
 
-vim.opt.termguicolors = true
+set.termguicolors = true
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+set.scrolloff = 8
+set.signcolumn = "yes"
+set.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+set.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+set.colorcolumn = "80"
 
-vim.g.gofmt_command = "goimports"
+set.foldexpr = "nvim_treesitter#foldexpr()"
+set.foldmethod = "manual"

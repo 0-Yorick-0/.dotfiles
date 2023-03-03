@@ -13,12 +13,19 @@ typeset -ga sources
 # Get personnal config file
 sources=($DOTFILES/zsh/config/*.zsh)
 
+# needed because the script is launched outside of a Terminal
+# so it doesn't has access to stuff in ~/.profile
+gdate=/opt/homebrew/bin/gdate
+if [ ! -x $gdate ]; then
+  echo "FATAL ERROR: $gdate not found." >&2
+  exit 1
+fi
 # try to include all sources
 foreach file (`echo $sources`)
     if [[ -a $file ]]; then
-        sourceIncludeTimeStart=$(gdate +%s%N)
+        sourceIncludeTimeStart=$($gdate +%s%N)
         source $file
-        sourceIncludeDuration=$((($(gdate +%s%N) - $sourceIncludeTimeStart)/1000000))
+        sourceIncludeDuration=$((($($gdate +%s%N) - $sourceIncludeTimeStart)/1000000))
         echo $sourceIncludeDuration ms runtime for $file
     fi
 end
