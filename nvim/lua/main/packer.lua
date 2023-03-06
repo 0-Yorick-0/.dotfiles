@@ -5,9 +5,7 @@ local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local is_bootstrap = false
 if fn.empty(fn.glob(install_path)) > 0 then
 	is_bootstrap = true
-	PACKER_BOOTSTRAP =
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-	print("Installing packer close and reopen Neovim...")
+	PACKER_BOOTSTRAP = print("Installing packer close and reopen Neovim...")
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -20,6 +18,15 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
+
+	-------- Appearance
+	use({
+		"goolord/alpha-nvim",
+		requires = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("alpha").setup(require("alpha.themes.startify").config)
+		end,
+	})
 
 	-- Telescope
 	use({
@@ -91,7 +98,7 @@ return require("packer").startup(function(use)
 	use("tpope/vim-surround")
 
 	-- auto close parenthesis
-	use("jiangmiao/auto-pairs")
+	use("windwp/nvim-autopairs")
 
 	-- Make comments the easy way
 	use({
@@ -153,6 +160,12 @@ return require("packer").startup(function(use)
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
+	})
+
+	-- show shortcuts
+	use({
+		"folke/which-key.nvim",
+		require("which-key").setup(),
 	})
 
 	-- need both to finally have devicons in tree

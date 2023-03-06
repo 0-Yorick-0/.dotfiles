@@ -7,4 +7,11 @@
 -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 --
 
+-- Variables
+opt = vim.opt
+g = vim.g
+kmap = vim.keymap
+cmd = vim.cmd
+
+-- Imports
 require("main")
