@@ -1,7 +1,7 @@
 {
-    "xdebug_disable": true,
-    "behat.enabled": true,
-    "behat.config_path": "%project_root%\/behat.yml(.dist)?",
-    "behat.symfony.di_xml_path": "/Users/yferlin/workspace/service-bedrock-lbcdn/var/cache/test/testsBedrock_LBCDN_Tests_TestKernelTestDebugContainer.xml",
-    "phpunit.enabled": true
+  "xdebug_disable": true,
+  "behat.enabled": true,
+  "behat.config_path": "%project_root%/behat.yml(.dist)?",
+  "behat.symfony.di_xml_path": "/Users/yferlin/workspace/service-bedrock-lbcdn/var/cache/test/testsBedrock_LBCDN_Tests_TestKernelTestDebugContainer.xml",
+  "phpunit.enabled": true
 }
