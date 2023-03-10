@@ -9,6 +9,8 @@ brew upgrade
 # useful Unix commands like gdate
 brew install coreutils
 
+brew install wget
+
 # useful devtools 
 brew install --cask devtoys
 
