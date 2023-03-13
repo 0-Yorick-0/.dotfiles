@@ -19,11 +19,23 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-	-------- Appearance
+	------------------------
+	------- Appearance------
+	------------------------
 	use({
 		"glepnir/dashboard-nvim",
 		event = "VimEnter",
 		requires = { "nvim-tree/nvim-web-devicons" },
+	})
+
+	-- Theme
+	use("sainnhe/sonokai")
+
+	-- Set lualine as statusline
+	-- See `:help lualine.txt`
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
 	-- Telescope
@@ -38,8 +50,6 @@ return require("packer").startup(function(use)
 			{ "nvim-lua/plenary.nvim" },
 		},
 	})
-	-- Theme
-	use("sainnhe/sonokai")
 
 	-- To parse & higlight codebase
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
@@ -135,13 +145,6 @@ return require("packer").startup(function(use)
 		config = function()
 			require("main.dap").setup()
 		end,
-	})
-
-	-- Set lualine as statusline
-	-- See `:help lualine.txt`
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
 	use({

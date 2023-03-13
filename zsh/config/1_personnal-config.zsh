@@ -8,6 +8,8 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.config/local/share/nvim/site/pack/packer/opt/phpactor/bin/:$PATH"
 
 export PATH="$HOME/Library/Python/3.9/bin/:$PATH"
+
+export PATH="$HOME/go/bin/:$PATH"
 # +------------+
 # | NAVIGATION |
 # +------------+

@@ -10,7 +10,6 @@ lsp.ensure_installed({
     "dockerls",
     "sqlls",
     "jsonls",
-    "yamlls",
     "rust_analyzer",
 })
 
