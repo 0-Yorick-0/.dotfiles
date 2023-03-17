@@ -9,6 +9,7 @@ lsp.ensure_installed({
     "lua_ls",
     "dockerls",
     "sqlls",
+    "gopls",
     "jsonls",
     "rust_analyzer",
 })
