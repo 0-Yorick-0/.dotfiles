@@ -17,8 +17,11 @@ sources=($DOTFILES/zsh/config/*.zsh)
 # so it doesn't has access to stuff in ~/.profile
 gdate=/opt/homebrew/bin/gdate
 if [ ! -x $gdate ]; then
-  echo "FATAL ERROR: $gdate not found." >&2
-  exit 1
+	gdate=/usr/local/bin/gdate
+fi
+if [ ! -x $gdate ]; then
+	echo "FATAL ERROR: $gdate not found." >&2
+	exit 1
 fi
 # try to include all sources
 foreach file (`echo $sources`)
