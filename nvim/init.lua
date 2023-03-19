@@ -15,3 +15,5 @@ cmd = vim.cmd
 
 -- Imports
 require("main")
+
+require("impatient")
