@@ -9,14 +9,16 @@ brew upgrade
 # useful Unix commands like gdate
 brew install coreutils
 
-brew install wget
-
 # useful devtools 
 brew install --cask devtoys
 
+# +-------+
+# | Tools |
+# +-------+
+brew install wget
+brew install jq
 #use gawk instead of awk
 brew install gawk
-
 brew list python3 || brew install python3
 
 # +----+

@@ -64,9 +64,6 @@ return require("packer").startup(function(use)
 	-- To parse & higlight codebase
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
-	-- To work only on a small list of files
-	use("theprimeagen/harpoon")
-
 	-- Close buffer without closing window
 	use("moll/vim-bbye")
 
