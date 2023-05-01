@@ -9,6 +9,13 @@ if [ ! -d "$XDG_CONFIG_HOME/nvim" ]
 	~/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
 
+# creating spell dir & symlinks with dictionaries
+if [ ! d "$VIMCONFIG/spell"]
+    then
+        mkdir "$VIMCONFIG/spell"
+fi
+ln -sF "$DOTFILES/nvim/spell" "$VIMCONFIG"
+
 ln -sf "$DOTFILES/nvim/init.lua" "$VIMCONFIG"
 ln -sF "$DOTFILES/nvim/after" "$VIMCONFIG"
 

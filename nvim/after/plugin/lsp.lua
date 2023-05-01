@@ -100,37 +100,34 @@ local function config(client, bufnr)
 end
 
 local function merge_config(_config, baseConfig)
-	local config = {
+	local enrichedConfig = {
 		on_attach = baseConfig,
 	}
-	return vim.tbl_deep_extend("force", config, _config or {})
+	return vim.tbl_deep_extend("force", enrichedConfig, _config or {})
 end
 
 lsp.on_attach(config)
 
 -- then for each specific language, we overload the config
 require("lspconfig").phpactor.setup(merge_config({
-
 	init_options = {
 		["language_server_phpstan.enabled"] = false,
 		["language_server_psalm.enabled"] = false,
 	},
-
 	on_attach = function()
-		vim.keymap.set("n", "gd", ":PhpactorGotoDefinition", { desc = "PHP: [G]oto[D]efinition" })
-		vim.keymap.set("n", "gdv", ":PhpactorGotoDefinition vsplit", { desc = "PHP: [G]oto[D]efinition [v]split" })
+		vim.keymap.set("n", "gd", ":PhpactorGotoDefinition<CR>", { desc = "PHP: [G]oto[D]efinition" })
+		vim.keymap.set("n", "gdv", ":PhpactorGotoDefinition vsplit<CR>", { desc = "PHP: [G]oto[D]efinition [v]split" })
 		vim.keymap.set("n", "<leader>i", ":PhpactorImportClass", { desc = "PHP: [I]mportClass" })
 		vim.keymap.set("n", "<leader>cf", ":PhpactorCopyFile", { desc = "PHP: [C]opy[F]ile" })
-		vim.keymap.set("n", "<leader>cc", ":PhpactorCopyClassName", { desc = "PHP: [C]opy[C]lassName" })
+		vim.keymap.set("n", "<leader>cc", ":PhpactorCopyClassName<CR>", { desc = "PHP: [C]opy[C]lassName" })
 		-- find usages in quifix list
 		vim.keymap.set("n", "<leader>fr", ":PhpactorFindReferences", { desc = "PHP: [F]ind[R]eferences" })
 		-- jump to parent class
-		vim.keymap.set("n", "<leader>nv", ":PhpactorNavigate", { desc = "PHP: [N]a[v]igate" })
+		vim.keymap.set("n", "<leader>nv", ":PhpactorNavigate<CR>", { desc = "PHP: [N]a[v]igate" })
 		vim.keymap.set("n", "<leader>im", ":PhpactorGotoImplementations<CR>", { desc = "PHP: Go to [Im]plementations" })
 		-- open context menu
 		vim.keymap.set("n", "<leader>cm", ":PhpactorContextMenu<CR>", { desc = "PHP: Open [C]ontext[M]enu" })
 	end,
-
 	filetypes = { "php", "cucumber" },
 }, config))
 

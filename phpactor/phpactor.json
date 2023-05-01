@@ -5,5 +5,7 @@
     "behat.enabled": true,
     "behat.config_path": "%project_root%/behat.yml(.dist)?",
     "behat.symfony.di_xml_path": "%project_root%/var/cache/dev/srcBedrock_LBCDN_KernelDevDebugContainer.xml",
-    "phpunit.enabled": true
+    "phpunit.enabled": true,
+    "language_server_phpstan.enabled": true,
+    "language_server_php_cs_fixer.enabled": true
 }

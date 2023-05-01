@@ -7,10 +7,10 @@ local set = vim.opt
 set.nu = true
 set.relativenumber = true
 
-set.tabstop = 4
+set.expandtab = true -- expand tab with spaces
+set.tabstop = 4 -- set how many spaces are used for a indentation block
+set.shiftwidth = 4 -- how many spaces are used when using `>>` operator
 set.softtabstop = 4
-set.shiftwidth = 4
-set.expandtab = true
 
 set.smartindent = true
 set.cursorline = true -- Enable highlighting of the current line
@@ -27,6 +27,7 @@ set.swapfile = false
 set.backup = false
 set.undodir = os.getenv("HOME") .. "/$VIMCONFIG/undodir"
 set.undofile = true
+set.undolevels = 10000 -- save 10000 undos max per file
 
 -- disable highlightsearch && enable incremental search
 set.hlsearch = false
@@ -44,3 +45,6 @@ set.colorcolumn = "80"
 
 set.foldexpr = "nvim_treesitter#foldexpr()"
 set.foldmethod = "manual"
+
+set.spell = true
+set.spelllang = "en_us"

@@ -2,17 +2,18 @@ vim.g.mapleader = " "
 -- NETRW
 --vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
---[[-------
--- BUFFERS
----------]]
-
+-- BUFFERS--
 vim.keymap.set("n", "<TAB>", ":bn<cr>")
 vim.keymap.set("n", "<leader>bd", ":bd<cr>")
+-- close buffer without closing window
+vim.keymap.set("n", "<leader>q", ":Bdelete<CR>")
+-- close all buffers
+vim.keymap.set("n", "<leader>qa!", ":bufdo :Bdelete<CR>")
+-- close all hidden buffers
+vim.keymap.set("n", "<leader>Q", ":Survivor<CR>")
 
 -- open a tab with a note file
 vim.keymap.set("n", "<leader>n", ":tab drop tmp/notes.md<CR>")
--- close buffer without closing window
-vim.keymap.set("n", "<leader>q", ":Bdelete<CR>")
 
 -- move up or down selected lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -28,16 +29,16 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- keep the current paste buffer on copy
-vim.keymap.set("x", "<leader>p", "\"_dp")
+vim.keymap.set("x", "<leader>p", '"_dp')
 -- same for deleting
-vim.keymap.set("n", "<leader>d", "\"_d")
-vim.keymap.set("v", "<leader>d", "\"_d")
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("v", "<leader>d", '"_d')
 
 -- separating paste buffer
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
 -- copy on main paste buffer
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- tools for quickfix list
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
