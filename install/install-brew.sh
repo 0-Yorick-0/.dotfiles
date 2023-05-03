@@ -21,6 +21,12 @@ brew install jq
 brew install gawk
 brew list python3 || brew install python3
 
+# +----------------+
+# | Window Manager |
+# +----------------+
+brew install yabai
+brew install skhd
+
 # +----+
 # | GO |
 # +----+
