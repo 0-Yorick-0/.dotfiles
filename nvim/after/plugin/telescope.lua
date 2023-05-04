@@ -6,6 +6,7 @@ end
 telescope.setup({
     defaults = {
         file_ignore_patterns = { "%.git/" },
+        color_devicons = true,
     },
     {
         extensions = {
@@ -43,11 +44,16 @@ telescope.setup({
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
 
+local function find_in_all_files()
+    require("telescope.builtin").find_files({ no_ignore = true })
+end
+
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ps", function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind in all [F]iles" })
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind in [F]iles" })
+vim.keymap.set("n", "<leader>fa", find_in_all_files, { desc = "[F]ind in [a]ll files" })
 vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "[F]ind in [G]it files" })
 vim.keymap.set("n", "<leader>ç", builtin.oldfiles, { desc = "[ç] Find recently opened files" })
 vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "Find Buffers" })

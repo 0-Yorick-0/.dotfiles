@@ -111,16 +111,17 @@ lsp.configure("phpactor", {
 		print("php")
 		vim.keymap.set("n", "gd", ":PhpactorGotoDefinition<CR>", { desc = "PHP: [G]oto[D]efinition" })
 		vim.keymap.set("n", "gdv", ":PhpactorGotoDefinition vsplit<CR>", { desc = "PHP: [G]oto[D]efinition [v]split" })
-		vim.keymap.set("n", "<leader>i", ":PhpactorImportClass", { desc = "PHP: [I]mportClass" })
-		vim.keymap.set("n", "<leader>cf", ":PhpactorCopyFile", { desc = "PHP: [C]opy[F]ile" })
+		vim.keymap.set("n", "<leader>i", ":PhpactorImportClass<CR>", { desc = "PHP: [I]mportClass" })
+		vim.keymap.set("n", "<leader>cf", ":PhpactorCopyFile<CR>", { desc = "PHP: [C]opy[F]ile" })
 		vim.keymap.set("n", "<leader>cc", ":PhpactorCopyClassName<CR>", { desc = "PHP: [C]opy[C]lassName" })
 		-- find usages in quifix list
-		vim.keymap.set("n", "<leader>fr", ":PhpactorFindReferences", { desc = "PHP: [F]ind[R]eferences" })
+		vim.keymap.set("n", "<leader>fr", ":PhpactorFindReferences<CR>", { desc = "PHP: [F]ind[R]eferences" })
 		-- jump to parent class
 		vim.keymap.set("n", "<leader>nv", ":PhpactorNavigate<CR>", { desc = "PHP: [N]a[v]igate" })
 		vim.keymap.set("n", "<leader>im", ":PhpactorGotoImplementations<CR>", { desc = "PHP: Go to [Im]plementations" })
 		-- open context menu
 		vim.keymap.set("n", "<leader>cm", ":PhpactorContextMenu<CR>", { desc = "PHP: Open [C]ontext[M]enu" })
+		vim.keymap.set("n", "<leader>tr", ":PhpactorTransform<CR>", { desc = "PHP: Open [Tr]ansform" })
 	end,
 	filetypes = { "php", "cucumber" },
 })
