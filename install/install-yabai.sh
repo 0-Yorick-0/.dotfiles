@@ -1,13 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-if [ ! d "$XDG_CONFIG_HOME/yabai"]
-    then
-        mkdir "$XDG_CONFIG_HOME/yabai"
+# see https://www.josean.com/posts/yabai-setup
+if [ ! -d "$XDG_CONFIG_HOME/yabai" ]; then
+    mkdir "$XDG_CONFIG_HOME/yabai"
 fi
 
-if [ ! d "$XDG_CONFIG_HOME/skhd"]
-    then
-        mkdir "$XDG_CONFIG_HOME/skhd"
+if [ ! -d "$XDG_CONFIG_HOME/skhd" ]; then
+    mkdir "$XDG_CONFIG_HOME/skhd"
 fi
 
 ln -sf "$DOTFILES/yabai/yabairc" "$XDG_CONFIG_HOME/yabai/yabairc"

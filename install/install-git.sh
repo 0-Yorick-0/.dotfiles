@@ -1,4 +1,4 @@
- #!/usr/bin/env bash
+#!/bin/sh
  
  ln -sf "$DOTFILES/git/.gitignore_global" "$HOME"
 

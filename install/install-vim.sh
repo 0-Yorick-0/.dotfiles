@@ -1,7 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-if [ ! -d "$XDG_CONFIG_HOME/nvim" ]
-	then
+if [ ! -d "$XDG_CONFIG_HOME/nvim" ]; then
 		mkdir "$XDG_CONFIG_HOME/nvim"
     
     # install neovim plugin manager
@@ -10,8 +9,7 @@ if [ ! -d "$XDG_CONFIG_HOME/nvim" ]
 fi
 
 # creating spell dir & symlinks with dictionaries
-if [ ! d "$VIMCONFIG/spell"]
-    then
+if [ ! d "$VIMCONFIG/spell"]; then
         mkdir "$VIMCONFIG/spell"
 fi
 ln -sF "$DOTFILES/nvim/spell" "$VIMCONFIG"
@@ -26,8 +24,7 @@ mkdir -p "$VIMCONFIG/undo"
 ln -sF "$DOTFILES/nvim/lua" "$VIMCONFIG"
 
 # phpactor config file
-if [ ! -d "$XDG_CONFIG_HOME/phpactor" ]
-    then
+if [ ! -d "$XDG_CONFIG_HOME/phpactor" ]; then
         mkdir "XDG_CONFIG_HOME/phpactor"
 fi
 ln -sf "$DOTFILES/phpactor/phpactor.json" "$XDG_CONFIG_HOME/phpactor/phpactor.json"
