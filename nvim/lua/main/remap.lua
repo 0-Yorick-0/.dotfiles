@@ -1,6 +1,4 @@
 vim.g.mapleader = " "
--- NETRW
---vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- BUFFERS--
 vim.keymap.set("n", "<TAB>", ":bn<cr>")
@@ -15,6 +13,7 @@ vim.keymap.set("n", "<leader>Q", ":Survivor<CR>")
 -- open a tab with a note file
 vim.keymap.set("n", "<leader>n", ":tab drop tmp/notes.md<CR>")
 
+-- LINES --
 -- move up or down selected lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
@@ -28,7 +27,17 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- line highlighting
+vim.api.nvim_set_hl(0, "LineHighLight", { bg = "#83a598", fg = "#3c3836" })
+vim.keymap.set("n", "<leader>ll", function()
+	vim.fn.call("matchadd", { "LineHighLight", "\\%" .. vim.fn.line(".") .. "l" })
+end, { silent = true })
+vim.keymap.set("n", "<leader>c", function()
+	vim.fn.call("clearmatches", {})
+end)
+
 -- keep the current paste buffer on copy
+vim.keymap.set("x", "<leader>p", '"_dp')
 vim.keymap.set("x", "<leader>p", '"_dp')
 -- same for deleting
 vim.keymap.set("n", "<leader>d", '"_d')

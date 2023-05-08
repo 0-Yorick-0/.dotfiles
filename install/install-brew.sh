@@ -12,6 +12,17 @@ brew install coreutils
 # useful devtools 
 brew install --cask devtoys
 
+# +-----------+
+# | Mac Stuff |
+# +-----------+
+# better terminal
+brew install --cask iterm2
+# better app launcher
+brew install raycast
+# window manager
+brew install yabai
+brew install skhd
+
 # +-------+
 # | Tools |
 # +-------+
@@ -22,12 +33,6 @@ brew install gawk
 brew list python3 || brew install python3
 brew in fd
 brew install ripgrep
-
-# +----------------+
-# | Window Manager |
-# +----------------+
-brew install yabai
-brew install skhd
 
 # +----+
 # | GO |

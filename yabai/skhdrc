@@ -1,16 +1,30 @@
 # Changing Window Focus
 
-# change focus within space
-ctrl - j : yabai -m window --focus south
-ctrl - k : yabai -m window --focus north
-ctrl - h : yabai -m window --focus west
-ctrl - l : yabai -m window --focus east
+###########
+# Screens #
+###########
 
 # change focus between external displays
-ctrl - f : yabai -m display --focus north
-ctrl - d : yabai -m display --focus south
-ctrl - s : yabai -m display --focus west
-ctrl - g : yabai -m display --focus east
+cmd + shift - f : yabai -m display --focus north
+cmd + shift - d : yabai -m display --focus south
+cmd + shift - s : yabai -m display --focus west
+cmd + shift - g : yabai -m display --focus east
+
+# move window to display left and right
+shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
+shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
+shift + alt - f : yabai -m window --display north; yabai -m display --focus north;
+shift + alt - d : yabai -m window --display south; yabai -m display --focus south;
+
+###########
+# Windows #
+###########
+
+# change focus within space
+cmd + shift - j : yabai -m window --focus south
+cmd + shift - k : yabai -m window --focus north
+cmd + shift - h : yabai -m window --focus west
+cmd + shift - l : yabai -m window --focus east
 
 # rotate layout clockwise
 shift + alt - r : yabai -m space --rotate 270
@@ -41,12 +55,6 @@ ctrl + alt - j : yabai -m window --warp south
 ctrl + alt - k : yabai -m window --warp north
 ctrl + alt - h : yabai -m window --warp west
 ctrl + alt - l : yabai -m window --warp east
-
-# move window to display left and right
-shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
-shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
-shift + alt - d : yabai -m window --display north; yabai -m display --focus west;
-shift + alt - f : yabai -m window --display south; yabai -m display --focus west;
 
 #move window to prev and next space
 shift + alt - p : yabai -m window --space prev;
