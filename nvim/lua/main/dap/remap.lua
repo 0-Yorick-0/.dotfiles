@@ -5,6 +5,7 @@ local M = {}
 -- end
 
 function M.setup()
+	print("dap keymap")
 	vim.keymap.set(
 		"n",
 		"<leader>dU",
