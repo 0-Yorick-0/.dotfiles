@@ -5,8 +5,6 @@ export BAT_THEME="Dracula"
 #update PATH
 export PATH="$HOME/bin:$PATH"
 
-export PATH="$HOME/.config/local/share/nvim/site/pack/packer/opt/phpactor/bin/:$PATH"
-
 export PATH="$HOME/Library/Python/3.9/bin/:$PATH"
 
 export PATH="$HOME/go/bin/:$PATH"
@@ -127,14 +125,6 @@ export PATH="$PATH:/opt/homebrew/bin"
 
 export PATH="$PATH:/opt/homebrew/opt/php@7.4/bin/"
 export PATH="$PATH:/opt/homebrew/opt/rabbitmq/sbin"
-
-# +------+
-# | TMUX |
-# +------+
-
-if [[ -n "$TMUX" ]];then
-    #tmuxp load $DOTFILES/tmux/base-work.yaml
-fi
 
 #fix tmux display
 export TERM=screen
