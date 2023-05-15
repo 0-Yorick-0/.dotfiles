@@ -10,7 +10,7 @@ cmd + shift - d : yabai -m display --focus south
 cmd + shift - s : yabai -m display --focus west
 cmd + shift - g : yabai -m display --focus east
 
-# move window to display left and right
+# move window to another display
 shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
 shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
 shift + alt - f : yabai -m window --display north; yabai -m display --focus north;
@@ -48,7 +48,7 @@ shift + alt - e : yabai -m space --balance
 shift + alt - j : yabai -m window --swap south
 shift + alt - k : yabai -m window --swap north
 shift + alt - h : yabai -m window --swap west
-shift + alt - l : yabai -m window --swap east
+# shift + alt - l : yabai -m window --swap east
 
 # move window and split
 ctrl + alt - j : yabai -m window --warp south

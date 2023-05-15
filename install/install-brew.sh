@@ -34,6 +34,12 @@ brew list python3 || brew install python3
 brew in fd
 brew install ripgrep
 brew install tldr
+#
+# +------+
+# | RUST |
+# +------+
+
+brew install rust
 
 # +----+
 # | GO |

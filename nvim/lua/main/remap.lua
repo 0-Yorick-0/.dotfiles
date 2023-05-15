@@ -30,11 +30,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- line highlighting
 vim.api.nvim_set_hl(0, "LineHighLight", { bg = "#83a598", fg = "#3c3836" })
 vim.keymap.set("n", "<leader>ll", function()
-	vim.fn.call("matchadd", { "LineHighLight", "\\%" .. vim.fn.line(".") .. "l" })
-end, { silent = true })
+    vim.fn.call("matchadd", { "LineHighLight", "\\%" .. vim.fn.line(".") .. "l" })
+end, { silent = true }, { desc = "high[l]ight current [l]ine" })
 vim.keymap.set("n", "<leader>c", function()
-	vim.fn.call("clearmatches", {})
-end)
+    vim.fn.call("clearmatches", {})
+end, { desc = "[C]lear all highlights" })
 
 -- keep the current paste buffer on copy
 vim.keymap.set("x", "<leader>p", '"_dp')
