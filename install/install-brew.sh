@@ -34,7 +34,13 @@ brew list python3 || brew install python3
 brew in fd
 brew install ripgrep
 brew install tldr
-#
+
+# +-------+
+# | FONTS |
+# +-------+
+brew install --cask font-jetbrains-mono-nerd-font
+brew install --cask font-symbols-only-nerd-font
+
 # +------+
 # | RUST |
 # +------+

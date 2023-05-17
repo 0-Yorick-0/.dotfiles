@@ -15,6 +15,9 @@ return {
 						["cmp.entry.get_documentation"] = true,
 					},
 				},
+				messages = {
+					enabled = false,
+				},
 			})
 		end,
 		dependencies = {

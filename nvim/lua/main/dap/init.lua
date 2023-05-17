@@ -72,7 +72,6 @@ local function configure_debuggers()
 end
 
 function M.setup()
-	print("dap")
 	configure() -- Configuration
 	configure_exts() -- Extensions
 	configure_debuggers() -- Debugger
