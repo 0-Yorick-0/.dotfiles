@@ -30,9 +30,6 @@ return {
 	},
 	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
 
-	-- snippets lib that rox
-	"honza/vim-snippets",
-
 	-- easily surround words with quotes, parenthesis and so on
 	"tpope/vim-surround",
 

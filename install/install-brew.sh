@@ -38,8 +38,11 @@ brew install tldr
 # +-------+
 # | FONTS |
 # +-------+
+# see https://www.youtube.com/watch?v=mQdB_kHyZn8
 brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-symbols-only-nerd-font
+brew install --cask font-jetbrains-mono
+
 
 # +------+
 # | RUST |
