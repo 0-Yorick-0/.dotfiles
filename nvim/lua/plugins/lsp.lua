@@ -38,7 +38,7 @@ return {
 	config = function()
 		-- Learn the keybindings, see :help lsp-zero-keybindings
 		-- Learn to configure LSP servers, see :help lsp-zero-api-showcase
-		local lsp = require("lsp-zero").preset("recommended")
+		local lsp = require("lsp-zero").preset({})
 
 		lsp.ensure_installed({
 			"tsserver",
@@ -60,78 +60,6 @@ return {
 						globals = { "vim" },
 					},
 				},
-			},
-		})
-
-		local cmp = require("cmp")
-		local cmp_action = require("lsp-zero").cmp_action()
-		local kind_icons = {
-			Text = "",
-			Method = "m",
-			Function = "",
-			Constructor = "",
-			Field = "",
-			Variable = "",
-			Class = "",
-			Interface = "",
-			Module = "",
-			Property = "",
-			Unit = "",
-			Value = "",
-			Enum = "",
-			Keyword = "",
-			Snippet = "",
-			Color = "",
-			File = "",
-			Reference = "",
-			Folder = "",
-			EnumMember = "",
-			Constant = "",
-			Struct = "",
-			Event = "",
-			Operator = "",
-			TypeParameter = "",
-		}
-
-		-- ls = require("luasnip")
-		-- ls.filetype_extend("all", { "_" })
-
-		local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-		cmp.setup({
-			mapping = {
-				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-				-- ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-				["<C-y>"] = cmp.mapping.confirm({ select = true }),
-				-- Navigate between snippet placeholder
-				["<C-f>"] = cmp_action.luasnip_jump_forward(),
-				["<C-b>"] = cmp_action.luasnip_jump_backward(),
-				["<C-Space>"] = cmp.mapping.complete(),
-				["<Tab>"] = nil,
-				["<S-Tab>"] = nil,
-			},
-			formatting = {
-				fields = { "kind", "abbr", "menu" },
-				format = function(entry, vim_item)
-					print("format")
-					-- Kind icons
-					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-					-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-					-- This concatenates the icons with the name of the item kind
-					vim_item.menu = ({
-						luasnip = "LuaSnip",
-						nvim_lsp = "[LSP]",
-						buffer = "[Buffer]",
-						path = "[Path]",
-					})[entry.source.name]
-					return vim_item
-				end,
-			},
-			sources = {
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "buffer" },
-				{ name = "path" },
 			},
 		})
 
@@ -191,7 +119,8 @@ return {
 		lsp.on_attach(on_attach)
 
 		-- then for each specific language, we overload the config
-		lsp.configure("phpactor", {
+		local lspconfig = require("lspconfig")
+		lspconfig.phpactor.setup({
 			init_options = {
 				["language_server_phpstan.enabled"] = false,
 				["language_server_psalm.enabled"] = false,
@@ -224,7 +153,7 @@ return {
 			filetypes = { "php", "cucumber" },
 		})
 
-		lsp.configure("gopls", {
+		lspconfig.gopls.setup({
 			cmd = { "gopls", "serve" },
 			settings = {
 				gopls = {
@@ -237,5 +166,97 @@ return {
 		})
 
 		lsp.setup()
+
+		local cmp = require("cmp")
+		local cmp_action = require("lsp-zero").cmp_action()
+		local kind_icons = {
+			Array = " ",
+			Boolean = " ",
+			Class = " ",
+			Color = " ",
+			Constant = " ",
+			Constructor = " ",
+			Copilot = " ",
+			Enum = " ",
+			EnumMember = " ",
+			Event = " ",
+			Field = " ",
+			File = " ",
+			Folder = " ",
+			Function = " ",
+			Interface = " ",
+			Key = " ",
+			Keyword = " ",
+			Method = " ",
+			Module = " ",
+			Namespace = " ",
+			Null = " ",
+			Number = " ",
+			Object = " ",
+			Operator = " ",
+			Package = " ",
+			Property = " ",
+			Reference = " ",
+			Snippet = " ",
+			String = " ",
+			Struct = " ",
+			Text = " ",
+			TypeParameter = " ",
+			Unit = " ",
+			Value = " ",
+			Variable = " ",
+		}
+
+		-- ls = require("luasnip")
+		-- ls.filetype_extend("all", { "_" })
+
+		local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+		cmp.setup({
+			snippet = {
+				expand = function(args)
+					require("luasnip").lsp_expand(args.body)
+				end,
+			},
+			mapping = {
+				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<C-u>"] = cmp.mapping.scroll_docs(-4),
+				["<C-d>"] = cmp.mapping.scroll_docs(4),
+				-- Navigate between snippet placeholder
+				["<C-f>"] = cmp_action.luasnip_jump_forward(),
+				["<C-b>"] = cmp_action.luasnip_jump_backward(),
+				["<C-Space>"] = cmp.mapping.complete(),
+				["<Tab>"] = nil,
+				["<S-Tab>"] = nil,
+			},
+			sources = {
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
+				{ name = "buffer" },
+				{ name = "path" },
+			},
+			formatting = {
+				fields = { "abbr", "menu", "kind" },
+				format = function(entry, vim_item)
+					-- Kind icons
+					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+					-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+					-- This concatenates the icons with the name of the item kind
+					vim_item.menu = ({
+						luasnip = "LuaSnip",
+						nvim_lsp = "[LSP]",
+						buffer = "[Buffer]",
+						path = "[Path]",
+					})[entry.source.name]
+					return vim_item
+				end,
+			},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
+		})
 	end,
 }
