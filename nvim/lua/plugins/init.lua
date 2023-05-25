@@ -64,7 +64,6 @@ return {
 		end,
 	},
 	"folke/neodev.nvim",
-
 	-- need both to finally have devicons in tree
 	"ryanoasis/vim-devicons",
 	{ "kyazdani42/nvim-web-devicons", lazy = true },

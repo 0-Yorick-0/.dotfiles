@@ -126,6 +126,7 @@ return {
 				["language_server_psalm.enabled"] = false,
 			},
 			on_attach = function()
+				print("php")
 				vim.keymap.set("n", "gd", ":PhpactorGotoDefinition<CR>", { desc = "PHP: [G]oto[D]efinition" })
 				vim.keymap.set(
 					"n",
