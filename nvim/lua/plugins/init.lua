@@ -58,8 +58,8 @@ return {
 	{
 		"folke/which-key.nvim",
 		config = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
+			-- vim.o.timeout = true
+			-- vim.o.timeoutlen = 50
 			require("which-key").setup({})
 		end,
 	},

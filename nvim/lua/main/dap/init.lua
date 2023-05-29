@@ -27,7 +27,14 @@ local function configure()
 	vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
 	vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
 	vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+end
 
+local function configure_exts()
+	require("nvim-dap-virtual-text").setup({
+		commented = true,
+	})
+
+	local dap, dapui = require("dap"), require("dapui")
 	-- Dap UI setup
 	-- For more information, see |:help nvim-dap-ui|
 	dapui.setup({
@@ -44,16 +51,40 @@ local function configure()
 				terminate = "⏹",
 			},
 		},
+		layouts = {
+			{
+				elements = {
+					{
+						id = "scopes",
+						size = 0.40,
+					},
+					"breakpoints",
+				},
+				position = "bottom",
+				size = 0.25, -- 25% of total lines
+			},
+			{
+				elements = {
+					"repl",
+					"console",
+				},
+				position = "left",
+				size = 40, -- 40 columns
+			},
+		},
+		floating = {
+			max_height = nil, -- These can be integers or a float between 0 and 1.
+			max_width = nil, -- Floats will be treated as percentage of your screen.
+			border = "single", -- Border style. Can be "single", "double" or "rounded"
+			mappings = {
+				close = { "q", "<Esc>" },
+			},
+		},
+		windows = { indent = 1 },
+		render = {
+			max_type_length = nil, -- Can be integer or nil.
+		},
 	})
-end
-
-local function configure_exts()
-	require("nvim-dap-virtual-text").setup({
-		commented = true,
-	})
-
-	local dap, dapui = require("dap"), require("dapui")
-	dapui.setup({}) -- use default
 	dap.listeners.after.event_initialized["dapui_config"] = function()
 		dapui.open()
 	end
