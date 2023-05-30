@@ -1,14 +1,6 @@
 return {
 	"christoomey/vim-tmux-navigator",
 
-	-- To parse & higlight codebase
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-
-	{
-		"nvim-tree/nvim-tree.lua",
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
-	},
-
 	-- Close buffer without closing window
 	"moll/vim-bbye",
 

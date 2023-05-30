@@ -52,6 +52,6 @@ local jester = {
 
 dashboard.setup({
 	config = {
-		header = doctor, -- type is table def
+		header = jester, -- type is table def
 	},
 })
