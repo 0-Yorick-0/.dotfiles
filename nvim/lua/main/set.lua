@@ -30,7 +30,6 @@ set.undofile = true
 set.undolevels = 10000 -- save 10000 undos max per file
 
 -- disable highlightsearch && enable incremental search
-set.hlsearch = false
 set.incsearch = true
 
 set.termguicolors = true

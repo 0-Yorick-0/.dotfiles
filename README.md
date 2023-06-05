@@ -15,6 +15,12 @@ Easy !
 
 Just go to your office, open your laptop, start your linux session and run `install.sh` to get all of your environment configured like home.
 
+## How to update an existent repo with submodule :
+
+- `rm -rf <existent_sub_modules>`
+- `git submodule update --init`
+- `git submodule update --recursive`
+
 ## Help :
 
 ### Plugins :

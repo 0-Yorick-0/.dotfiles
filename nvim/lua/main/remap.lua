@@ -37,6 +37,8 @@ vim.keymap.set("n", "<leader>c", function()
 	vim.fn.call("clearmatches", {})
 end, { desc = "[C]lear all highlights" })
 
+vim.keymap.set("n", "<leader>h", ":noh<CR>")
+
 -- keep the current paste buffer on copy
 vim.keymap.set("x", "<leader>p", '"_dp')
 vim.keymap.set("x", "<leader>p", '"_dp')
