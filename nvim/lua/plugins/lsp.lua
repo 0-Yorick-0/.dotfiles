@@ -56,7 +56,7 @@ return {
 
 			-- Fix undefined global 'vim'
 			lsp.nvim_workspace()
-
+			--
 			-- base config
 			local on_attach = function(client, bufnr)
 				local opts = { buffer = bufnr, remap = false }
@@ -120,6 +120,7 @@ return {
 					["language_server_psalm.enabled"] = false,
 				},
 				on_attach = function()
+					print("php lsp loaded")
 					vim.keymap.set("n", "gd", ":PhpactorGotoDefinition<CR>", { desc = "PHP: [G]oto[D]efinition" })
 					vim.keymap.set(
 						"n",

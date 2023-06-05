@@ -1,6 +1,9 @@
 return {
 	"christoomey/vim-tmux-navigator",
 
+	-- a game to be better at Vim
+	"ThePrimeagen/vim-be-good",
+
 	-- Close buffer without closing window
 	"moll/vim-bbye",
 
