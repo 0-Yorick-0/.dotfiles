@@ -54,15 +54,8 @@ return {
 				"rust_analyzer",
 			})
 
-			lsp.configure("lua-language-server", {
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			})
+			-- Fix undefined global 'vim'
+			lsp.nvim_workspace()
 
 			-- base config
 			local on_attach = function(client, bufnr)

@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 
 -- BUFFERS--
-vim.keymap.set("n", "<TAB>", ":bn<cr>")
-vim.keymap.set("n", "<S-TAB>", ":bp<cr>")
+-- vim.keymap.set("n", "<TAB>", ":bn<cr>")
+-- vim.keymap.set("n", "<S-TAB>", ":bp<cr>")
 vim.keymap.set("n", "<leader>bd", ":bd<cr>")
 -- close buffer without closing window
 vim.keymap.set("n", "<leader>q", ":Bdelete<CR>")
