@@ -1,13 +1,14 @@
 ---------------------------------
 -- Formatting
 ---------------------------------
-local diagnostics = require("null-ls").builtins.diagnostics
-local formatting = require("null-ls").builtins.formatting
-local completion = require("null-ls").builtins.completion
+local null_ls = require("null-ls")
+local diagnostics = null_ls.builtins.diagnostics
+local formatting = null_ls.builtins.formatting
+local completion = null_ls.builtins.completion
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- see https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-require("null-ls").setup({
+null_ls.setup({
 	sources = {
 		-- formatting
 		formatting.black,
