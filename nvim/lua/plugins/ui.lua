@@ -25,29 +25,6 @@ return {
             "rcarriga/nvim-notify",
         },
     },
-    -- Theme
-    {
-        "nyoom-engineering/oxocarbon.nvim",
-        config = function()
-            vim.g.oxocarbon_lua_transparent = true
-            vim.cmd.colorscheme("oxocarbon")
-        end,
-    },
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        config = function()
-            -- vim.cmd.colorscheme("rose-pine")
-        end,
-    },
-    {
-        -- 	-- Theme inspired by Atom
-        "folke/tokyonight.nvim",
-        priority = 1000,
-        config = function()
-            -- vim.cmd.colorscheme("tokyonight-moon")
-        end,
-    },
     {
         -- Set lualine as statusline
         -- See `:help lualine.txt`
