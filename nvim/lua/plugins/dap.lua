@@ -1,7 +1,8 @@
 -- Debugger
 return {
 	"mfussenegger/nvim-dap",
-	lazy = true,
+	lazy = false,
+	enabled = true,
 	event = "BufReadPre",
 	module = { "dap" },
 	dependencies = {

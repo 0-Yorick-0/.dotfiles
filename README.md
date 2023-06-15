@@ -44,3 +44,7 @@ Sur Mac :
 
 - `$(brew --prefix)/opt/fzf/install`
 - `mv ~/fzf.zsh $DOTFILES/zsh/config/3_fzf.zsh`
+
+#### Install apcu
+
+see https://stackoverflow.com/questions/72039019/pcre2-h-no-such-file-or-directory
