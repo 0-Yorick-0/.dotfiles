@@ -23,6 +23,7 @@ return {
         },
         "nvim-telescope/telescope-dap.nvim",
         { "leoluz/nvim-dap-go",                module = "dap-go" },
+        { "xdebug/vscode-php-debug",           build = "npm install && npm run build" },
         { "jbyuki/one-small-step-for-vimkind", module = "osv" },
     },
     config = function()
