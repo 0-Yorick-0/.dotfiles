@@ -1,8 +1,6 @@
 vim.g.mapleader = " "
 
 -- BUFFERS--
--- vim.keymap.set("n", "<TAB>", ":bn<cr>")
--- vim.keymap.set("n", "<S-TAB>", ":bp<cr>")
 vim.keymap.set("n", "<leader>bd", ":bd<cr>")
 -- close buffer without closing window
 vim.keymap.set("n", "<leader>q", ":Bdelete<CR>")
@@ -31,10 +29,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- line highlighting
 vim.api.nvim_set_hl(0, "LineHighLight", { bg = "#83a598", fg = "#3c3836" })
 vim.keymap.set("n", "<leader>ll", function()
-	vim.fn.call("matchadd", { "LineHighLight", "\\%" .. vim.fn.line(".") .. "l" })
+    vim.fn.call("matchadd", { "LineHighLight", "\\%" .. vim.fn.line(".") .. "l" })
 end, { silent = true }, { desc = "high[l]ight current [l]ine" })
 vim.keymap.set("n", "<leader>c", function()
-	vim.fn.call("clearmatches", {})
+    vim.fn.call("clearmatches", {})
 end, { desc = "[C]lear all highlights" })
 
 vim.keymap.set("n", "<leader>h", ":noh<CR>")

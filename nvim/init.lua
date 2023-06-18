@@ -14,6 +14,9 @@ kmap = vim.keymap
 cmd = vim.cmd
 
 -- Imports
-require("main")
+require("main.remap")
+require("main.set")
+require("main.utils")
+require("plugins")
 
 require("impatient")
