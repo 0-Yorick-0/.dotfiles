@@ -35,6 +35,7 @@ brew in fd
 brew install ripgrep
 brew install tldr
 brew install mkdocs
+brew install mysql
 
 # +-------+
 # | FONTS |
