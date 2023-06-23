@@ -38,3 +38,4 @@ esac
 # other software
 export VIMCONFIG="$XDG_CONFIG_HOME/nvim"
 # export COMPOSER="$XDG_CONFIG_HOME/composer"
+. "$HOME/.cargo/env"
