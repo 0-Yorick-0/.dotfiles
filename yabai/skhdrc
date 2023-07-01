@@ -61,13 +61,15 @@ shift + alt - p : yabai -m window --space prev;
 shift + alt - n : yabai -m window --space next;
 
 # move window to space #
-shift + alt - 1 : yabai -m window --space 1;
-shift + alt - 2 : yabai -m window --space 2;
-shift + alt - 3 : yabai -m window --space 3;
-shift + alt - 4 : yabai -m window --space 4;
-shift + alt - 5 : yabai -m window --space 5;
-shift + alt - 6 : yabai -m window --space 6;
-shift + alt - 7 : yabai -m window --space 7;
+# need to use keycode for french keyboard
+# see https://github.com/koekeishiya/skhd/issues/221
+# shift + alt - 0x12 : yabai -m window --space 1;
+# shift + alt - 0x13  : yabai -m window --space 2;
+# shift + alt - 0x14  : yabai -m window --space 3;
+# shift + alt - 0x15  : yabai -m window --space 4;
+# shift + alt - 0x16  : yabai -m window --space 5;
+# shift + alt - 0x17  : yabai -m window --space 6;
+# shift + alt - 0x18  : yabai -m window --space 7;
 
 # stop/start/restart yabai
 ctrl + alt - q : yabai --stop-service
