@@ -35,6 +35,9 @@ brew in fd
 brew install ripgrep
 brew install tldr
 brew install mkdocs
+# run github actions locally
+brew install act
+brew install gh
 
 # +-------+
 # | FONTS |

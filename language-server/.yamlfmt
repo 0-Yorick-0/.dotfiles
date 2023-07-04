@@ -1,6 +1,6 @@
 # see https://github.com/google/yamlfmt/blob/main/docs/config-file.md
 formatter:
   type: basic
-  indent: 4
+  indent: 2
   max_line_length: 500
   retain_line_breaks: true
