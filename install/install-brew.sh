@@ -48,12 +48,6 @@ brew install --cask font-symbols-only-nerd-font
 brew install --cask font-jetbrains-mono
 
 
-# +------+
-# | RUST |
-# +------+
-
-brew install rust
-
 # +----+
 # | GO |
 # +----+

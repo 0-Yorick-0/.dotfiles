@@ -5,6 +5,8 @@ export BAT_THEME="Dracula"
 #update PATH
 export PATH="$HOME/bin:$PATH"
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 export PATH="$HOME/Library/Python/3.9/bin/:$PATH"
 
 export PATH="$HOME/go/bin/:$PATH"

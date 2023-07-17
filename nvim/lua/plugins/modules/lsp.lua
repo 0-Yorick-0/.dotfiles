@@ -12,16 +12,17 @@ return {
                 build = function()
                     pcall(vim.cmd, "MasonUpdate")
                 end,
-            },                              -- Optional
+            },                                       -- Optional
             { "williamboman/mason-lspconfig.nvim" }, -- Optional
+            { "simrat39/rust-tools.nvim" },
 
             -- Autocompletion
-            { "hrsh7th/nvim-cmp" }, -- Required
-            { "hrsh7th/cmp-nvim-lsp" }, -- Required
-            { "hrsh7th/cmp-buffer" }, -- Optional
-            { "hrsh7th/cmp-path" }, -- Optional
+            { "hrsh7th/nvim-cmp" },         -- Required
+            { "hrsh7th/cmp-nvim-lsp" },     -- Required
+            { "hrsh7th/cmp-buffer" },       -- Optional
+            { "hrsh7th/cmp-path" },         -- Optional
             { "saadparwaiz1/cmp_luasnip" }, -- Optional
-            { "hrsh7th/cmp-nvim-lua" }, -- Optional
+            { "hrsh7th/cmp-nvim-lua" },     -- Optional
             { "honza/vim-snippets" },
 
             -- Snippets
@@ -67,9 +68,6 @@ return {
                     ["rust_analyzer"] = { "rust" },
                     ["gopls"] = { "go" },
                     ["intelephense"] = { "php" },
-                    -- if you have a working setup with null-ls
-                    -- you can specify filetypes it can format.
-                    ["null-ls"] = { "javascript", "typescript" },
                 },
             })
 
