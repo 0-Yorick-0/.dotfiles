@@ -42,6 +42,7 @@ brew install helm
 source <(helm completion zsh)
 brew install kubectl
 source <(kubectl completion zsh)
+brew install tree
 
 # +-------+
 # | FONTS |

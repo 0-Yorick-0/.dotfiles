@@ -8,8 +8,8 @@ set.nu = true
 set.relativenumber = true
 
 set.expandtab = true -- expand tab with spaces
-set.tabstop = 4 -- set how many spaces are used for a indentation block
-set.shiftwidth = 4 -- how many spaces are used when using `>>` operator
+set.tabstop = 4      -- set how many spaces are used for a indentation block
+set.shiftwidth = 4   -- how many spaces are used when using `>>` operator
 set.softtabstop = 4
 
 set.smartindent = true
@@ -47,3 +47,6 @@ set.foldmethod = "manual"
 
 set.spell = true
 set.spelllang = "en_us"
+
+-- auto read file when changed outside of vim
+set.autoread = true
