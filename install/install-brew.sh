@@ -61,6 +61,7 @@ brew install go
 go install golang.org/x/tools/cmd/goimports@latest
 #see https://github.com/google/yamlfmt
 go install github.com/google/yamlfmt/cmd/yamlfmt@latest
+brew install golangci-lint
 # +---------+
 # | NULL-LS |
 # +---------+
