@@ -38,6 +38,10 @@ brew install mkdocs
 # run github actions locally
 brew install act
 brew install gh
+brew install helm
+source <(helm completion zsh)
+brew install kubectl
+source <(kubectl completion zsh)
 
 # +-------+
 # | FONTS |
