@@ -7,6 +7,7 @@
 alias shutdown='echo "dépointe, connard !" && sleep 2 && sudo shutdown -h now'
 alias restart='sudo reboot'
 alias suspend='pmset sleepnow'
+alias battery='ps -eo pcpu,pid,user,args | tail -n +2 | sort -k1 -r -n | head -10'
 
 alias bigf='find / -xdev -type f -size +1G' #display big files > 1G
 alias bigd='find / -xdev -type d -size +1G' #display big directories > 1G

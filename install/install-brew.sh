@@ -43,6 +43,7 @@ source <(helm completion zsh)
 brew install kubectl
 source <(kubectl completion zsh)
 brew install tree
+brew install kubectx
 
 # +-------+
 # | FONTS |
