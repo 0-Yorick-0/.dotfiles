@@ -24,6 +24,8 @@ return {
             { "saadparwaiz1/cmp_luasnip" }, -- Optional
             { "hrsh7th/cmp-nvim-lua" },     -- Optional
             { "honza/vim-snippets" },
+            -- LSP
+            { "towolf/vim-helm" },
 
             -- Snippets
             {
@@ -56,6 +58,7 @@ return {
                 "jsonls",
                 "phpactor",
                 "rust_analyzer",
+                "helm_ls",
             })
 
             lsp.format_on_save({
@@ -68,6 +71,7 @@ return {
                     ["rust_analyzer"] = { "rust" },
                     ["gopls"] = { "go" },
                     ["intelephense"] = { "php" },
+                    ["helm_ls"] = { "helm" },
                 },
             })
 
@@ -151,6 +155,24 @@ return {
             })
 
             lspconfig.intelephense.setup({})
+
+            -- Helm
+            if not lspconfig.helm_ls then
+                lspconfig.helm_ls = {
+                    default_config = {
+                        cmd = { "helm_ls", "serve" },
+                        filetypes = { 'helm' },
+                        root_dir = function(fname)
+                            return util.root_pattern('Chart.yaml')(fname)
+                        end,
+                    },
+                }
+            end
+
+            lspconfig.helm_ls.setup {
+                filetypes = { "helm" },
+                cmd = { "helm_ls", "serve" },
+            }
 
             lsp.setup()
 
