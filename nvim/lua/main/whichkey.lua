@@ -16,6 +16,18 @@ return {
         cm = { "<cmd>PhpactorContextMenu<CR>", "Open [C]ontext[M]enu" },
         tr = { "<cmd>PhpactorTransform<CR>", "Open [Tr]ansform" },
     },
+    -- GO
+    g = {
+        name = "Golang",
+        i = { "<cmd>GoImports<CR>", "[I]mport" },
+        g = { "<cmd>GoGet<CR>", "[G]et" },
+        r = { "<cmd>GoRun<CR>", "[R]un" },
+        s = { "<cmd>GoStop<CR>", "[S]top" },
+        rn = { "<cmd>GoRename<CR>", "[R]ename" },
+        t = { "<cmd>GoTest<CR>", "[T]est" },
+        tf = { "<cmd>GoTestFunc<CR>", "[T]est[F]unction" },
+        at = { "<cmd>GoAddTest<CR>", "[A]dd[T]est" },
+    }
     -- Database
     D = {
         name = "Database",
