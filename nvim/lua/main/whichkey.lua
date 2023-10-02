@@ -27,7 +27,7 @@ return {
         t = { "<cmd>GoTest<CR>", "[T]est" },
         tf = { "<cmd>GoTestFunc<CR>", "[T]est[F]unction" },
         at = { "<cmd>GoAddTest<CR>", "[A]dd[T]est" },
-    }
+    },
     -- Database
     D = {
         name = "Database",
