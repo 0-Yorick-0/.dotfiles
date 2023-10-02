@@ -108,6 +108,7 @@ for km in viopp visual; do
 	done
 done
 
+
 # +---------------------+
 # | SYNTAX HIGHLIGHTING |
 # +---------------------+
@@ -147,3 +148,4 @@ fi
 function lk {
   cd "$(walk "$@")"
 }
+

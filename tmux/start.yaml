@@ -36,11 +36,9 @@ windows:
         - cd ~/workspace
       panes:
         -
-        -
     - window_name: workspace
       layout: tiled
       shell_command_before:
         - cd ~/workspace
       panes:
-        -
         -

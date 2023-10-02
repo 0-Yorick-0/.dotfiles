@@ -44,6 +44,7 @@ brew install kubectl
 source <(kubectl completion zsh)
 brew install tree
 brew install kubectx
+brew install bash
 
 # +-------+
 # | FONTS |

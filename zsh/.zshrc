@@ -47,8 +47,8 @@ eval $(keychain --eval --quiet id_rsa ~/.ssh/id_rsa)
 # +--------+
 
 # Load igloo prompt config
-source $DOTFILES/zsh/themes/git-prompt.sh
-source $DOTFILES/zsh/themes/igloo.zsh
+# source $DOTFILES/zsh/themes/git-prompt.sh
+# source $DOTFILES/zsh/themes/igloo.zsh
 
 # +---------+
 # | ALIASES |
@@ -71,3 +71,8 @@ fpath=($DOTFILES/zsh/plugins/zsh-completions/src $fpath)
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# +----------+
+# | STARSHIP |
+# +----------+
+eval "$(starship init zsh)"
