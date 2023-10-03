@@ -10,8 +10,9 @@ $nodejs\
 $rust\
 $golang\
 $php\
+$helm\
 [](fg:#212736 bg:#1d2230)\
-$time\
+[](fg:#212736 bg:#1d2230)\
 [ ](fg:#1d2230)\
 \n$character"""
 
@@ -56,4 +57,18 @@ symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
+[helm]
+symbol = '⎈ '
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
+[terraform]
+symbol = "💠"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[docker_context]
+symbol = "🐳 "
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']

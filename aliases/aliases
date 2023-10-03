@@ -5,7 +5,7 @@
 # +---------+
 
 alias shutdown='echo "dépointe, connard !" && sleep 2 && sudo shutdown -h now'
-alias restart='sudo reboot'
+alias restart='sudo shutdown -r now'
 alias suspend='pmset sleepnow'
 alias battery='ps -eo pcpu,pid,user,args | tail -n +2 | sort -k1 -r -n | head -10'
 

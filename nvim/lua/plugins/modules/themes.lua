@@ -10,7 +10,6 @@ return {
         "sainnhe/everforest",
         "morhetz/gruvbox",
         "navarasu/onedark.nvim",
-        "Alexis12119/nightly.nvim",
     },
     config = function()
         local themes = {
@@ -28,7 +27,6 @@ return {
             "everforest",
             "gruvbox",
             "onedark",
-            "nightly",
         }
 
         local randomIndex = math.random(1, #themes)
