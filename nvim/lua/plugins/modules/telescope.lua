@@ -83,6 +83,7 @@ return {
             builtin.live_grep({ additional_args = { "--no-ignore" } })
         end, { desc = "[L]ive [G]rep in [A]ll files" })
         vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
+        vim.keymap.set("n", "<leader>fq", builtin.quickfix, { desc = "[F]ind [Q]uickfix" })
         vim.keymap.set("n", "<leader>fs", builtin.treesitter, { desc = "[F]ind [S]ymbols" })
         vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "[G]oto [R]eferences" })
         vim.keymap.set('n', '<leader>fS', require('telescope.builtin').git_status, { desc = '' })
