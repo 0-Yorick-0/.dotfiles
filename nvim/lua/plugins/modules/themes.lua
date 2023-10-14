@@ -8,7 +8,6 @@ return {
         "catppuccin/nvim",
         "ribru17/bamboo.nvim",
         "sainnhe/everforest",
-        "morhetz/gruvbox",
         "navarasu/onedark.nvim",
     },
     config = function()
@@ -25,7 +24,6 @@ return {
             "tokyonight",
             "bamboo",
             "everforest",
-            "gruvbox",
             "onedark",
         }
 
