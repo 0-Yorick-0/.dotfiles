@@ -1,6 +1,7 @@
 return {
     {
         "zbirenbaum/copilot.lua",
+        event = "VeryLazy",
         enabled = true,
         cmd = "Copilot",
         uild = ":Copilot auth",

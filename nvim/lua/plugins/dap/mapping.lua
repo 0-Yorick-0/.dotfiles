@@ -73,8 +73,8 @@ local function configure_exts()
             },
         },
         floating = {
-            max_height = nil, -- These can be integers or a float between 0 and 1.
-            max_width = nil, -- Floats will be treated as percentage of your screen.
+            max_height = nil,  -- These can be integers or a float between 0 and 1.
+            max_width = nil,   -- Floats will be treated as percentage of your screen.
             border = "single", -- Border style. Can be "single", "double" or "rounded"
             mappings = {
                 close = { "q", "<Esc>" },
@@ -97,14 +97,14 @@ local function configure_exts()
 end
 
 local function configure_debuggers()
-    require("main.dap.lua").setup()
-    require("main.dap.go").setup()
-    require("main.dap.php").setup()
+    require("plugins.dap.lua").setup()
+    require("plugins.dap.go").setup()
+    require("plugins.dap.php").setup()
 end
 
 function M.setup()
-    configure()        -- Configuration
-    configure_exts()   -- Extensions
+    configure()           -- Configuration
+    configure_exts()      -- Extensions
     configure_debuggers() -- Debugger
 end
 

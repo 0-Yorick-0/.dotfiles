@@ -13,6 +13,7 @@ set.shiftwidth = 4   -- how many spaces are used when using `>>` operator
 set.softtabstop = 4
 
 set.smartindent = true
+set.breakindent = true
 set.cursorline = true -- Enable highlighting of the current line
 
 -- When on, lines longer than the width of the window will wrap and displaying continues on the next line

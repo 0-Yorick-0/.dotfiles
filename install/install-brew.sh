@@ -22,6 +22,7 @@ brew install raycast
 # window manager
 brew install yabai
 brew install skhd
+brew install stow
 
 # +-------+
 # | Tools |

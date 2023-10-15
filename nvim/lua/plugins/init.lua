@@ -1,42 +1,62 @@
-local fn = vim.fn
-
--- Automatically install lazy
-local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
--- Install plugin modules
-require("lazy").setup("plugins.modules", {
-    install = {
-        missing = true,
+return {
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
+    {
+        "nvim-tree/nvim-web-devicons",
+        config = { default = true },
     },
-    checker = {
+    { "nacro90/numb.nvim", event = "BufReadPre", config = true },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     event = "BufReadPre",
+    --     config = true,
+    -- },
+    {
+        "stevearc/dressing.nvim",
+        event = "VeryLazy",
+        config = true,
+    },
+    {
+        "rcarriga/nvim-notify",
+        event = "VeryLazy",
         enabled = true,
-        notify = false,
+        config = { default = true }, -- same as config = true
     },
-    change_detection = {
-        enabled = true,
-        notify = false,
+    {
+        "sindrets/diffview.nvim",
+        cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+        config = true,
     },
-    performance = {
-        rtp = {
-            -- disable some rtp plugins
-            disabled_plugins = {
-                "gzip",
-                "tarPlugin",
-                "tohtml",
-                "tutor",
-                "zipPlugin",
-            },
+    {
+        "TimUntersberger/neogit",
+        cmd = "Neogit",
+        config = {
+            integrations = { diffview = true },
+        },
+        keys = {
+            { "<leader>gs", "<cmd>Neogit kind=floating<cr>", desc = "Status" },
         },
     },
-})
+    {
+        "monaqa/dial.nvim",
+        event = "BufReadPre",
+        config = function()
+            vim.api.nvim_set_keymap("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
+            vim.api.nvim_set_keymap("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
+            vim.api.nvim_set_keymap("v", "<C-a>", require("dial.map").inc_visual(), { noremap = true })
+            vim.api.nvim_set_keymap("v", "<C-x>", require("dial.map").dec_visual(), { noremap = true })
+            vim.api.nvim_set_keymap("v", "g<C-a>", require("dial.map").inc_gvisual(), { noremap = true })
+            vim.api.nvim_set_keymap("v", "g<C-x>", require("dial.map").dec_gvisual(), { noremap = true })
+        end,
+    },
+    {
+        "utilyre/barbecue.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = true,
+    },
+}

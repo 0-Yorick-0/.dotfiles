@@ -1,9 +1,9 @@
 return {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
     dependencies = {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
+            "nvim-telescope/telescope-live-grep-args.nvim",
             build = "make",
             lazy = false,
         },
@@ -16,6 +16,7 @@ return {
     },
     config = function()
         local ok, telescope = pcall(require, "telescope")
+        local lga_actions = require("telescope-live-grep-args.actions")
         if not ok then
             print(string.format("Someting happend on calling telescope in %s", vim.fn.expand("%:p")))
         end
@@ -32,6 +33,17 @@ return {
                         override_generic_sorter = true,
                         override_file_sorter = true,
                         case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+                    },
+                    live_grep_args = {
+                        auto_quoting = true, -- enable/disable auto-quoting
+                        -- define mappings, e.g.
+                        mappings = {
+                            -- extend mappings
+                            i = {
+                                ["<C-k>"] = lga_actions.quote_prompt(),
+                                ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                            },
+                        },
                     },
                     ["ui-select"] = {
                         require("telescope.themes").get_dropdown({
@@ -73,6 +85,7 @@ return {
         end)
         vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind in [F]iles" })
         vim.keymap.set("n", "<leader>fa", find_in_all_files, { desc = "[F]ind in [a]ll files" })
+        vim.keymap.set("n", "<leader>fid", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
         vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "[F]ind in [G]it files" })
         vim.keymap.set("n", "<leader>ç", builtin.oldfiles, { desc = "[ç] Find recently opened files" })
         vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "Find Buffers" })

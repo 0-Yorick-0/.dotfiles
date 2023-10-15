@@ -13,7 +13,8 @@ alias bigf='find / -xdev -type f -size +1G' #display big files > 1G
 alias bigd='find / -xdev -type d -size +1G' #display big directories > 1G
 
 alias cachevim='rm -rf ~/.config/.cache/nvim'
-alias nvim='nvim -V3/Users/yferlin/.cache/vimlog.log'
+#alias nvim='nvim -V3/Users/yferlin/.cache/vimlog.log'
+alias mnv='XDG_DATA_HOME=$MY_NEOVIM/share XDG_CACHE_HOME=$MY_NEOVIM XDG_CONFIG_HOME=$MY_NEOVIM nvim'
 # +-----+
 # | Zsh |  
 # +-----+
