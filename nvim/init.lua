@@ -15,6 +15,9 @@ cmd = vim.cmd
 
 require "config.options"
 require "config.lazy"
+require "config.utils"
+
+require "lsp"
 
 vim.api.nvim_create_autocmd("User", {
     -- VeryLazy is triggered after VimEnter, and process VimEnter autocmds

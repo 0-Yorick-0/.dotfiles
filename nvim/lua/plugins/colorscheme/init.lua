@@ -38,7 +38,6 @@ return {
             -- needed to go around a well known problem of static number of math.random in lua
             math.randomseed(os.time())
             local randomIndex = math.random(1, #themes)
-            print(randomIndex)
             vim.cmd.colorscheme(themes[randomIndex])
         end,
     },

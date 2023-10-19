@@ -30,6 +30,8 @@ return {
                     "javascript",
                     "json",
                     "lua",
+                    "go",
+                    "gomod",
                     "markdown",
                     "markdown_inline",
                     "python",
