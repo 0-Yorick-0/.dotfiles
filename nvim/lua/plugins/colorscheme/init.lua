@@ -20,7 +20,6 @@ return {
             local tokyonight = require "tokyonight"
             tokyonight.setup { style = "storm" }
             local themes = {
-                "carbonfox",
                 "duskfox",
                 "nordfox",
                 "terafox",
@@ -30,7 +29,7 @@ return {
                 "oxocarbon",
                 "rose-pine",
                 "tokyonight",
-                -- "bamboo",
+                "bamboo",
                 "everforest",
                 "onedark",
             }
