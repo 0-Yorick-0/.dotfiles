@@ -7,5 +7,6 @@
     "behat.symfony.di_xml_path": "%project_root%/var/cache/dev/srcBedrock_LBCDN_KernelDevDebugContainer.xml",
     "phpunit.enabled": true,
     "language_server_phpstan.enabled": true,
-    "language_server_php_cs_fixer.enabled": true
+    "language_server_php_cs_fixer.enabled": true,
+    "php_code_sniffer.bin": "\/Users\/yferlin\/.config\/my-neovim\/share\/nvim\/lazy\/phpactor\/vendor\/bin\/phpcs"
 }

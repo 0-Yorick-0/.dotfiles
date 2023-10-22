@@ -15,10 +15,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Configure lazy.nvim
-require("lazy").setup("plugins", {
+require("lazy").setup({
 	spec = {
-		{ import = "pde" },
 		{ import = "base" },
+		{ import = "plugins" },
+		{ import = "pde" },
 	},
 	install = { missing = true, colorscheme = { "tokyonight", "catppuccin" } },
 	checker = { enabled = true, notify = false },

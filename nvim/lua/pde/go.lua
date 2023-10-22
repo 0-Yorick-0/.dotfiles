@@ -37,13 +37,17 @@ return {
 		config = function(_, opts)
 			require("go").setup(opts)
 		end,
-		event = { "CmdlineEnter" },
+		-- event = { "CmdlineEnter" },
 		ft = { "go", "gomod" },
 		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 	},
 	{
 		"neovim/nvim-lspconfig",
 		opts = {
+			dap = {
+				-- needed for dap handler to be attached
+				name = "go",
+			},
 			servers = {
 				gopls = {
 					settings = {
@@ -65,11 +69,10 @@ return {
 						},
 					},
 				},
-				golangci_lint_ls = {},
 			},
 			setup = {
 				gopls = function(_, _)
-					local lsp_utils = require("lsp.utils")
+					local lsp_utils = require("base.lsp.utils")
 					lsp_utils.on_attach(function(client, bufnr)
 						local map = function(mode, lhs, rhs, desc)
 							if desc then
@@ -82,14 +85,14 @@ return {
 								{ silent = true, desc = desc, buffer = bufnr, noremap = true }
 							)
 						end
-            -- stylua: ignore
-            if client.name == "gopls" then
-              map("n", "<leader>ly", "<cmd>GoModTidy<cr>", "Go Mod Tidy")
-              map("n", "<leader>lc", "<cmd>GoCoverage<Cr>", "Go Test Coverage")
-              map("n", "<leader>lt", "<cmd>GoTest<Cr>", "Go Test")
-              map("n", "<leader>lR", "<cmd>GoRun<Cr>", "Go Run")
-              map("n", "<leader>dT", "<cmd>lua require('dap-go').debug_test()<cr>", "Go Debug Test")
-            end
+                        -- stylua: ignore
+                        if client.name == "gopls" then
+                            map("n", "<leader>ly", "<cmd>GoModTidy<cr>", "Go Mod Tidy")
+                            map("n", "<leader>lc", "<cmd>GoCoverage<Cr>", "Go Test Coverage")
+                            map("n", "<leader>lt", "<cmd>GoTest<Cr>", "Go Test")
+                            map("n", "<leader>lR", "<cmd>GoRun<Cr>", "Go Run")
+                            map("n", "<leader>dT", "<cmd>lua require('dap-go').debug_test()<cr>", "Go Debug Test")
+                        end
 					end)
 				end,
 			},
@@ -97,6 +100,15 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap",
-		dependencies = { "leoluz/nvim-dap-go", opts = {} },
+		dependencies = {
+			"leoluz/nvim-dap-go",
+			opts = {
+				setup = {
+					go = function(_, _)
+						require("base.dap.go").setup()
+					end,
+				},
+			},
+		},
 	},
 }

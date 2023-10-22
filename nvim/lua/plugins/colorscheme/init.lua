@@ -26,7 +26,6 @@ return {
                 "nightfox",
                 "catppuccin",
                 "kanagawa",
-                "oxocarbon",
                 "rose-pine",
                 "tokyonight",
                 "bamboo",

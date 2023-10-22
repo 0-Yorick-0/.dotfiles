@@ -1,6 +1,6 @@
 local M = {}
 
-function M.on_attach(client, buffer)
+function M.on_attach(_, buffer)
     local opts = { buffer = buffer, remap = false }
 
     vim.keymap.set("n", "<C-h>", function()

@@ -70,4 +70,14 @@ return {
             }
         end,
     },
+    -- show lsp logs wit :OutputPanel
+    {
+        {
+            "mhanberg/output-panel.nvim",
+            event = "VeryLazy",
+            config = function()
+                require("output_panel").setup()
+            end,
+        },
+    },
 }

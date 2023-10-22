@@ -35,6 +35,9 @@ local function lsp_init()
     vim.diagnostic.config(config.diagnostic)
 end
 
+-- called from nvim/lua/base/lsp/init.lua
+-- with nvim-lspconfig::config
+-- this makes it possible to configure each server individually
 function M.setup(_, opts)
     lsp_utils.on_attach(function(client, bufnr)
         require("base.lsp.format").on_attach(client, bufnr)
@@ -63,7 +66,7 @@ function M.setup(_, opts)
         require("lspconfig")[server].setup(server_opts)
     end
 
-    -- get all the servers that are available thourgh mason-lspconfig
+    -- get all the servers that are available through mason-lspconfig
     local have_mason, mlsp = pcall(require, "mason-lspconfig")
     local all_mslp_servers = {}
     if have_mason then

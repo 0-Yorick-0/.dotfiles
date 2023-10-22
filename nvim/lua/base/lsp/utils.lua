@@ -2,6 +2,7 @@ local M = {}
 
 function M.capabilities()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
         lineFoldingOnly = true,
@@ -9,8 +10,14 @@ function M.capabilities()
     return require("cmp_nvim_lsp").default_capabilities(capabilities)
 end
 
+-- called from nvim/lua/base/lsp/server.lua
+-- this will be called to attach format and keymap handlers
+-- to each lsp client
+-- but also in nvim/lua/pde/*.lua, in opts.setup to attach language specific handlers
 function M.on_attach(on_attach)
+    -- every time we attach an LSP Client
     vim.api.nvim_create_autocmd("LspAttach", {
+        -- this callback we'll be attached
         callback = function(args)
             local bufnr = args.buf
             local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -19,7 +26,7 @@ function M.on_attach(on_attach)
     })
 end
 
-local diagnostics_active = false
+local diagnostics_active = true
 
 function M.show_diagnostics()
     return diagnostics_active
@@ -32,6 +39,15 @@ function M.toggle_diagnostics()
     else
         vim.diagnostic.hide()
     end
+end
+
+function M.opts(name)
+    local plugin = require("lazy.core.config").plugins[name]
+    if not plugin then
+        return {}
+    end
+    local Plugin = require "lazy.core.plugin"
+    return Plugin.values(plugin, "opts", false)
 end
 
 return M
