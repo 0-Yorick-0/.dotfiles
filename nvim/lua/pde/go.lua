@@ -27,6 +27,14 @@ return {
 		end,
 	},
 	{
+		"nvimtools/none-ls.nvim",
+		opts = function(_, opts)
+			local nls = require("null-ls")
+			table.insert(opts.sources, nls.builtins.formatting.goimports)
+			table.insert(opts.sources, nls.builtins.formatting.gofumpt)
+		end,
+	},
+	{
 		"ray-x/go.nvim",
 		dependencies = {
 			"ray-x/guihua.lua",
@@ -37,7 +45,7 @@ return {
 		config = function(_, opts)
 			require("go").setup(opts)
 		end,
-		-- event = { "CmdlineEnter" },
+		event = { "CmdlineEnter" },
 		ft = { "go", "gomod" },
 		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 	},

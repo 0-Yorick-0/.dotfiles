@@ -48,3 +48,7 @@ Sur Mac :
 #### Install apcu
 
 see https://stackoverflow.com/questions/72039019/pcre2-h-no-such-file-or-directory
+
+#### Install PHP DAP
+* go to $VIMCONFIG/share/nvim/lazy/vs-code-php-debug
+* launch `npm install && npm run build`

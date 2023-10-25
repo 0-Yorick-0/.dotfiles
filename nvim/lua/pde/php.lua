@@ -12,17 +12,14 @@ return {
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
-			vim.list_extend(
-				opts.ensure_installed,
-				{ "php-cs-fixer", "phpcbf", "phpcs", "phpmd", "phpstan", "intelephense" }
-			)
+			vim.list_extend(opts.ensure_installed, { "php-cs-fixer", "phpcbf", "phpcs", "phpmd", "phpstan" })
 		end,
 	},
 	{
 		"nvimtools/none-ls.nvim",
 		opts = function(_, opts)
 			local nls = require("null-ls")
-			table.insert(opts.sources, nls.builtins.formatting.phpcs)
+			-- table.insert(opts.sources, nls.builtins.formatting.phpcs)
 			table.insert(opts.sources, nls.builtins.formatting.phpcbf)
 			table.insert(opts.sources, nls.builtins.formatting.phpcsfixer)
 		end,
@@ -40,19 +37,21 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		servers = {
-			dap = {
-				-- needed for dap handler to be attached
-				name = "phpactor",
+		opts = {
+			servers = {
+				phpactor = {},
 			},
-			phpactor = {
-				-- init_options = {
-				-- 	["language_server_phpstan.enabled"] = false,
-				-- 	["language_server_psalm.enabled"] = false,
-				-- },
+			setup = {
+				phpactor = function(_, _)
+					local lsp_utils = require("base.lsp.utils")
+					lsp_utils.on_attach(function(client, buffer)
+						--inlay hints
+						local ih = require("inlay-hints")
+						ih.on_attach(client, buffer)
+					end)
+				end,
 			},
 		},
-		opts = {},
 	},
 	-- Debugging
 	{

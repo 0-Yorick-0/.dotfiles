@@ -1,24 +1,22 @@
 return {
-    {
-        "zbirenbaum/copilot.lua",
-        event = "InsertEnter",
-        enabled = true,
-        cmd = "Copilot",
-        build = ":Copilot auth",
-        config = function()
-            require("copilot").setup({
-                suggestion = { enabled = false },
-                panel = { enabled = false },
-                pairs
-            })
-        end,
-    },
-    {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua" },
-        config = function()
-            require("copilot_cmp").setup({
-            })
-        end,
-    },
+	{
+		"zbirenbaum/copilot.lua",
+		event = "InsertEnter",
+		enabled = true,
+		cmd = "Copilot",
+		build = ":Copilot auth",
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup({})
+		end,
+	},
 }

@@ -6,7 +6,20 @@
     "behat.config_path": "%project_root%/behat.yml(.dist)?",
     "behat.symfony.di_xml_path": "%project_root%/var/cache/dev/srcBedrock_LBCDN_KernelDevDebugContainer.xml",
     "phpunit.enabled": true,
+    "php_code_sniffer.enabled": true,
+    "php_code_sniffer.bin": "\/Users\/yferlin\/.config\/my-neovim\/share\/nvim\/mason\/packages\/phpcs\/phpcs",
+    "php_code_sniffer.show_diagnostics": true,
+    "language_server_php_cs_fixer.enabled": false,
     "language_server_phpstan.enabled": true,
-    "language_server_php_cs_fixer.enabled": true,
-    "php_code_sniffer.bin": "\/Users\/yferlin\/.config\/my-neovim\/share\/nvim\/lazy\/phpactor\/vendor\/bin\/phpcs"
+    "language_server_phpstan.level": 8,
+    "language_server_phpstan.bin": "\/Users\/yferlin\/.config\/my-neovim\/share\/nvim\/mason\/packages\/phpstan\/phpstan",
+    "logging.enabled": true,
+    "language_server_indexer.reindex_timeout": 20000,
+    "logging.path": "\/Users\/yferlin\/.config\/my-neovim\/phpactor\/phpactor-log.log",
+    "indexer.exclude_patterns": [
+        "\/vendor\/**\/Tests\/**\/*",
+        "\/vendor\/**\/tests\/**\/*",
+        "\/var\/cache\/**\/*",
+        "\/vendor\/composer\/**\/*"
+    ]
 }
