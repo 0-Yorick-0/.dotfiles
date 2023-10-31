@@ -19,17 +19,18 @@ return {
 		"nvimtools/none-ls.nvim",
 		opts = function(_, opts)
 			local nls = require("null-ls")
-			-- table.insert(opts.sources, nls.builtins.formatting.phpcs)
+			table.insert(opts.sources, nls.builtins.formatting.phpcs)
 			table.insert(opts.sources, nls.builtins.formatting.phpcbf)
-			table.insert(opts.sources, nls.builtins.formatting.phpcsfixer)
+			-- table.insert(opts.sources, nls.builtins.formatting.phpcsfixer)
 		end,
 	},
 	{
 		"phpactor/phpactor",
 		dependencies = {
-			{ "stephpy/vim-php-cs-fixer" },
+			-- { "stephpy/vim-php-cs-fixer" },
 			{ "squizlabs/PHP_CodeSniffer" },
 			{ "neovim/nvim-lspconfig" },
+			{ "nvim-treesitter/nvim-treesitter" },
 		},
 		ft = { "php", "cucumber" },
 		branch = "master",
@@ -43,12 +44,11 @@ return {
 			},
 			setup = {
 				phpactor = function(_, _)
-					local lsp_utils = require("base.lsp.utils")
-					lsp_utils.on_attach(function(client, buffer)
-						--inlay hints
-						local ih = require("inlay-hints")
-						ih.on_attach(client, buffer)
-					end)
+					init_options = {
+						["language_server_phpstan.enabled"] = false,
+						["language_server_php_cs_fixer.enabled"] = false,
+						["language_server_psalm.enabled"] = false,
+					}
 				end,
 			},
 		},
