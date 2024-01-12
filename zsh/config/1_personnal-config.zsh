@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+
 export BAT_THEME="Dracula"
 
 #update PATH
@@ -152,4 +154,14 @@ fi
 function lk {
   cd "$(walk "$@")"
 }
+
+# +-------------+
+# | BIG LETTERS |
+# +-------------+
+
+big_letters() {
+    arg="$1"
+    echo $1 | sed -r 's/(\w)/:alphabet_yellow_\1:/g' | sed 's/ /      /g' | sed 's/?/:alphabet-yellow-question:/' | sed 's/!/:alphabet-yellow-exclamation:/g' | sed 's/yellow/white/g'
+}
+
 

@@ -20,7 +20,7 @@ return {
 		opts = function(_, opts)
 			local nls = require("null-ls")
 			table.insert(opts.sources, nls.builtins.formatting.phpcs)
-			table.insert(opts.sources, nls.builtins.formatting.phpcbf)
+			-- table.insert(opts.sources, nls.builtins.formatting.phpcbf)
 			-- table.insert(opts.sources, nls.builtins.formatting.phpcsfixer)
 		end,
 	},
@@ -28,6 +28,10 @@ return {
 		"phpactor/phpactor",
 		dependencies = {
 			-- { "stephpy/vim-php-cs-fixer" },
+			-- snippets
+			"h4kst3r/php-awesome-snippets", -- vscode extension
+			"nalabdou/symfony-code-snippets", -- vscode extension
+			{ "gbprod/php-enhanced-treesitter.nvim" },
 			{ "squizlabs/PHP_CodeSniffer" },
 			{ "neovim/nvim-lspconfig" },
 			{ "nvim-treesitter/nvim-treesitter" },

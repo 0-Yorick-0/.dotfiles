@@ -35,19 +35,14 @@ return {
 		end,
 	},
 	{
-		"ray-x/go.nvim",
+		"fatih/vim-go",
 		dependencies = {
-			"ray-x/guihua.lua",
 			"neovim/nvim-lspconfig",
 			"nvim-treesitter/nvim-treesitter",
 		},
-		opts = {},
-		config = function(_, opts)
-			require("go").setup(opts)
-		end,
 		-- event = { "CmdlineEnter" },
 		ft = { "go", "gomod" },
-		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+		build = ":GoInstallBinaries", -- if you need to install/update all binaries
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -112,8 +107,8 @@ return {
 			"leoluz/nvim-dap-go",
 			opts = {
 				setup = {
-					go = function(_, _)
-						require("base.dap.go").setup()
+					go = function(_, opts)
+						require("base.dap.go").setup(opts)
 					end,
 				},
 			},
