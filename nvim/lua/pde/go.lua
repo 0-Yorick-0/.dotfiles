@@ -77,6 +77,14 @@ return {
 				gopls = function(_, _)
 					local lsp_utils = require("base.lsp.utils")
 					lsp_utils.on_attach(function(client, bufnr)
+						vim.api.nvim_create_autocmd("FileType", {
+							pattern = "godoc",
+							callback = function()
+								if vim.bo.filetype == "godoc" then
+									vim.bo.filetype = "go"
+								end
+							end,
+						})
 						local map = function(mode, lhs, rhs, desc)
 							if desc then
 								desc = desc
@@ -107,8 +115,8 @@ return {
 			"leoluz/nvim-dap-go",
 			opts = {
 				setup = {
-					go = function(_, opts)
-						require("base.dap.go").setup(opts)
+					go = function()
+						require("base.dap.go").setup()
 					end,
 				},
 			},

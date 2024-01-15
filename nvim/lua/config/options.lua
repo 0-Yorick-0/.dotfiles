@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 vim.g.gofmt_command = "goimports"
+vim.g.go_doc_balloon = 1
+vim.g.go_doc_popup_window = 1
 
 local set = vim.opt
 
@@ -8,8 +10,8 @@ set.nu = true
 set.relativenumber = true
 
 set.expandtab = true -- expand tab with spaces
-set.tabstop = 4      -- set how many spaces are used for a indentation block
-set.shiftwidth = 4   -- how many spaces are used when using `>>` operator
+set.tabstop = 4 -- set how many spaces are used for a indentation block
+set.shiftwidth = 4 -- how many spaces are used when using `>>` operator
 set.softtabstop = 4
 
 set.smartindent = true
