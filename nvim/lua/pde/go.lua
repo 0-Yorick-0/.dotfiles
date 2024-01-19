@@ -45,6 +45,13 @@ return {
 		build = ":GoInstallBinaries", -- if you need to install/update all binaries
 	},
 	{
+		"yanskun/gotests.nvim",
+		ft = "go",
+		config = function()
+			require("gotests").setup()
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		opts = {
 			dap = {

@@ -9,7 +9,7 @@ brew upgrade
 # useful Unix commands like gdate
 brew install coreutils
 
-# useful devtools 
+# useful devtools
 brew install --cask devtoys
 
 # +-----------+
@@ -46,6 +46,7 @@ source <(kubectl completion zsh)
 brew install tree
 brew install kubectx
 brew install bash
+brew install luarocks
 
 # +-------+
 # | FONTS |
@@ -54,7 +55,6 @@ brew install bash
 brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-symbols-only-nerd-font
 brew install --cask font-jetbrains-mono
-
 
 # +----+
 # | GO |
@@ -90,7 +90,7 @@ pip3 install git-sim
 # | Spotify |
 # +---------+
 
-# CLI client for the GUI of Spotify 
+# CLI client for the GUI of Spotify
 # see https://medium.com/@baruchphillips/using-spotify-in-cli-e7d946c27b3e to configure it
 brew install shpotify
 # Spotify light client
