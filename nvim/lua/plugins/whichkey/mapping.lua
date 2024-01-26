@@ -77,4 +77,9 @@ return {
 		r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
 		g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
 	},
+	-- Noice
+	n = {
+		name = "Noice",
+		d = { "<cmd>NoiceDismiss<cr>", "Dismiss noice message" },
+	},
 }
