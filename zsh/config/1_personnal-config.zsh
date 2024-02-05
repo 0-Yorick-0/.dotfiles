@@ -164,4 +164,7 @@ big_letters() {
     echo $1 | sed -r 's/(\w)/:alphabet_yellow_\1:/g' | sed 's/ /      /g' | sed 's/?/:alphabet-yellow-question:/' | sed 's/!/:alphabet-yellow-exclamation:/g' | sed 's/yellow/white/g'
 }
 
+# FUCK
+eval $(thefuck --alias)
+
 
