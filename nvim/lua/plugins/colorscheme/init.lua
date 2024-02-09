@@ -28,7 +28,6 @@ return {
 				"kanagawa",
 				"rose-pine",
 				"tokyonight",
-				"everforest",
 				"onedark",
 			}
 
@@ -87,11 +86,6 @@ return {
 		config = function()
 			require("bamboo").setup()
 		end,
-	},
-	{
-		"sainnhe/everforest",
-		lazy = false,
-		priority = 1000,
 	},
 	{
 		"navarasu/onedark.nvim",
