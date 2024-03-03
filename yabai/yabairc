@@ -28,3 +28,6 @@ yabai -m mouse_drop_action swap
 # disable specific apps from being managed with yabai
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
+
+# manage sketchybar
+yabai -m config external_bar all:32:0

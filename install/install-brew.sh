@@ -55,6 +55,8 @@ brew install luarocks
 brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-symbols-only-nerd-font
 brew install --cask font-jetbrains-mono
+brew tap homebrew/cask-fonts
+brew install font-hack-nerd-font
 
 # +----+
 # | GO |
