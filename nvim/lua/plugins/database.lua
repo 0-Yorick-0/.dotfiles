@@ -9,7 +9,7 @@ return {
 		local function db_completion()
 			require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
 		end
-
+		-- :echo g:db_ui_save_location to show config files
 		vim.g.db_ui_save_location = vim.fn.stdpath("config") .. require("plenary.path").path.sep .. "db_ui"
 
 		vim.api.nvim_create_autocmd("FileType", {
