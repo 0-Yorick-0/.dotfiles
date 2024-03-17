@@ -39,6 +39,11 @@ set.termguicolors = true
 
 set.scrolloff = 8
 set.signcolumn = "yes"
+vim.diagnostic.config({
+	--don't show those annoying virtual text messages from linters
+	--use space + VD to see the full message
+	virtual_text = false,
+})
 set.isfname:append("@-@")
 
 set.updatetime = 50
