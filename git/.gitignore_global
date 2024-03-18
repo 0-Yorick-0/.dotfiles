@@ -3,6 +3,5 @@ application.log
 tags
 .phpactor.json
 /tmp
-bruno
 vendor
 .air.toml
