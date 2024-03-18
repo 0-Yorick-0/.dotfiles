@@ -56,6 +56,9 @@ brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-symbols-only-nerd-font
 brew install --cask font-jetbrains-mono
 brew install --cask homebrew/cask-fonts/font-powerline-symbols
+brew install --cask homebrew/cask-fonts/font-menlo-for-powerline
+brew install homebrew/cask-fonts/font-mononoki-nerd-font
+brew install --cask font-devicons
 brew tap homebrew/cask-fonts
 brew install font-hack-nerd-font
 
