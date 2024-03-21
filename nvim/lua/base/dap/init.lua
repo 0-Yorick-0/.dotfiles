@@ -9,6 +9,7 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 		-- create a beautiful debugger UI
 		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio",
 		-- help to install debuggers
 		"Pocco81/DAPInstall.nvim",
 		-- which key integration

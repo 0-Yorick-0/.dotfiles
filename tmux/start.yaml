@@ -15,13 +15,13 @@ windows:
       shell_command_before:
         - cd ~/.dotfiles
       panes:
-        - nvim
+        - mnv
     - window_name: WhiteBook
       layout: tiled
       shell_command_before:
         - cd ~/Documents/WhiteBook
       panes:
-        - nvim
+        - mnv
     - window_name: database
       layout: tiled
       shell_command_before:
