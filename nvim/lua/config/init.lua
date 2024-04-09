@@ -1,6 +1,7 @@
 return {
 	pde = {
 		go = true,
+		json = true,
 		php = true,
 		terraform = true,
 		helm = true,

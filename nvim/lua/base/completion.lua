@@ -187,7 +187,7 @@ return {
         -- stylua: ignore
         keys = {
             {
-                "<C-j>",
+                "<C-;>",
                 function()
                     return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<C-j>"
                 end,
@@ -197,7 +197,7 @@ return {
                 mode = "i",
             },
             { "<C-j>", function() require("luasnip").jump(1) end,  mode = "s" },
-            { "<C-k>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+            { "<C-,>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
         },
 		config = function(_, opts)
 			require("luasnip").setup(opts)
