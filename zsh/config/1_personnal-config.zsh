@@ -164,6 +164,16 @@ big_letters() {
     echo $1 | sed -r 's/(\w)/:alphabet_yellow_\1:/g' | sed 's/ /      /g' | sed 's/?/:alphabet-yellow-question:/' | sed 's/!/:alphabet-yellow-exclamation:/g' | sed 's/yellow/white/g'
 }
 
+
+# +------------------+
+# | AUTO-SUGGESTIONS |
+# +------------------+
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#008080,underline"
+# CTRL + ENTER to accept suggestion
+bindkey '^y' autosuggest-accept
+
 # FUCK
 eval $(thefuck --alias)
 
