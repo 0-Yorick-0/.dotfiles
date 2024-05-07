@@ -3,6 +3,9 @@ vim.g.gofmt_command = "goimports"
 vim.g.go_doc_balloon = 1
 vim.g.go_doc_popup_window = 1
 
+-- enable true color support
+vim.o.termguicolors = true
+
 local set = vim.opt
 
 -- line numbers && relative line numbers

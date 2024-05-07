@@ -48,6 +48,11 @@ brew install kubectx
 brew install bash
 brew install luarocks
 
+# +-----+
+# | ZSH |
+# +-----+
+brew install zsh-autosuggestions
+
 # +-------+
 # | FONTS |
 # +-------+
