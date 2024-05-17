@@ -91,4 +91,11 @@ alias settings='open "x-apple.systempreferences:com.apple.preference"'
 alias drmi='docker rmi -f $(docker images -aq)'
 alias dstopa='docker stop $(docker ps -aq)'
 alias drmca='docker rm -f $(docker ps -aq)'
+alias lzd='lazydocker'
 
+# +------+
+# | Nvim |
+# +------+
+
+alias mnv-clean-plugin='sudo rm -rf .config/my-neovim/share/nvim'
+alias mnv-clean-cache='rm -rf .config/cache/nvim'

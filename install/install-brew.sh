@@ -47,6 +47,8 @@ brew install tree
 brew install kubectx
 brew install bash
 brew install luarocks
+# for copy-paste compatibility with tmux and alacritty
+brew install reattach-to-user-namespace
 
 # +-----+
 # | ZSH |
