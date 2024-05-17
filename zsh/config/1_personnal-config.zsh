@@ -135,8 +135,6 @@ export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:/opt/homebrew/opt/php@7.4/bin/"
 export PATH="$PATH:/opt/homebrew/opt/rabbitmq/sbin"
 
-#fix tmux display
-# export TERM=screen
 
 # +------+
 # | FZF  |

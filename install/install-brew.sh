@@ -49,6 +49,9 @@ brew install bash
 brew install luarocks
 # for copy-paste compatibility with tmux and alacritty
 brew install reattach-to-user-namespace
+brew install orbstack
+# testing framework for bash
+brew install bats-core
 
 # +-----+
 # | ZSH |
