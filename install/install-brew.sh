@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+which brew
+if [[ $? != 0 ]]; then
+	echo "Homebrew is not installed, installing it now..."
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "putting brew in PATH"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+fi
+echo "Homebrew is already installed"
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -21,8 +28,9 @@ brew install --cask iterm2
 # better app launcher
 brew install raycast
 # window manager
-brew install yabai
-brew install skhd
+# see https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+brew install koekeishiya/formulae/yabai
+brew install koekeishiya/formulae/skhd
 brew install stow
 
 # +-------+
@@ -32,6 +40,7 @@ brew install wget
 brew install jq
 #use gawk instead of awk
 brew install gawk
+brew install tmux
 brew list python3 || brew install python3
 brew in fd
 brew install ripgrep
