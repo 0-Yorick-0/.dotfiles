@@ -35,17 +35,16 @@ ${red}
 echo -e "${green}All right, you're installing you're fuckin' damn' favorite config that'll make you rock !!\n${green}" \
 	"${green}Are you ready ?${green}"
 
-
-if [ $# -ne 1 ] || [ "$1" != "-y" ];
-	then
-		echo -e "${yellow}Press a key to continue...\n"
-		read key;
+if [ $# -ne 1 ] || [ "$1" != "-y" ]; then
+	echo -e "${yellow}Press a key to continue...\n"
+	read key
 fi
 
 ###############
 ### install ###
 ###############
 
+source "$DOTFILES/install/install-brew.sh"
 source "$DOTFILES/install/install-zsh.sh"
 source "$DOTFILES/install/install-tmux.sh"
 source "$DOTFILES/install/install-git.sh"
