@@ -8,7 +8,7 @@ fpath=($DOTFILES/zsh/plugins $fpath)
 # take tike to measure boot time
 #bootTimeStart=$(gdate +%s%N 2>/dev/null || date +%s%N)
 
-typeset -ga sources
+# typeset -ga sources
 
 # Get personnal config file
 sources=($DOTFILES/zsh/config/*.zsh)

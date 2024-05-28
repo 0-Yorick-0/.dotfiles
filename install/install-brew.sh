@@ -3,8 +3,8 @@ which brew
 if [[ $? != 0 ]]; then
 	echo "Homebrew is not installed, installing it now..."
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo "putting brew in PATH"
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+	echo "putting brew in PATH"
+	export PATH="$PATH:/opt/homebrew/bin"
 fi
 echo "Homebrew is already installed"
 
@@ -23,8 +23,6 @@ brew install --cask devtoys
 # +-----------+
 # | Mac Stuff |
 # +-----------+
-# better terminal
-brew install --cask iterm2
 # better app launcher
 brew install raycast
 # window manager
@@ -62,6 +60,12 @@ brew install reattach-to-user-namespace
 brew install orbstack
 # testing framework for bash
 brew install bats-core
+brew install bat
+brew install starship
+brew install keychain
+brew install grep
+brew install ncdu
+brew install composer
 
 # +-----+
 # | ZSH |
@@ -75,11 +79,11 @@ brew install zsh-autosuggestions
 brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-symbols-only-nerd-font
 brew install --cask font-jetbrains-mono
-brew install --cask homebrew/cask-fonts/font-powerline-symbols
-brew install --cask homebrew/cask-fonts/font-menlo-for-powerline
-brew install homebrew/cask-fonts/font-mononoki-nerd-font
+brew install --cask font-mononoki-nerd-font
+brew install --cask font-powerline-symbols
+brew install --cask font-menlo-for-powerline
 brew install --cask font-devicons
-brew tap homebrew/cask-fonts
+brew install --cask font-awesome-terminal-fonts
 brew install font-hack-nerd-font
 
 # +----+
@@ -98,20 +102,20 @@ brew install golangci-lint
 brew install php-cs-fixer
 brew install prettier
 brew install stylua
-brew install gofmt
+brew install gofumpt
 
 # +---------+
 # | Git-Sim |
 # +---------+
 
 # dependancies for manim
-brew install py3cairo ffmpeg
-brew install pango scipy
-
-pip3 install manim
-
-# git-sim itself
-pip3 install git-sim
+# brew install py3cairo ffmpeg
+# brew install pango scipy
+#
+# pip3 install manim
+#
+# # git-sim itself
+# pip3 install git-sim
 # +---------+
 # | Spotify |
 # +---------+
@@ -123,7 +127,7 @@ brew install shpotify
 brew install spotifyd
 # Spotify client for the terminal
 # see https://github.com/Rigellute/spotify-tui for install
-brew install spotify-tui
+brew install spotify_player
 
 # Remove outdated versions from the cellar.
 brew cleanup
