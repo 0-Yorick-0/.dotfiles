@@ -6,10 +6,9 @@ windows:
     - window_name: spotify
       layout: tiled
       shell_command_before:
-        - brew services restart spotifyd
-        - spt
+        - 
       panes:
-        -
+        - spotify_player
     - window_name: .dotfiles
       layout: tiled
       shell_command_before:

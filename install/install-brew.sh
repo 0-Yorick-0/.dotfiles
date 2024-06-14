@@ -30,6 +30,7 @@ brew install raycast
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
 brew install stow
+brew install alacritty
 
 # +-------+
 # | Tools |

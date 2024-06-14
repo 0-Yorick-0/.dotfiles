@@ -12,6 +12,7 @@ return {
 			})
 		end,
 	},
+	{ "diegoulloao/neofusion.nvim", priority = 1000, config = true },
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
