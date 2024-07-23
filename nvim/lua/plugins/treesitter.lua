@@ -26,7 +26,7 @@ return {
 				"vimdoc",
 				"yaml",
 			},
-			highlight = { enable = false },
+			highlight = { enable = true },
 			indent = { enable = true, disable = { "python" } },
 			incremental_selection = {
 				enable = true,

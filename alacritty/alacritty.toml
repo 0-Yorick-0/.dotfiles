@@ -17,7 +17,7 @@ option_as_alt = "OnlyLeft"
 
 [font]
 normal.family = "Mononoki Nerd Font Mono"
-size = 17
+size = 19
 
 [cursor]
 style.shape = "Block"

@@ -7,5 +7,6 @@ return {
 		helm = true,
 		docker = true,
 		lua = true,
+		typescript = true,
 	},
 }
