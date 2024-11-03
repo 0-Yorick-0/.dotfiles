@@ -3,6 +3,13 @@ return {
 		"xiyaowong/transparent.nvim",
 	},
 	{
+		"stevearc/quicker.nvim",
+		event = "FileType qf",
+		---@module "quicker"
+		---@type quicker.SetupOptions
+		opts = {},
+	},
+	{
 		"folke/noice.nvim",
 		config = function()
 			require("noice").setup({
