@@ -99,3 +99,9 @@ alias lzd='lazydocker'
 
 alias mnv-clean-plugin='sudo rm -rf .config/my-neovim/share/nvim'
 alias mnv-clean-cache='rm -rf .config/cache/nvim'
+
+# +---------+
+# | Symofny |
+# +---------+
+
+alias symfony-server='symfony server:start -port=8000 --no-tls --allow-http'

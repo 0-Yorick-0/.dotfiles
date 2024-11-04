@@ -132,3 +132,9 @@ brew install spotify_player
 
 # Remove outdated versions from the cellar.
 brew cleanup
+#
+# +------+
+# | JAVA |
+# +------+
+brew install java11
+sudo ln -sfn /opt/homebrew/Cellar/openjdk@11/11.0.24/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk

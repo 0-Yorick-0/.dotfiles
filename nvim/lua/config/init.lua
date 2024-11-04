@@ -3,6 +3,7 @@ return {
 		go = true,
 		json = true,
 		php = true,
+		java = true,
 		terraform = true,
 		helm = true,
 		docker = true,

@@ -8,6 +8,8 @@ vim.keymap.set("n", "<leader>q", ":Bdelete<CR>")
 vim.keymap.set("n", "<leader>qa!", ":bufdo :Bdelete<CR>")
 -- close all hidden buffers
 vim.keymap.set("n", "<leader>Q", ":Survivor<CR>")
+-- force alternate file
+vim.keymap.set("n", "<C-^>", ":e #<CR>")
 
 -- open a tab with a note file
 vim.keymap.set("n", "<leader>n", ":tab drop tmp/notes.md<CR>")
