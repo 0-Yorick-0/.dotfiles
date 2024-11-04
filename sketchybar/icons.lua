@@ -53,10 +53,7 @@ local icons = {
 		cpu = "",
 		clipboard = "Missing Icon",
 		headphones = "",
-		vpn = {
-			connected = "",
-			disconnected = "x",
-		},
+		vpn = "",
 
 		switch = {
 			on = "󱨥",

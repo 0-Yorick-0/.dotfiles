@@ -39,7 +39,6 @@ local headphones_bracket = sbar.add("bracket", "widgets.headphones.bracket", {
 		border_color = colors.grey,
 		border_width = 1,
 	},
-	popup = { align = "center" },
 })
 
 sbar.add("item", "widgets.headphones.padding", {
