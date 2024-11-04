@@ -9,6 +9,7 @@ local icons = {
 		cpu = "􀫥",
 		vpn = "",
 		clipboard = "􀉄",
+		headphones = "",
 
 		switch = {
 			on = "􁏮",
