@@ -2,8 +2,6 @@ local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
 
-local vpn = sbar.exec("scutil --nc list | grep Connected | sed -R 's/.*\"(.*)\".*/\\1/'")
-
 local vpn_icon = sbar.add("item", "widgets.vpn.icon", {
 	position = "right",
 	icon = {
@@ -49,7 +47,8 @@ sbar.add("item", "widgets.vpn.padding", {
 sbar.add("event", "vpn_change", "com.apple.networkConnect")
 
 vpn_label:subscribe("vpn_change", function()
-	sbar.exec("scutil --nc list | grep Connected | sed -R 's/.*\"(.*)\".*/\\1/'", function(result)
+	local regex = 's/.*"(.*)".*/\1/'
+	sbar.exec("scutil --nc list | grep Connected | sed -R " .. regex, function(result)
 		vpn_label:set({ label = result ~= "" and result or "None" })
 	end)
 end)
