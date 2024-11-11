@@ -105,11 +105,19 @@ return {
 						end
                         -- stylua: ignore
                         if client.name == "gopls" then
-                            map("n", "<leader>ly", "<cmd>GoModTidy<cr>", "Go Mod Tidy")
-                            map("n", "<leader>lc", "<cmd>GoCoverage<Cr>", "Go Test Coverage")
-                            map("n", "<leader>lt", "<cmd>GoTest<Cr>", "Go Test")
-                            map("n", "<leader>lR", "<cmd>GoRun<Cr>", "Go Run")
-                            map("n", "<leader>dT", "<cmd>lua require('dap-go').debug_test()<cr>", "Go Debug Test")
+                            local wk = require("which-key")
+                            wk.add({
+                                {"<leader>g", group = "Go"},
+                                { "<leader>gi","<cmd>GoCallers<CR>", desc = "[F]ind[R]eferences" },
+                                {"<leader>gim", "<cmd>GoImplements<CR>", desc= "go to [Im]plementations" },
+                                {"<leader>grl", "<cmd>GoModReload<CR>", desc= "[R]eload Modules" },
+                                {"<leader>gimp", "<cmd>GoImport<CR>", desc= "[Imp]ort module" },
+                                {"<leader>gx", "<cmd>GoDocBrowser<CR>", desc= "[Doc] in Browser" },
+                                {"<leader>grn", "<cmd>GoRename<CR>", desc= "[R]ename" },
+                                {"<leader>gt", "<cmd>GoTest<CR>", desc= "[T]est" },
+                                {"<leader>gtf", "<cmd>GoTestFunc<CR>", desc= "[T]est[F]unction" },
+                                {"<leader>gat", "<cmd>GoAddTest<CR>", desc= "[A]dd[T]est" },
+                            })
                         end
 					end)
 				end,

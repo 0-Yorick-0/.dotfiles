@@ -1,14 +1,21 @@
 return {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    config = function()
-        local wk = require "which-key"
-        wk.setup {
-            show_help = false,
-            plugins = { spelling = true },
-            key_labels = { ["<leader>"] = "SPC" },
-            triggers = "auto",
-        }
-        wk.register(require('plugins.whichkey.mapping'), { prefix = "<leader>" })
-    end,
+	"folke/which-key.nvim",
+	event = "VeryLazy",
+	opts = {
+		defaults = {},
+		---@type false | "classic" | "modern" | "helix"
+		preset = vim.g.which_key_preset or "helix", -- default is "classic"
+		-- your configuration comes here
+		-- or leave it empty to use the default settings
+		-- refer to the configuration section below
+	},
+	keys = {
+		{
+			"<leader>?",
+			function()
+				require("which-key").show({ global = false })
+			end,
+			desc = "Buffer Local Keymaps (which-key)",
+		},
+	},
 }

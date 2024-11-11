@@ -62,6 +62,37 @@ return {
 						["language_server_psalm.enabled"] = false,
 						["language_server_php_cs_fixer.enabled"] = false,
 					}
+					local lsp_utils = require("base.lsp.utils")
+					lsp_utils.on_attach(function(client, bufnr)
+						if client.name == "phpactor" then
+							local wk = require("which-key")
+							wk.add({
+
+								{ "<leader>p", group = "PHP" },
+								{ "<leader>pgd", "<cmd>PhpactorGotoDefinition<CR>", desc = "[G]oto[D]efinition" },
+								{
+									"<leader>pgdv",
+									"<cmd>PhpactorGotoDefinition vsplit<CR>",
+									desc = "[G]oto[D]efinition [v]split",
+								},
+								{ "<leader>pi", "<cmd>PhpactorImportClass<CR>", desc = "[I]mportClass" },
+								{ "<leader>pcf", "<cmd>PhpactorCopyFile<CR>", desc = "[C]opy[F]ile" },
+								{ "<leader>pcc", "<cmd>PhpactorCopyClassName<CR>", desc = "[C]opy[C]lassName" },
+								-- find usages in quifix list
+								{ "<leader>pfr", "<cmd>PhpactorFindReferences<CR>", desc = "[F]ind[R]eferences" },
+								-- jump to parent class
+								{ "<leader>pnv", "<cmd>PhpactorNavigate<CR>", desc = "[N]a[v]igate" },
+								{
+									"<leader>pim",
+									"<cmd>PhpactorGotoImplementations<CR>",
+									desc = "Go to [Im]plementations",
+								},
+								-- open context menu
+								{ "<leader>pcm", "<cmd>PhpactorContextMenu<CR>", desc = "Open [C]ontext[M]enu" },
+								{ "<leader>ptr", "<cmd>PhpactorTransform<CR>", desc = "Open [Tr]ansform" },
+							})
+						end
+					end)
 				end,
 			},
 		},

@@ -128,7 +128,8 @@ return {
 		vim.keymap.set(
 			"n",
 			"<Leader>fn",
-			"<CMD>lua require('telescope').extensions.notify.notify()<CR>",
+			-- "<CMD>lua require('telescope').extensions.notify.notify()<CR>",
+			"<CMD>lua Snacks.notifier.show_history()<CR>",
 			{ silent = true }
 		)
 	end,

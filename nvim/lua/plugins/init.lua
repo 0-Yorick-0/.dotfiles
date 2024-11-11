@@ -17,17 +17,6 @@ return {
 		config = true,
 	},
 	{
-		"rcarriga/nvim-notify",
-		event = "VeryLazy",
-		enabled = true,
-		config = function()
-			require("notify").setup({
-				background_colour = "#000000",
-				default = true,
-			})
-		end,
-	},
-	{
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
 		config = true,
