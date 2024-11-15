@@ -10,7 +10,6 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope-symbols.nvim",
-		"ThePrimeagen/harpoon",
 		"ThePrimeagen/git-worktree.nvim",
 		"sharkdp/fd",
 	},
@@ -72,7 +71,6 @@ return {
 		})
 		-- telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
-		telescope.load_extension("harpoon")
 		telescope.load_extension("git_worktree")
 		telescope.load_extension("live_grep_args")
 
@@ -112,7 +110,6 @@ return {
 		-- vim.keymap.set("n", "<leader>fs", builtin.treesitter, { desc = "[F]ind [S]ymbols" })
 		vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "[G]oto [R]eferences" })
 		vim.keymap.set("n", "<leader>fS", require("telescope.builtin").git_status, { desc = "" })
-		vim.keymap.set("n", "<leader>fm", ":Telescope harpoon marks<CR>", { desc = "Harpoon [M]arks" })
 		vim.keymap.set(
 			"n",
 			"<Leader>fr",

@@ -1,67 +1,66 @@
+local map = vim.keymap.set
 vim.g.mapleader = " "
 
 -- BUFFERS--
-vim.keymap.set("n", "<leader>bd", ":bd<cr>")
+map("n", "<leader>bd", ":bd<cr>")
 -- close buffer without closing window
-vim.keymap.set("n", "<leader>q", ":Bdelete<CR>")
+map("n", "<leader>q", ":Bdelete<CR>")
 -- close all buffers
-vim.keymap.set("n", "<leader>qa!", ":bufdo :Bdelete<CR>")
+map("n", "<leader>qa!", ":bufdo :Bdelete<CR>")
 -- close all hidden buffers
-vim.keymap.set("n", "<leader>Q", ":Survivor<CR>")
+map("n", "<leader>Q", ":Survivor<CR>", { desc = "close all hidden buffers" })
 -- force alternate file
-vim.keymap.set("n", "<C-^>", ":e #<CR>")
+map("n", "<C-^>", ":e #<CR>", { desc = "force alternate file" })
 
 -- open a tab with a note file
-vim.keymap.set("n", "<leader>n", ":tab drop tmp/notes.md<CR>")
+map("n", "<leader>n", ":tab drop tmp/notes.md<CR>", { desc = "open [n]otes file" })
 
 -- LINES --
 -- move up or down selected lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '>-2<CR>gv=gv")
 
--- takes the line below and append to the current
-vim.keymap.set("n", "J", "mzJ`z")
 -- keep cursor in middle of viewport while navigating
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 -- keep cursor in middle of viewport while in search result navigating
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
 
 -- line highlighting
 vim.api.nvim_set_hl(0, "LineHighLight", { bg = "#83a598", fg = "#3c3836" })
-vim.keymap.set("n", "<leader>ll", function()
+map("n", "<leader>ll", function()
 	vim.fn.call("matchadd", { "LineHighLight", "\\%" .. vim.fn.line(".") .. "l" })
 end, { silent = true }, { desc = "high[l]ight current [l]ine" })
-vim.keymap.set("n", "<leader>c", function()
+map("n", "<leader>c", function()
 	vim.fn.call("clearmatches", {})
 end, { desc = "[C]lear all highlights" })
 
-vim.keymap.set("n", "<leader>h", ":noh<CR>")
+map("n", "<leader>h", ":noh<CR>")
 
 -- keep the current paste buffer on copy
-vim.keymap.set("x", "<leader>p", '"_dp')
-vim.keymap.set("x", "<leader>p", '"_dp')
+map("x", "<leader>p", '"_dp')
+map("x", "<leader>p", '"_dp')
 -- same for deleting
-vim.keymap.set("n", "<leader>d", '"_d')
-vim.keymap.set("v", "<leader>d", '"_d')
+map("n", "<leader>d", '"_d')
+map("v", "<leader>d", '"_d')
 
 -- separating paste buffer
-vim.keymap.set("n", "<leader>y", '"+y')
-vim.keymap.set("v", "<leader>y", '"+y')
+map("n", "<leader>y", '"+y')
+map("v", "<leader>y", '"+y')
 -- copy on main paste buffer
-vim.keymap.set("n", "<leader>Y", '"+Y')
+map("n", "<leader>Y", '"+Y')
 
 -- tools for quickfix list
-vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>l", "<cmd>lprev>zz")
+map("n", "<C-n>", "<cmd>cnext<CR>zz", { desc = "next element in quickfix list" })
+map("n", "<C-p>", "<cmd>cprev<CR>zz", { desc = "previous element in quickfix list" })
+map("n", "<leader>qk", "<cmd>lnext<CR>zz", { desc = "next quickfix" })
+map("n", "<leader>ql", "<cmd>lprev>zz", { desc = "previous quickfix" })
 
 -- open a regex to replace current word
-vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { desc = "replace thi[s] word" })
 -- make current file executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "make e[x]ecutable", silent = true })
 
 -- format file with current language good practices
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+map("n", "<leader>f", vim.lsp.buf.format)

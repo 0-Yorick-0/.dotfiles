@@ -1,14 +1,5 @@
 -- Database
 return {
-	{
-		"folke/which-key.nvim",
-		optional = true,
-		opts = {
-			spec = {
-				{ "<leader>fh", group = "harpoon" },
-			},
-		},
-	},
 	"tpope/vim-dadbod",
 	dependencies = {
 		"kristijanhusak/vim-dadbod-ui",

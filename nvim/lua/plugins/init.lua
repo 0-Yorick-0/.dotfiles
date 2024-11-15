@@ -5,12 +5,14 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		opts = { default = true },
 	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
 	{ "nacro90/numb.nvim", event = "BufReadPre", config = true },
-	-- {
-	--     "lukas-reineke/indent-blankline.nvim",
-	--     event = "BufReadPre",
-	--     config = true,
-	-- },
 	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",

@@ -8,6 +8,16 @@ return {
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
+		spec = {
+			{
+				mode = { "n", "v" },
+				{ "<leader>b", group = "Buffers" },
+				{ "<leader>q", group = "Quickfix" },
+				{ "<leader>g", group = "Git" },
+				{ "<leader>f", group = "Telescope" },
+				{ "<leader>u", group = "UI" },
+			},
+		},
 	},
 	keys = {
 		{

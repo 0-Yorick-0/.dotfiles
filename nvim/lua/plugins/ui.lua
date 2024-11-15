@@ -30,15 +30,4 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 	},
-	{
-		"HampusHauffman/block.nvim",
-		config = function()
-			require("block").setup({
-				colors = {
-					" #252525 ",
-				},
-			})
-			vim.keymap.set("n", "<leader>b", ":Block<cr>")
-		end,
-	},
 }

@@ -193,6 +193,32 @@ return {
 		end,
 	},
 	{
+		"echasnovski/mini.hipatterns",
+		event = "BufReadPre",
+		opts = function()
+			local hi = require("mini.hipatterns")
+			return {
+				highlighters = {
+					hex_color = hi.gen_highlighter.hex_color({ priority = 2000 }),
+				},
+			}
+		end,
+	},
+	-- inlay hints
+	{
+		"simrat39/inlay-hints.nvim",
+		config = function()
+			require("inlay-hints").setup({
+				only_current_line = false,
+				eol = {
+					right_align = false,
+				},
+			})
+		end,
+	},
+	-- test plugins are here because they depend on completion
+	-- which is loaded before them
+	{
 		"vim-test/vim-test",
 		opts = {
 			setup = {},
@@ -218,63 +244,7 @@ return {
 			"vim-test/vim-test",
 			"stevearc/overseer.nvim",
 		},
-		keys = {
-			{
-				"<leader>td",
-				"<cmd>w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>",
-				desc = "Debug File",
-			},
-			{
-				"<leader>tL",
-				"<cmd>w|lua require('neotest').run.run_last({strategy = 'dap'})<cr>",
-				desc = "Debug Last",
-			},
-			{
-				"<leader>ta",
-				"<cmd>w|lua require('neotest').run.attach()<cr>",
-				desc = "Attach",
-			},
-			{
-				"<leader>tf",
-				"<cmd>w|lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
-				desc = "File",
-			},
-			{
-				"<leader>tF",
-				"<cmd>w|lua require('neotest').run.run(vim.loop.cwd())<cr>",
-				desc = "All Files",
-			},
-			{
-				"<leader>tl",
-				"<cmd>w|lua require('neotest').run.run_last()<cr>",
-				desc = "Last",
-			},
-			{
-				"<leader>tn",
-				"<cmd>w|lua require('neotest').run.run()<cr>",
-				desc = "Nearest",
-			},
-			{
-				"<leader>tN",
-				"<cmd>w|lua require('neotest').run.run({strategy = 'dap'})<cr>",
-				desc = "Debug Nearest",
-			},
-			{
-				"<leader>to",
-				"<cmd>w|lua require('neotest').output.open({ enter = true })<cr>",
-				desc = "Output",
-			},
-			{
-				"<leader>ts",
-				"<cmd>w|lua require('neotest').run.stop()<cr>",
-				desc = "Stop",
-			},
-			{
-				"<leader>tS",
-				"<cmd>w|lua require('neotest').summary.toggle()<cr>",
-				desc = "Summary",
-			},
-		},
+
 		opts = function()
 			return {
 				adapters = {
@@ -305,48 +275,66 @@ return {
 					end,
 				},
 			}, neotest_ns)
-			require("neotest").setup(opts)
-		end,
-	},
-	{
-		"stevearc/overseer.nvim",
-		keys = {
-			{ "<leader>ttR", "<cmd>OverseerRunCmd<cr>", desc = "Run Command" },
-			{ "<leader>tta", "<cmd>OverseerTaskAction<cr>", desc = "Task Action" },
-			{ "<leader>ttb", "<cmd>OverseerBuild<cr>", desc = "Build" },
-			{ "<leader>ttc", "<cmd>OverseerClose<cr>", desc = "Close" },
-			{ "<leader>ttd", "<cmd>OverseerDeleteBundle<cr>", desc = "Delete Bundle" },
-			{ "<leader>ttl", "<cmd>OverseerLoadBundle<cr>", desc = "Load Bundle" },
-			{ "<leader>tto", "<cmd>OverseerOpen<cr>", desc = "Open" },
-			{ "<leader>ttq", "<cmd>OverseerQuickAction<cr>", desc = "Quick Action" },
-			{ "<leader>ttr", "<cmd>OverseerRun<cr>", desc = "Run" },
-			{ "<leader>tts", "<cmd>OverseerSaveBundle<cr>", desc = "Save Bundle" },
-			{ "<leader>ttt", "<cmd>OverseerToggle<cr>", desc = "Toggle" },
-		},
-		opts = {},
-	},
-	{
-		"echasnovski/mini.hipatterns",
-		event = "BufReadPre",
-		opts = function()
-			local hi = require("mini.hipatterns")
-			return {
-				highlighters = {
-					hex_color = hi.gen_highlighter.hex_color({ priority = 2000 }),
+			local wk = require("which-key")
+			wk.add({
+				{ "<leader>t", group = "Tests" },
+				{
+					"<leader>td",
+					"<cmd>w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>",
+					desc = "Debug File",
 				},
-			}
-		end,
-	},
-	-- inlay hints
-	{
-		"simrat39/inlay-hints.nvim",
-		config = function()
-			require("inlay-hints").setup({
-				only_current_line = false,
-				eol = {
-					right_align = false,
+				{
+					"<leader>tL",
+					"<cmd>w|lua require('neotest').run.run_last({strategy = 'dap'})<cr>",
+					desc = "Debug Last",
+				},
+				{
+					"<leader>ta",
+					"<cmd>w|lua require('neotest').run.attach()<cr>",
+					desc = "Attach",
+				},
+				{
+					"<leader>tf",
+					"<cmd>w|lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
+					desc = "File",
+				},
+				{
+					"<leader>tF",
+					"<cmd>w|lua require('neotest').run.run(vim.loop.cwd())<cr>",
+					desc = "All Files",
+				},
+				{
+					"<leader>tl",
+					"<cmd>w|lua require('neotest').run.run_last()<cr>",
+					desc = "Last",
+				},
+				{
+					"<leader>tn",
+					"<cmd>w|lua require('neotest').run.run()<cr>",
+					desc = "Nearest",
+				},
+				{
+					"<leader>tN",
+					"<cmd>w|lua require('neotest').run.run({strategy = 'dap'})<cr>",
+					desc = "Debug Nearest",
+				},
+				{
+					"<leader>to",
+					"<cmd>w|lua require('neotest').output.open({ enter = true })<cr>",
+					desc = "Output",
+				},
+				{
+					"<leader>ts",
+					"<cmd>w|lua require('neotest').run.stop()<cr>",
+					desc = "Stop",
+				},
+				{
+					"<leader>tS",
+					"<cmd>w|lua require('neotest').summary.toggle()<cr>",
+					desc = "Summary",
 				},
 			})
+			require("neotest").setup(opts)
 		end,
 	},
 }
