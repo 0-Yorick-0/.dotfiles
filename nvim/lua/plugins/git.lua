@@ -13,5 +13,25 @@ return {
 			vim.keymap.set("n", "<leader>gb", "<Cmd>GitBlameToggle<CR>")
 		end,
 	},
-	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
+	{
+		"sindrets/diffview.nvim",
+		cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+		keys = {
+			{ "<leader>gdo", "<Cmd>DiffviewOpen<Cr>", desc = "[G]it [D]iffview[O]pen" },
+			{ "<leader>gdc", "<Cmd>DiffviewClose<Cr>", desc = "[G]it [D]iffview[C]lose" },
+			{ "<leader>gdt", "<Cmd>DiffviewToggleFiles<Cr>", desc = "[G]it [D]iffview[T]oggleFiles" },
+			{ "<leader>gdf", "<Cmd>DiffviewFocusFiles<Cr>", desc = "[G]it [D]iffview[F]ocusFiles" },
+			{ "<leader>gdh", "<Cmd>DiffviewFileHistory<Cr>", desc = "[G]it [D]iffviewFile[H]istory" },
+		},
+	},
+	{
+		"TimUntersberger/neogit",
+		cmd = "Neogit",
+		opts = {
+			integrations = { diffview = true },
+		},
+		keys = {
+			{ "<leader>gs", "<cmd>Neogit kind=floating<cr>", desc = "[S]tatus" },
+		},
+	},
 }

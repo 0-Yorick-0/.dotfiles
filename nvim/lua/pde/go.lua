@@ -107,16 +107,17 @@ return {
                         if client.name == "gopls" then
                             local wk = require("which-key")
                             wk.add({
-                                {"<leader>g", group = "Go"},
-                                { "<leader>gi","<cmd>GoCallers<CR>", desc = "[F]ind[R]eferences" },
-                                {"<leader>gim", "<cmd>GoImplements<CR>", desc= "go to [Im]plementations" },
-                                {"<leader>grl", "<cmd>GoModReload<CR>", desc= "[R]eload Modules" },
-                                {"<leader>gimp", "<cmd>GoImport<CR>", desc= "[Imp]ort module" },
-                                {"<leader>gx", "<cmd>GoDocBrowser<CR>", desc= "[Doc] in Browser" },
-                                {"<leader>grn", "<cmd>GoRename<CR>", desc= "[R]ename" },
-                                {"<leader>gt", "<cmd>GoTest<CR>", desc= "[T]est" },
-                                {"<leader>gtf", "<cmd>GoTestFunc<CR>", desc= "[T]est[F]unction" },
-                                {"<leader>gat", "<cmd>GoAddTest<CR>", desc= "[A]dd[T]est" },
+                                {"<leader>G", group = "Go"},
+                                { "<leader>Gi","<cmd>GoCallers<CR>", desc = "[F]ind[R]eferences" },
+                                { "<leader>Gd","<cmd>GoDef<CR>", desc = "go to [D]efintion" },
+                                {"<leader>Gim", "<cmd>GoImplements<CR>", desc= "go to [Im]plementations" },
+                                {"<leader>Grl", "<cmd>GoModReload<CR>", desc= "[R]eload Modules" },
+                                {"<leader>Gimp", "<cmd>GoImport<CR>", desc= "[Imp]ort module" },
+                                {"<leader>Gx", "<cmd>GoDocBrowser<CR>", desc= "[Doc] in Browser" },
+                                {"<leader>Grn", "<cmd>GoRename<CR>", desc= "[R]ename" },
+                                {"<leader>Gt", "<cmd>GoTest<CR>", desc= "[T]est" },
+                                {"<leader>Gtf", "<cmd>GoTestFunc<CR>", desc= "[T]est[F]unction" },
+                                {"<leader>Gat", "<cmd>GoAddTest<CR>", desc= "[A]dd[T]est" },
                             })
                         end
 					end)
