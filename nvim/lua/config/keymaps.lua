@@ -36,7 +36,7 @@ map("n", "<leader>c", function()
 	vim.fn.call("clearmatches", {})
 end, { desc = "[C]lear all highlights" })
 
-map("n", "<leader>h", ":noh<CR>")
+map("n", "<leader>h", ":noh<CR>", { desc = "clear [h]ighlight" })
 
 -- keep the current paste buffer on copy
 map("x", "<leader>p", '"_dp')
@@ -46,10 +46,10 @@ map("n", "<leader>d", '"_d')
 map("v", "<leader>d", '"_d')
 
 -- separating paste buffer
-map("n", "<leader>y", '"+y')
-map("v", "<leader>y", '"+y')
+map("n", "<leader>y", '"+y', { desc = "copy to clipboard" })
+map("v", "<leader>y", '"+y', { desc = "copy to clipboard" })
 -- copy on main paste buffer
-map("n", "<leader>Y", '"+Y')
+map("n", "<leader>Y", '"+Y', { desc = "copy to main paste buffer" })
 
 -- tools for quickfix list
 map("n", "<C-n>", "<cmd>cnext<CR>zz", { desc = "next element in quickfix list" })

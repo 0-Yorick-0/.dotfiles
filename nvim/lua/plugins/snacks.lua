@@ -4,6 +4,26 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
+		dashboard = {
+			preset = {
+				header = require("plugins.dashboard.logo")["random"],
+			},
+			sections = {
+				-- { section = "header" },
+				{
+					section = "terminal",
+					cmd = "chafa "
+						.. vim.fn.getenv("DOTFILES")
+						.. "/images/art.png --format symbols --symbols vhalf --size 60x20 --stretch; sleep .1",
+					height = 20,
+					padding = 1,
+				},
+				-- { section = "keys", gap = 1, padding = 1 },
+				{ pane = 2, icon = " ", title = "Recent Files", section = "recent_files" },
+				{ pane = 2, icon = " ", title = "Projects", section = "projects" },
+				{ section = "startup" },
+			},
+		},
 		bigfile = { enabled = true },
 		notifier = {
 			enabled = true,
