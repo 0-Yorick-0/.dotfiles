@@ -33,6 +33,7 @@ brew install stow
 brew install alacritty
 brew install borders
 brew install svim
+brew install chafa
 brew install --cask zen-browser
 
 # +-------+

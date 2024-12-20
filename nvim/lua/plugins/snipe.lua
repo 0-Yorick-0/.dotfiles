@@ -5,6 +5,7 @@ return {
 		{
 			-- D to delete buffer
 			-- V to split vertically
+			-- H to split horizontally
 			-- J for next page
 			-- K for previous page
 			"gb",

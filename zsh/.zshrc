@@ -13,6 +13,8 @@ fpath=($DOTFILES/zsh/plugins $fpath)
 # Get personnal config file
 sources=($DOTFILES/zsh/config/*.zsh)
 
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit; compinit
 # needed because the script is launched outside of a Terminal
 # so it doesn't has access to stuff in ~/.profile
 gdate=/opt/homebrew/bin/gdate
