@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Yorick Ferlin
+	email = yorick.ferlin@bedrockstreaming.com 
+[core]
+    excludesfile = /Users/yferlin/.gitignore_global
+[push]
+    default = current
