@@ -175,4 +175,7 @@ bindkey '^y' autosuggest-accept
 # FUCK
 eval $(thefuck --alias)
 
+# Starship
+eval "$(starship init zsh)"
+
 

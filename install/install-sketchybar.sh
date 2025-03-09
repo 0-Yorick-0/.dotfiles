@@ -23,3 +23,5 @@ fi
 
 ln -sF "$DOTFILES/sketchybar" "$XDG_CONFIG_HOME"
 chmod -R +x "$XDG_CONFIG_HOME/sketchybar"
+
+brew services start sketchybar

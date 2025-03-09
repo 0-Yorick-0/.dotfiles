@@ -52,3 +52,8 @@ see https://stackoverflow.com/questions/72039019/pcre2-h-no-such-file-or-directo
 #### Install PHP DAP
 * go to $VIMCONFIG/share/nvim/lazy/vs-code-php-debug
 * launch `npm install && npm run build`
+
+#### TMUX
+
+* /!\ DON'T FORGET TO INSTALL TPM PLUGINS
+* RUN TMUX AND PRESS `PREFIX + I` TO INSTALL PLUGINS

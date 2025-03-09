@@ -1,20 +1,32 @@
 #!/bin/sh
 
-if [ ! -d "$XDG_CONFIG_HOME/tmux" ]; then
-	mkdir "$XDG_CONFIG_HOME/tmux"
+brew install tmux
+brew install tmuxp
+# for copy-paste compatibility with tmux and alacritty
+brew install reattach-to-user-namespace
+
+if [ ! -d "$TMUX_CONFIG_DIR" ]; then
+	mkdir "$TMUX_CONFIG_DIR"
+fi
+ln -sf "$DOTFILES/tmux/tmux.conf" "$TMUX_CONFIG_DIR/tmux.conf"
+
+if [ ! -d "$TMUX_CONFIG_DIR/tmuxp" ]; then
+	echo "Creating config directory for tmuxp"
+	mkdir "$TMUX_CONFIG_DIR/tmuxp"
+else
+	echo "Well, tmuxp config directory already exists"
 fi
 
-if [ ! -d "$XDG_CONFIG_HOME/tmuxp" ]; then
-	mkdir "$XDG_CONFIG_HOME/tmuxp"
+ln -sf "$DOTFILES/tmux/start.yaml" "$TMUX_CONFIG_DIR/tmuxp/start.yaml"
+
+ln -sf "$DOTFILES/tmux/ssh-agent.sh" "$TMUX_CONFIG_DIR/ssh-agent.sh"
+chmod +x "$TMUX_CONFIG_DIR/ssh-agent.sh"
+
+if [ ! -d "$TMUX_CONFIG_DIR/plugins/tpm" ]; then
+	git clone https://github.com/tmux-plugins/tpm "$TMUX_CONFIG_DIR/plugins/tpm"
 fi
 
-ln -sf "$DOTFILES/tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
-ln -sf "$DOTFILES/tmux/ssh-agent.sh" "$XDG_CONFIG_HOME/tmux/ssh-agent.sh"
-chmod +x "$XDG_CONFIG_HOME/tmux/ssh-agent"
-ln -sf "$DOTFILES/tmuxp/start.yaml" "$XDG_CONFIG_HOME/tmuxp/start.yaml"
+tmux -f "$TMUX_CONFIG_DIR/tmux.conf"
 
-tmux -f "$DOTFILES/tmux/tmux.conf"
-
-if [ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ]; then
-	git clone https://github.com/tmux-plugins/tpm "$XDG_CONFIG_HOME/tmux/plugins/tpm"
-fi
+# /!\ DON'T FORGET TO INSTALL TPM PLUGINS
+# RUN TMUX AND PRESS `PREFIX + I` TO INSTALL PLUGINS

@@ -17,22 +17,14 @@ brew upgrade
 # useful Unix commands like gdate
 brew install coreutils
 
-# useful devtools
-brew install --cask devtoys
-
 # +-----------+
 # | Mac Stuff |
 # +-----------+
 # better app launcher
 brew install raycast
-# window manager
-# see https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
-brew install koekeishiya/formulae/yabai
-brew install koekeishiya/formulae/skhd
 brew install stow
 brew install alacritty
 brew install borders
-brew install svim
 brew install chafa
 brew install --cask zen-browser
 
@@ -41,9 +33,11 @@ brew install --cask zen-browser
 # +-------+
 brew install wget
 brew install jq
+# yq is like jq but for yaml
+# see https://github.com/mikefarah/yq
+brew install yq
 #use gawk instead of awk
 brew install gawk
-brew install tmux
 brew list python3 || brew install python3
 brew in fd
 brew install ripgrep
@@ -59,23 +53,13 @@ source <(kubectl completion zsh)
 brew install tree
 brew install kubectx
 brew install bash
-brew install luarocks
-# for copy-paste compatibility with tmux and alacritty
-brew install reattach-to-user-namespace
 brew install orbstack
 # testing framework for bash
 brew install bats-core
 brew install bat
-brew install starship
 brew install keychain
 brew install grep
 brew install ncdu
-brew install composer
-
-# +-----+
-# | ZSH |
-# +-----+
-brew install zsh-autosuggestions
 
 # +-------+
 # | FONTS |
@@ -100,14 +84,12 @@ go install golang.org/x/tools/cmd/goimports@latest
 #see https://github.com/google/yamlfmt
 go install github.com/google/yamlfmt/cmd/yamlfmt@latest
 brew install golangci-lint
-# +---------+
-# | NULL-LS |
-# +---------+
 
-brew install php-cs-fixer
-brew install prettier
-brew install stylua
-brew install gofumpt
+# +------+
+# | RUST |
+# +------+
+brew install rustup
+brew install cargo
 
 # +---------+
 # | Git-Sim |
@@ -121,18 +103,6 @@ brew install gofumpt
 #
 # # git-sim itself
 # pip3 install git-sim
-# +---------+
-# | Spotify |
-# +---------+
-
-# CLI client for the GUI of Spotify
-# see https://medium.com/@baruchphillips/using-spotify-in-cli-e7d946c27b3e to configure it
-brew install shpotify
-# Spotify light client
-brew install spotifyd
-# Spotify client for the terminal
-# see https://github.com/Rigellute/spotify-tui for install
-brew install spotify_player
 
 # Remove outdated versions from the cellar.
 brew cleanup

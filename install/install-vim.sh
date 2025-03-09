@@ -1,5 +1,14 @@
 #!/bin/sh
 
+brew install neovim
+
+brew install php-cs-fixer
+brew install composer
+brew install prettier
+brew install stylua
+brew install gofumpt
+brew install luarocks
+
 MY_NEOVIM=~/.config/my-neovim
 export MY_NEOVIM
 
@@ -30,3 +39,10 @@ if [[ ! -d "$XDG_CONFIG_HOME/my-neovim/share/nvim/mason/packages/phpactor" ]]; t
 	mkdir "XDG_CONFIG_HOME/my-neovim/share/nvim/mason/packages/phpactor"
 fi
 ln -sf "$DOTFILES/phpactor/phpactor.json" "$XDG_CONFIG_HOME/my-neovim/share/nvim/mason/packages/phpactor/phpactor.json"
+
+# yamlfmt config file
+if [ ! -d "$XDG_CONFIG_HOME/yamlfmt" ]; then
+	mkdir "$XDG_CONFIG_HOME/yamlfmt"
+fi
+
+ln -sf "$DOTFILES/language-server/.yamlfmt" "$XDG_CONFIG_HOME/yamlfmt/.yamlfmt"
