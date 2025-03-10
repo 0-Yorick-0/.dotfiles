@@ -42,7 +42,7 @@ end
 if [ -z "$TMUX" ]; then tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf; fi
 
 #loading ssh-key to keychain
-eval $(keychain --eval --quiet id_rsa ~/.ssh/id_rsa)
+eval $(keychain --eval --quiet id_rsa ~/.ssh/id_ed25519_perso)
 
 # +--------+
 # | PROMPT |

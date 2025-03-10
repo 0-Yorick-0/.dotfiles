@@ -36,7 +36,6 @@ return {
 			-- { "stephpy/vim-php-cs-fixer" },
 			-- snippets
 			"h4kst3r/php-awesome-snippets", -- vscode extension
-			"nalabdou/symfony-code-snippets", -- vscode extension
 			{ "gbprod/php-enhanced-treesitter.nvim" },
 			{ "squizlabs/PHP_CodeSniffer" },
 			{ "neovim/nvim-lspconfig" },

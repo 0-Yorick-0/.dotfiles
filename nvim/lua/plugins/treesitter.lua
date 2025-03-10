@@ -18,7 +18,6 @@ return {
 				"html",
 				"markdown",
 				"markdown_inline",
-				"org",
 				"query",
 				"regex",
 				"latex",

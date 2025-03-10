@@ -27,6 +27,8 @@ brew install alacritty
 brew install borders
 brew install chafa
 brew install --cask zen-browser
+# display hidden files
+defaults write com.apple.Finder AppleShowAllFiles true
 
 # +-------+
 # | Tools |

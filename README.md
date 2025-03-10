@@ -57,3 +57,10 @@ see https://stackoverflow.com/questions/72039019/pcre2-h-no-such-file-or-directo
 
 * /!\ DON'T FORGET TO INSTALL TPM PLUGINS
 * RUN TMUX AND PRESS `PREFIX + I` TO INSTALL PLUGINS
+
+#### SSH Troubleshooting
+
+* Host key verification failed.
+=> ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+* manage multiple accounts on one machine
+=> https://medium.com/@gperakis/how-to-manage-multiple-github-accounts-on-one-machine-4901bd4332df
