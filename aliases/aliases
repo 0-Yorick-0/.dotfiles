@@ -69,6 +69,7 @@ alias glol='git log --graph --oneline --decorate'
 alias gclean="git branch --merged | grep -v '\\*\\|master\\|main\\|develop' | xargs -n 1 git branch -d" # Delete local branches merged with master 
 alias gst="git stash"
 alias gsta="git stash apply"
+alias gsearch="git fetch -p; git --no-pager grep -P "$1" $(git rev-list --all)"
 
 # +------+
 # | tmux |  
@@ -76,7 +77,7 @@ alias gsta="git stash apply"
 
 alias tmuxl='tmux list-sessions'
 alias tmuxk='tmux kill-server'
-alias start='tmuxp load start -y'
+alias start='tmuxp load -y $TMUX_CONFIG_DIR/tmuxp/start.yaml' 
 
 # +-----+
 # | Mac |  

@@ -43,6 +43,7 @@ brew install gawk
 brew list python3 || brew install python3
 brew in fd
 brew install ripgrep
+brew install ssed
 brew install tldr
 brew install mkdocs
 # run github actions locally
@@ -56,6 +57,8 @@ brew install tree
 brew install kubectx
 brew install bash
 brew install orbstack
+brew install lazydocker
+brew install k9s
 # testing framework for bash
 brew install bats-core
 brew install bat
