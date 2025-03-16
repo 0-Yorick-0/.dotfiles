@@ -26,6 +26,7 @@ brew install stow
 brew install alacritty
 brew install borders
 brew install chafa
+brew install stats
 brew install --cask zen-browser
 # display hidden files
 defaults write com.apple.Finder AppleShowAllFiles true
