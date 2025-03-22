@@ -45,13 +45,19 @@ function M.setup(_, opts)
 	end)
 
 	lsp_init() -- diagnostics, handlers
-
 	local servers = opts.servers
 	local capabilities = lsp_utils.capabilities()
 
-	local function setup(server)
+	local function setup(server, server_config)
+		local server_capabilities
+		if server_config and server_config.capabilities then
+			server_capabilities = require("blink.cmp").get_lsp_capabilities(server_config.server_capabilities)
+		else
+			server_capabilities = require("blink.cmp").get_lsp_capabilities()
+		end
+
 		local server_opts = vim.tbl_deep_extend("force", {
-			capabilities = capabilities,
+			capabilities = server_capabilities,
 		}, servers[server] or {})
 
 		if opts.setup[server] then
@@ -79,7 +85,7 @@ function M.setup(_, opts)
 			server_opts = server_opts == true and {} or server_opts
 			-- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
 			if server_opts.mason == false or not vim.tbl_contains(all_mslp_servers, server) then
-				setup(server)
+				setup(server, server_opts)
 			else
 				ensure_installed[#ensure_installed + 1] = server
 			end
