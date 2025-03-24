@@ -1,22 +1,11 @@
 return {
 	"christoomey/vim-tmux-navigator",
 
-	-- a game to be better at Vim
-	"ThePrimeagen/vim-be-good",
-
 	-- Close buffer without closing window
 	"moll/vim-bbye",
 
 	-- easily surround words with quotes, parenthesis and so on
 	"tpope/vim-surround",
-
-	-- Make comments the easy way
-	-- {
-	--     "numToStr/Comment.nvim",
-	--     config = function()
-	--         require("Comment").setup()
-	--     end,
-	-- },
 
 	-- install without yarn or npm
 	{
