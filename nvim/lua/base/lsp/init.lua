@@ -16,6 +16,7 @@ return {
 			{ "echasnovski/mini.nvim", version = false },
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+			"saghen/blink.cmp",
 		},
 		opts = {
 			servers = {},

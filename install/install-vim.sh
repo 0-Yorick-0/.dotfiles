@@ -25,8 +25,10 @@ alias mnv='XDG_DATA_HOME=$MY_NEOVIM/share XDG_CACHE_HOME=$MY_NEOVIM XDG_CONFIG_H
 # creating spell dir & symlinks with dictionaries
 if [[ ! -d "$MY_NEOVIM/spell" ]]; then
 	mkdir "$MY_NEOVIM/spell"
+	mkdir "$MY_NEOVIM/dictionaries"
 fi
 ln -sF "$DOTFILES/nvim/spell" "$MY_NEOVIM"
+ln -sF "$DOTFILES/dictionaries" "$MY_NEOVIM"
 
 if [[ ! -d "$MY_NEOVIM/after" ]]; then
 	mkdir "$MY_NEOVIM/after"
