@@ -1,3 +1,5 @@
+local trigger_text = ";"
+
 return {
 	{
 		"kylechui/nvim-surround",
@@ -13,6 +15,7 @@ return {
 	},
 	{
 		"saghen/blink.cmp",
+		enabled = true,
 		-- optional: provides snippets for the snippet source
 		dependencies = {
 			"honza/vim-snippets",
@@ -29,6 +32,7 @@ return {
 			},
 			"moyiz/blink-emoji.nvim",
 			"Kaiser-Yang/blink-cmp-dictionary",
+			"onsails/lspkind.nvim",
 		},
 		version = "*",
 		---@module 'blink.cmp'
@@ -112,6 +116,59 @@ return {
 						min_keyword_length = 4,
 						score_offset = 15, -- the higher the number, the higher the priority
 					},
+					snippets = {
+						name = "snippets",
+						enabled = true,
+						max_items = 15,
+						min_keyword_length = 2,
+						module = "blink.cmp.sources.snippets",
+						score_offset = 85, -- the higher the number, the higher the priority
+						-- Only show snippets if I type the trigger_text characters, so
+						-- to expand the "bash" snippet, if the trigger_text is ";" I have to
+						should_show_items = function()
+							local col = vim.api.nvim_win_get_cursor(0)[2]
+							local before_cursor = vim.api.nvim_get_current_line():sub(1, col)
+							-- NOTE: remember that `trigger_text` is modified at the top of the file
+							return before_cursor:match(trigger_text .. "%w*$") ~= nil
+						end,
+						-- After accepting the completion, delete the trigger_text characters
+						-- from the final inserted text
+						-- Modified transform_items function based on suggestion by `synic` so
+						-- that the luasnip source is not reloaded after each transformation
+						-- https://github.com/linkarzu/dotfiles-latest/discussions/7#discussion-7849902
+						-- NOTE: I also tried to add the ";" prefix to all of the snippets loaded from
+						-- friendly-snippets in the luasnip.lua file, but I was unable to do
+						-- so, so I still have to use the transform_items here
+						-- This removes the ";" only for the friendly-snippets snippets
+						transform_items = function(_, items)
+							local line = vim.api.nvim_get_current_line()
+							local col = vim.api.nvim_win_get_cursor(0)[2]
+							local before_cursor = line:sub(1, col)
+							local start_pos, end_pos = before_cursor:find(trigger_text .. "[^" .. trigger_text .. "]*$")
+							if start_pos then
+								for _, item in ipairs(items) do
+									if not item.trigger_text_modified then
+										---@diagnostic disable-next-line: inject-field
+										item.trigger_text_modified = true
+										item.textEdit = {
+											newText = item.insertText or item.label,
+											range = {
+												start = { line = vim.fn.line(".") - 1, character = start_pos - 1 },
+												["end"] = { line = vim.fn.line(".") - 1, character = end_pos },
+											},
+										}
+									end
+								end
+							end
+							-- NOTE: After the transformation, I have to reload the luasnip source
+							-- Otherwise really crazy shit happens and I spent way too much time
+							-- figuring this out
+							vim.schedule(function()
+								require("blink.cmp").reload("snippets")
+							end)
+							return items
+						end,
+					},
 					dadbod = {
 						name = "Dadbod",
 						module = "vim_dadbod_completion.blink",
@@ -176,6 +233,64 @@ return {
 						min_keyword_length = 4,
 						score_offset = -100, -- the higher the number, the higher the priority
 						async = true,
+					},
+				},
+			},
+
+			cmdline = {
+				enabled = true,
+			},
+
+			completion = {
+				menu = {
+					border = "single",
+					draw = {
+						columns = {
+							{ "kind_icon" },
+							{ "kind" }, -- <- Useful for debugging highlights/completion types.
+							{ "label", "label_description", gap = 1 },
+							{ "source_name" }, -- <- Useful for debugging sources.
+						},
+						components = {
+							kind_icon = {
+								text = function(ctx)
+									local lspkind = require("lspkind")
+									local icon = ctx.kind_icon
+									if vim.tbl_contains({ "Path" }, ctx.source_name) then
+										local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+										if dev_icon then
+											icon = dev_icon
+										end
+									else
+										icon = require("lspkind").symbolic(ctx.kind, {
+											mode = "symbol",
+										})
+									end
+
+									return icon .. ctx.icon_gap
+								end,
+
+								-- Optionally, use the highlight groups from nvim-web-devicons
+								-- You can also add the same function for `kind.highlight` if you want to
+								-- keep the highlight groups in sync with the icons.
+								highlight = function(ctx)
+									local hl = ctx.kind_hl
+									if vim.tbl_contains({ "Path" }, ctx.source_name) then
+										local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+										if dev_icon then
+											hl = dev_hl
+										end
+									end
+									return hl
+								end,
+							},
+						},
+					},
+				},
+				documentation = {
+					auto_show = true,
+					window = {
+						border = "single",
 					},
 				},
 			},
