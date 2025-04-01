@@ -38,10 +38,11 @@ ln -sF "$DOTFILES/nvim/after" "$MY_NEOVIM"
 mkdir -p "$MY_NEOVIM/undo"
 
 # phpactor config file
-if [[ ! -d "$XDG_CONFIG_HOME/nvim-default/share/nvim/mason/packages/phpactor" ]]; then
-	mkdir "XDG_CONFIG_HOME/nvim-default/share/nvim/mason/packages/phpactor"
+if [[ ! -d "$MY_NEOVIM/share/nvim/mason/packages/phpactor" ]]; then
+	mkdir -p "$MY_NEOVIM/share/nvim/mason/packages/phpactor"
+
 fi
-ln -sf "$DOTFILES/phpactor/phpactor.json" "$XDG_CONFIG_HOME/nvim-default/share/nvim/mason/packages/phpactor/phpactor.json"
+ln -sf "$DOTFILES/phpactor/phpactor.json" "$MY_NEOVIM/share/nvim/mason/packages/phpactor/phpactor.json"
 
 # yamlfmt config file
 if [ ! -d "$XDG_CONFIG_HOME/yamlfmt" ]; then
