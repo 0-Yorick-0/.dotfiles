@@ -1,6 +1,6 @@
 # What is it ?
 
-My personnal config for my environment :
+My personnal config for my environment
 
 - zsh
 - tmux
@@ -13,57 +13,60 @@ Easy !
 
 `git clone --recurse-submodules git@gitlab.com:0-Yorick-0/dotfiles.git`
 
-Just go to your office, open your laptop, start your linux session and run `install.sh` to get all of your environment configured like home.
+Just go to your office, open your laptop, start your linux session and run
+`install.sh` to get all of your environment configured like home.
 
-## How to update an existent repo with submodule :
+## How to update an existent repo with submodule
 
 - `rm -rf <existent_sub_modules>`
 - `git submodule update --init`
 - `git submodule update --recursive`
 
-## Help :
+## Help
 
-### Plugins :
+### Plugins
 
-#### Mundo :
+#### Mundo
 
-Si erreur :`Plugin MundoToggle : Python not supported`
+Si erreur`Plugin MundoToggle Python not supported`
 --> run pip install pynvim'
 
-#### Devicons :
+#### Devicons
 
-Sur Mac :
+Sur Mac
 
 - `brew tap homebrew/cask-fonts`
 - `brew install --cask font-hack-nerd-font`
 - set la font du terminal sur `Hack Nerd Font`
 
-#### Install Fzf :
+#### Install Fzf
 
-Sur Mac :
+Sur Mac
 
 - `$(brew --prefix)/opt/fzf/install`
 - `mv ~/fzf.zsh $DOTFILES/zsh/config/3_fzf.zsh`
 
 #### Install apcu
 
-see https://stackoverflow.com/questions/72039019/pcre2-h-no-such-file-or-directory
+see [here](https://stackoverflow.com/questions/72039019/pcre2-h-no-such-file-or-directory)
 
 #### Install PHP DAP
-* go to $VIMCONFIG/share/nvim/lazy/vs-code-php-debug
-* launch `npm install && npm run build`
+
+- go to $VIMCONFIG/share/nvim/lazy/vs-code-php-debug
+- launch `npm install && npm run build`
 
 #### TMUX
 
-* /!\ DON'T FORGET TO INSTALL TPM PLUGINS
-* RUN TMUX AND PRESS `PREFIX + I` TO INSTALL PLUGINS
+- /!\ DON'T FORGET TO INSTALL TPM PLUGINS
+- RUN TMUX AND PRESS `PREFIX + I` TO INSTALL PLUGINS
 
 #### SSH Troubleshooting
 
-* Host key verification failed.
+- Host key verification failed.
 => ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-* manage multiple accounts on one machine
-=> https://medium.com/@gperakis/how-to-manage-multiple-github-accounts-on-one-machine-4901bd4332df
+- manage multiple accounts on one machine
+=> [here](https://medium.com/@gperakis/how-to-manage-multiple-github-accounts-on-one-machine-4901bd4332df)
 
 #### How to hide menu bar
-https://www.howtogeek.com/700398/how-to-automatically-hide-or-show-the-menu-bar-on-a-mac/
+
+[here](https://www.howtogeek.com/700398/how-to-automatically-hide-or-show-the-menu-bar-on-a-mac/)

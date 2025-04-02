@@ -19,6 +19,7 @@ return {
 			"saghen/blink.cmp",
 		},
 		opts = {
+			-- all servers are loaded in config.init, which is called in config.lazy.lua
 			servers = {},
 			setup = {},
 		},

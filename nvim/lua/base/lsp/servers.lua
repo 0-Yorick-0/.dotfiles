@@ -45,6 +45,8 @@ function M.setup(_, opts)
 	end)
 
 	lsp_init() -- diagnostics, handlers
+	-- all servers are already loaded in config.init, which is called in
+	-- config.lazy.lua
 	local servers = opts.servers
 	local capabilities = lsp_utils.capabilities()
 
