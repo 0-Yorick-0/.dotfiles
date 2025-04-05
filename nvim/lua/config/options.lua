@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.gofmt_command = "goimports"
 vim.g.go_doc_balloon = 1
 vim.g.go_doc_popup_window = 1
+vim.g.markdown_folding = 1
 
 -- enable true color support
 vim.o.termguicolors = true
