@@ -10,7 +10,6 @@ My personnal config for my environment
 ## How to use it ?
 
 Easy !
-
 `git clone --recurse-submodules git@gitlab.com:0-Yorick-0/dotfiles.git`
 
 Just go to your office, open your laptop, start your linux session and run
@@ -28,7 +27,7 @@ Just go to your office, open your laptop, start your linux session and run
 
 #### Mundo
 
-Si erreur`Plugin MundoToggle Python not supported`
+Si erreur `Plugin MundoToggle Python not supported`
 --> run pip install pynvim'
 
 #### Devicons

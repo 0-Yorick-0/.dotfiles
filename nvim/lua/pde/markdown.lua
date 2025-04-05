@@ -2,6 +2,7 @@ if not require("config").pde.markdown then
 	return {}
 end
 
+local render_markdown = "render-markdown"
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
