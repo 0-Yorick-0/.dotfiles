@@ -6,7 +6,7 @@ return {
 		config = function()
 			require("styler").setup({
 				themes = {
-					markdown = { colorscheme = "gruvbox" },
+					markdown = { colorscheme = "tokyonight" },
 					help = { colorscheme = "gruvbox" },
 				},
 			})
@@ -95,5 +95,14 @@ return {
 		config = function()
 			require("onedark").setup()
 		end,
+	},
+	{
+		"eldritch-theme/eldritch.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("onedark").setup()
+		end,
+		opts = {},
 	},
 }

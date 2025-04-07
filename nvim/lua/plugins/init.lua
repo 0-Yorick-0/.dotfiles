@@ -1,17 +1,19 @@
 return {
+	-- All the lua functions I don't want to write twice.
 	"nvim-lua/plenary.nvim",
-	"MunifTanjim/nui.nvim",
+	-- "MunifTanjim/nui.nvim",
 	{
 		"nvim-tree/nvim-web-devicons",
 		opts = { default = true },
 	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-	},
+	-- already given by snacks
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	main = "ibl",
+	-- 	---@module "ibl"
+	-- 	---@type ibl.config
+	-- 	opts = {},
+	-- },
 	{ "nacro90/numb.nvim", event = "BufReadPre", config = true },
 	{
 		"stevearc/dressing.nvim",
