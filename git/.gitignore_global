@@ -2,9 +2,16 @@ application.log
 .idea
 tags
 .phpactor.json
-/tmp
 vendor
 .air.toml
 /scratch
 kulala
+=======
+
+scratch
+#ignore all vim backup files
+*.*~
+
+
+tmp
 
