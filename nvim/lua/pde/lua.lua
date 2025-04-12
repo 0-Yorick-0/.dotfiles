@@ -24,14 +24,6 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			{
-				"folke/neodev.nvim",
-				opts = {
-					library = { plugins = { "neotest", "nvim-dap-ui" }, types = true },
-				},
-			},
-		},
 		opts = {
 			dap = {
 				-- needed for dap handler to be attached

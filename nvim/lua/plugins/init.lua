@@ -14,12 +14,9 @@ return {
 	-- 	---@type ibl.config
 	-- 	opts = {},
 	-- },
+	-- display lines simultaneously when typing :line_number
 	{ "nacro90/numb.nvim", event = "BufReadPre", config = true },
-	{
-		"stevearc/dressing.nvim",
-		event = "VeryLazy",
-		config = true,
-	},
+	-- upgrade of native increase/dicrease Vim number
 	{
 		"monaqa/dial.nvim",
 		event = "BufReadPre",
