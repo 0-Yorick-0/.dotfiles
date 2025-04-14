@@ -80,7 +80,6 @@ return {
 					"path",
 					"snippets",
 					"buffer",
-					"copilot",
 					"emoji",
 					"dictionary",
 					"markdown",

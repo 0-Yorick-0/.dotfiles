@@ -44,14 +44,4 @@ return {
 			{ "<leader>gdh", "<Cmd>DiffviewFileHistory<Cr>", desc = "[G]it [D]iffviewFile[H]istory" },
 		},
 	},
-	{
-		"TimUntersberger/neogit",
-		cmd = "Neogit",
-		opts = {
-			integrations = { diffview = true },
-		},
-		keys = {
-			{ "<leader>gs", "<cmd>Neogit kind=floating<cr>", desc = "[S]tatus" },
-		},
-	},
 }

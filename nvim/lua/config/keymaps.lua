@@ -14,7 +14,7 @@ map("n", "<leader>Q", ":Survivor<CR>", { desc = "close all hidden buffers" })
 map("n", "<C-^>", ":e #<CR>", { desc = "force alternate file" })
 
 -- open a tab with a note file
-map("n", "<leader>n", ":tab drop tmp/notes.md<CR>", { desc = "open [n]otes file" })
+map("n", "<leader>n", ":tab drop ~/tmp/notes.md<CR>", { desc = "open [n]otes file" })
 
 -- LINES --
 -- move up or down selected lines
