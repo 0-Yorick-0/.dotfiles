@@ -66,6 +66,7 @@ brew install bat
 brew install keychain
 brew install grep
 brew install ncdu
+brew install eza
 
 # +-------+
 # | FONTS |
