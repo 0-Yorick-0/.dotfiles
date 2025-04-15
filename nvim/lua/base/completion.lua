@@ -100,7 +100,7 @@ return {
 						name = "lsp",
 						enabled = true,
 						module = "blink.cmp.sources.lsp",
-						min_keyword_length = 2,
+						min_keyword_length = 0,
 						-- When linking markdown notes, I would get snippets and text in the
 						-- suggestions, I want those to show only if there are no LSP
 						-- suggestions
