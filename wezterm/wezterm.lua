@@ -15,16 +15,18 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 -- my coolnight colorscheme
+-- see https://www.hover.dev/css-color-palette-generator
+-- or https://tinter.hoolite.be/
 config.colors = {
-	foreground = "#CBE0F0",
-	background = "#011423",
-	cursor_bg = "#47FF9C",
-	cursor_border = "#47FF9C",
+	foreground = "#54B080",
+	background = "#050505",
+	cursor_bg = "#39B2CD",
+	cursor_border = "#62c2d7",
 	cursor_fg = "#011423",
-	selection_bg = "#033259",
+	selection_bg = "#2b91a8",
 	selection_fg = "#CBE0F0",
-	ansi = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#0FC5ED", "#a277ff", "#CBE0F0", "#CBE0F0" },
-	brights = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#A277FF", "#a277ff", "#24EAF7", "#24EAF7" },
+	ansi = { "#39B2CD", "#cd3939", "#39B2CD", "#b262d7", "#E6E6E6", "#9e39cd", "#E6E6E6", "#E6E6E6" },
+	brights = { "#858585", "#cd3939", "#39B2CD", "#b262d7", "#54B080", "#9e39cd", "#E6E6E6", "#E6E6E6" },
 }
 
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
@@ -33,7 +35,7 @@ config.font_size = 19
 config.enable_tab_bar = false
 
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.7
 
 config.macos_window_background_blur = 10
 

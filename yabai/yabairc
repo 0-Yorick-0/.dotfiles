@@ -1,3 +1,8 @@
+# In order to prevent simple-bar freezing upon yabai restart, you'll need to add
+# this line at the start of your .yabairc file
+# https://www.jeantinland.com/toolbox/simple-bar/documentation/installation/#update-your-yabai-config
+osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
+
 #make the binary space partitioning the default layout
 yabai -m config layout bsp
 

@@ -20,6 +20,10 @@ brew install coreutils
 # +-----------+
 # | Mac Stuff |
 # +-----------+
+
+# automatically hide the menu bar (bar on top)
+osascript -e 'tell application "System Events" to set autohide menu bar of dock preferences to true'
+
 # better app launcher
 brew install raycast
 brew install stow
