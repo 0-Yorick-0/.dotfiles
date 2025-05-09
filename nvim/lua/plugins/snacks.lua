@@ -1,3 +1,10 @@
+local quotes = {
+	"Il ne faut pas chercher à être le médecin des incurables.\n\t\t\t\t\t\t\tFriedrich Nietzsche",
+	"Il faut chercher à être fier de ses ennemis.\n\t\t\t\t\t\t\tFriedrich Nietzsche",
+	"Ce qui a un prix n'a guère de valeur.\n\t\t\t\t\t\t\tFriedrich Nietzsche",
+}
+-- needed, otherwise, math.random always return the same value
+math.randomseed(os.time())
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -6,18 +13,19 @@ return {
 	opts = {
 		dashboard = {
 			preset = {
-				header = require("plugins.dashboard.logo")["random"],
+				-- header = require("plugins.dashboard.logo")["random"],
+				header = quotes[math.random(#quotes)],
 			},
 			sections = {
-				-- { section = "header" },
-				{
-					section = "terminal",
-					cmd = "chafa "
-						.. vim.fn.getenv("DOTFILES")
-						.. "/images/art.png --format symbols --symbols vhalf --size 60x20 --stretch; sleep .1",
-					height = 20,
-					padding = 1,
-				},
+				{ section = "header" },
+				-- {
+				-- 	section = "terminal",
+				-- 	cmd = "chafa "
+				-- 		.. vim.fn.getenv("DOTFILES")
+				-- 		.. "/images/art.png --format symbols --symbols vhalf --size 60x20 --stretch; sleep .1",
+				-- 	height = 20,
+				-- 	padding = 1,
+				-- },
 				-- { section = "keys", gap = 1, padding = 1 },
 				{ pane = 2, icon = " ", title = "Recent Files", section = "recent_files" },
 				{ pane = 2, icon = " ", title = "Projects", section = "projects" },
