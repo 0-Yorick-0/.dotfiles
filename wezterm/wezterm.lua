@@ -25,8 +25,8 @@ config.colors = {
 	cursor_fg = "#011423",
 	selection_bg = "#2b676b",
 	selection_fg = "#CBE0F0",
-	ansi = { "#E6E6E6", "#2b676b", "#2b676b", "#B47808", "#E6E6E6", "#08B422", "#B49A81", "#E6E6E6" },
-	brights = { "#858585", "#973D19", "#2b676b", "#B47808", "#E6E6E6", "#08B422", "#089AB4", "#B49A81" },
+	ansi = { "#E6E6E6", "#cd3939", "#39B2CD", "#b262d7", "#E6E6E6", "#9e39cd", "#E6E6E6", "#E6E6E6" },
+	brights = { "#858585", "#cd3939", "#39B2CD", "#b262d7", "#54B080", "#9e39cd", "#E6E6E6", "#E6E6E6" },
 }
 
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
@@ -35,7 +35,7 @@ config.font_size = 19
 config.enable_tab_bar = false
 
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.7
+config.window_background_opacity = 0.8
 
 config.macos_window_background_blur = 10
 
