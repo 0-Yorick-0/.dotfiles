@@ -1,3 +1,7 @@
+/!\ Mason must be updated as soon as possible
+see <https://github.com/LazyVim/LazyVim/issues/6039#issuecomment-2856227817>
+see <https://github.com/mason-org/mason-lspconfig.nvim/releases/tag/v2.0.0>
+
 # What is it ?
 
 My personnal config for my environment

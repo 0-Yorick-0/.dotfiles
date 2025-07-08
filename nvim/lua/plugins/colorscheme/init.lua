@@ -6,7 +6,7 @@ return {
 		config = function()
 			require("styler").setup({
 				themes = {
-					markdown = { colorscheme = "tokyonight" },
+					markdown = { colorscheme = "neofusion" },
 					help = { colorscheme = "gruvbox" },
 				},
 			})
@@ -29,6 +29,7 @@ return {
 				"kanagawa",
 				"rose-pine",
 				"tokyonight",
+				-- "neofusion",
 				"onedark",
 			}
 

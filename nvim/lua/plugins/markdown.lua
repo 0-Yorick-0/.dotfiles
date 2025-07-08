@@ -93,8 +93,9 @@ return {
 				desc = "Markdown Preview",
 			},
 		},
-		build = function()
-			vim.fn["mkdp#util#install"]()
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
 		end,
+		ft = { "markdown" },
 	},
 }

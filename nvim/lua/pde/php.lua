@@ -24,13 +24,13 @@ return {
 			local nls = require("null-ls")
 			-- table.insert(opts.sources, nls.builtins.formatting.phpcs)
 			-- table.insert(opts.sources, nls.builtins.formatting.phpcbf)
-			table.insert(opts.sources, nls.builtins.formatting.phpcsfixer)
-			table.insert(
-				opts.sources,
-				nls.builtins.formatting.pretty_php.with({
-					extra_args = {},
-				})
-			)
+			-- table.insert(opts.sources, nls.builtins.formatting.phpcsfixer)
+			-- table.insert(
+			-- 	opts.sources,
+			-- 	nls.builtins.formatting.pretty_php.with({
+			-- 		extra_args = {},
+			-- 	})
+			-- )
 		end,
 	},
 	{

@@ -110,7 +110,7 @@ return {
                             local wk = require("which-key")
                             wk.add({
                                 {"<leader>G", group = "Go"},
-                                { "<leader>Gi","<cmd>GoCallers<CR>", desc = "[F]ind[R]eferences" },
+                                { "<leader>Gfr","<cmd>GoCallers<CR>", desc = "[F]ind[R]eferences" },
                                 { "<leader>Gd","<cmd>GoDef<CR>", desc = "go to [D]efintion" },
                                 {"<leader>Gim", "<cmd>GoImplements<CR>", desc= "go to [Im]plementations" },
                                 {"<leader>Grl", "<cmd>GoModReload<CR>", desc= "[R]eload Modules" },

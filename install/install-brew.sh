@@ -33,6 +33,7 @@ brew install chafa
 brew install stats
 brew install --cask zen-browser
 # display hidden files
+# and use cmd + shift + dot to display them in a window
 defaults write com.apple.Finder AppleShowAllFiles true
 
 # +-------+

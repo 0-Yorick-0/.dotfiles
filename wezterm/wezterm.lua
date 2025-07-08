@@ -25,8 +25,8 @@ config.colors = {
 	cursor_fg = "#011423",
 	selection_bg = "#2b676b",
 	selection_fg = "#CBE0F0",
-	ansi = { "#E6E6E6", "#cd3939", "#39B2CD", "#b262d7", "#E6E6E6", "#9e39cd", "#E6E6E6", "#E6E6E6" },
-	brights = { "#858585", "#cd3939", "#39B2CD", "#b262d7", "#54B080", "#9e39cd", "#E6E6E6", "#E6E6E6" },
+	ansi = { "#B43302", "#AF5563", "#FDD841", "#B47808", "#E6E6E6", "#08B422", "#E6E6E6", "#E6E6E6" },
+	brights = { "#858585", "#AF5563", "#FDD841", "#B47808", "#FDD841", "#08B422", "#089AB4", "#E6E6E6" },
 }
 
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
