@@ -1,6 +1,7 @@
 -- Git integration
 return {
 	{
+		-- use :LazyGitConfig on first time to create config file
 		"kdheepak/lazygit.nvim",
 		lazy = false,
 		cmd = {

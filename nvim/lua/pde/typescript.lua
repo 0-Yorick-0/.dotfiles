@@ -104,8 +104,7 @@ return {
 			setup = {
 				vscode_js_debug = function()
 					local function get_js_debug()
-						local install_path =
-							require("mason-registry").get_package("js-debug-adapter"):get_install_path()
+						local install_path = vim.fn.exepath("js-debug-adapter")
 						return install_path .. "/js-debug/src/dapDebugServer.js"
 					end
 

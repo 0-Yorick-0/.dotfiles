@@ -48,55 +48,69 @@ function M.setup(_, opts)
 	-- all servers are already loaded in config.init, which is called in
 	-- config.lazy.lua
 	local servers = opts.servers
+	-- LSP servers and clients communicate which features they support through
+	-- "capabilities".
 	local capabilities = lsp_utils.capabilities()
-
-	local function setup(server, server_config)
-		local server_capabilities
-		if server_config and server_config.capabilities then
-			server_capabilities = require("blink.cmp").get_lsp_capabilities(server_config.server_capabilities)
-		else
-			server_capabilities = require("blink.cmp").get_lsp_capabilities()
-		end
-
-		local server_opts = vim.tbl_deep_extend("force", {
-			capabilities = server_capabilities,
-		}, servers[server] or {})
-
-		if opts.setup[server] then
-			if opts.setup[server](server, server_opts) then
-				return
-			end
-		elseif opts.setup["*"] then
-			if opts.setup["*"](server, server_opts) then
-				return
-			end
-		end
-		require("lspconfig")[server].setup(server_opts)
-	end
 
 	-- get all the servers that are available through mason-lspconfig
 	local have_mason, mlsp = pcall(require, "mason-lspconfig")
-	local all_mslp_servers = {}
+	local all_mslsp_servers = {}
 	if have_mason then
-		all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+		all_mslsp_servers = vim.tbl_keys(require("mason-lspconfig.mappings").get_mason_map().lspconfig_to_package)
 	end
 
-	local ensure_installed = {} ---@type string[]
+	local mason_exclude = {} ---@type string[]
 	for server, server_opts in pairs(servers) do
 		if server_opts then
 			server_opts = server_opts == true and {} or server_opts
-			-- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-			if server_opts.mason == false or not vim.tbl_contains(all_mslp_servers, server) then
-				setup(server, server_opts)
+			-- run manual setup if mason=false or if this is a server that cannot
+			-- be installed with mason-lspconfig
+			if server_opts.mason == false or not vim.tbl_contains(all_mslsp_servers, server) then
+				vim.lsp.config(server, server_opts)
+				vim.lsp.enable(server)
 			else
-				ensure_installed[#ensure_installed + 1] = server
+				M.setupServer(servers, server, server_opts, opts)
+				-- Whether installed servers should automatically be
+				-- enabled via vim.lsp.enable()
+				mason_exclude[#mason_exclude + 1] = server
 			end
 		end
 	end
+	---@type boolean | string[] | { exclude: string[] }
+	mlsp.setup({ exclude = mason_exclude })
+end
 
-	if have_mason then
-		mlsp.setup({ ensure_installed = ensure_installed })
-		mlsp.setup_handlers({ setup })
+-- e.g. in ~/.dotfiles/nvim/lua/pde/go.lua
+-- opts = {
+--  ....
+--     servers = { <- servers
+--         gopls = { <- current_server
+--             settings = { <- server_config
+--     setup = {
+--         gopls = function(_,_)
+function M.setupServer(servers, current_server, server_config, opts)
+	local server_capabilities
+	-- opts[current_server].capabilities, if defined
+	-- if server_config and server_config.capabilities then
+	-- 	server_capabilities = require("blink.cmp").get_lsp_capabilities(server_config.server_capabilities)
+	-- else
+	-- 	server_capabilities = require("blink.cmp").get_lsp_capabilities()
+	-- end
+	-- -- With blink.cmp, Neovim has more capabilities which are communicated
+	-- -- to the LSP servers.
+	-- local server_opts = vim.tbl_deep_extend("force", {
+	-- 	capabilities = server_capabilities,
+	-- }, servers[current_server] or {})
+
+	if opts.setup[current_server] then
+		if opts.setup[current_server](current_server, server_opts) then
+			return
+		end
+		--Specify * to use this function as a fallback for any server
+	elseif opts.setup["*"] then
+		if opts.setup["*"](current_server, server_opts) then
+			return
+		end
 	end
 end
 

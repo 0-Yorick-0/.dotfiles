@@ -15,7 +15,7 @@ return {
 			{ "j-hui/fidget.nvim", config = true },
 			{ "echasnovski/mini.nvim", version = false },
 			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+			"mason-org/mason-lspconfig.nvim",
 			"saghen/blink.cmp",
 		},
 		opts = {
@@ -53,6 +53,14 @@ return {
 				ensure_installed()
 			end
 		end,
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		opts = {},
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
 	},
 	{
 		"nvimtools/none-ls.nvim",

@@ -21,7 +21,8 @@ return {
 			"honza/vim-snippets",
 			{ "L3MON4D3/LuaSnip", version = "v2.*" },
 			{
-				-- load snippets. See https://github.com/honza/vim-snippets/blob/master/snippets/php.snippets
+				-- load snippets.
+				-- See https://github.com/honza/vim-snippets/blob/master/snippets/php.snippets
 				-- for list of snippets shortcuts
 				"rafamadriz/friendly-snippets",
 				config = function()
