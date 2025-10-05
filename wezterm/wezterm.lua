@@ -18,15 +18,15 @@ local config = wezterm.config_builder()
 -- see https://www.hover.dev/css-color-palette-generator
 -- or https://tinter.hoolite.be/
 config.colors = {
-	foreground = "#E6E6E6",
+	foreground = "#B49A81",
 	background = "#050505",
-	cursor_bg = "#B62309",
-	cursor_border = "#FDD841",
+	cursor_bg = "#2b676b",
+	cursor_border = "#973D19",
 	cursor_fg = "#011423",
-	selection_bg = "#B43302",
+	selection_bg = "#2b676b",
 	selection_fg = "#CBE0F0",
-	ansi = { "#B43302", "#AF5563", "#FDD841", "#B47808", "#E6E6E6", "#08B422", "#E6E6E6", "#E6E6E6" },
-	brights = { "#858585", "#AF5563", "#FDD841", "#B47808", "#FDD841", "#08B422", "#089AB4", "#E6E6E6" },
+	ansi = { "#2b676b", "#2b676b", "#2b676b", "#B47808", "#E6E6E6", "#08B422", "#B49A81", "#E6E6E6" },
+	brights = { "#858585", "#973D19", "#2b676b", "#B47808", "#E6E6E6", "#08B422", "#089AB4", "#B49A81" },
 }
 
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })

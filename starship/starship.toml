@@ -1,11 +1,11 @@
 format = """
 [  ](bg:#E6E6E6 fg:#090c0c)\
-[](bg:#B62309 fg:#E6E6E6)\
+[](bg:#973D19 fg:#E6E6E6)\
 $directory\
-[](fg:#B62309 bg:#394260)\
+[](fg:#973D19 bg:#394260)\
 $git_branch\
 $git_status\
-[](fg:#394260 bg:#212736)\
+[](fg:#2b676b bg:#212736)\
 $nodejs\
 $rust\
 $golang\
@@ -19,7 +19,7 @@ $helm\
 command_timeout=1000
 
 [directory]
-style = "fg:#e3e5e5 bg:#B62309"
+style = "fg:#e3e5e5 bg:#973D19"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -33,44 +33,44 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#B62309 bg:#394260)]($style)'
+format = '[[ $symbol $branch ](fg:#973D19 bg:#2b676b)]($style)'
 
 [git_status]
 style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#B62309 bg:#394260)]($style)'
+format = '[[($all_status$ahead_behind )](fg:#973D19 bg:#2b676b)]($style)'
 
 [nodejs]
 symbol = ""
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#B62309 bg:#212736)]($style)'
+format = '[[ $symbol ($version) ](fg:#973D19 bg:#212736)]($style)'
 
 [rust]
 symbol = ""
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#B62309 bg:#212736)]($style)'
+format = '[[ $symbol ($version) ](fg:#973D19 bg:#212736)]($style)'
 
 [golang]
 symbol = ""
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#B62309 bg:#212736)]($style)'
+format = '[[ $symbol ($version) ](fg:#973D19 bg:#212736)]($style)'
 
 [php]
 symbol = ""
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#B62309 bg:#212736)]($style)'
+format = '[[ $symbol ($version) ](fg:#973D19 bg:#212736)]($style)'
 
 [helm]
 symbol = '⎈ '
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#B62309 bg:#212736)]($style)'
+format = '[[ $symbol ($version) ](fg:#973D19 bg:#212736)]($style)'
 
 [terraform]
 symbol = "💠"
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#B62309 bg:#212736)]($style)'
+format = '[[ $symbol ($version) ](fg:#973D19 bg:#212736)]($style)'
 
 [docker_context]
 symbol = "🐳 "
 style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#B62309 bg:#212736)]($style)'
+format = '[[ $symbol ($version) ](fg:#973D19 bg:#212736)]($style)'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
