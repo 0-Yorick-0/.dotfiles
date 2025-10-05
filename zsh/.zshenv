@@ -3,7 +3,7 @@
 # EXPORT ENV VARIABLES #
 ########################
 
-export TERM='screen'
+# export TERM='screen-256color:RGB'
 export DOTFILES="$HOME/.dotfiles"
 
 # check machine
