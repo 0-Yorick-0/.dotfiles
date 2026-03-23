@@ -12,7 +12,10 @@ return {
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, { "php-cs-fixer", "phpcbf", "phpcs", "phpmd", "phpstan" })
+			vim.list_extend(
+				opts.ensure_installed,
+				{ "phpactor", "php-cs-fixer", "phpcbf", "phpcs", "phpmd", "phpstan", "pretty-php" }
+			)
 		end,
 	},
 	{

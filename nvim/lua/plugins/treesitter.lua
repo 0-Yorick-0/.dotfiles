@@ -110,4 +110,5 @@ return {
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
+	{ "ngynkvn/gotmpl.nvim", opts = {} },
 }

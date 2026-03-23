@@ -17,7 +17,7 @@ rm -rf "$MY_NEOVIM"
 mkdir -p "$MY_NEOVIM"/share
 mkdir -p "$MY_NEOVIM"/nvim
 
-# create symlinks between .dotfiles.nvim and ~/.config/nvim thanks to stow
+# create symlinks between .dotfiles/nvim and ~/.config/nvim thanks to stow
 stow --restow --target="$MY_NEOVIM"/nvim nvim
 
 alias mnv='XDG_DATA_HOME=$MY_NEOVIM/share XDG_CACHE_HOME=$MY_NEOVIM XDG_CONFIG_HOME=$MY_NEOVIM nvim'

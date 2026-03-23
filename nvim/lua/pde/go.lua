@@ -23,6 +23,8 @@ return {
 				"gomodifytags",
 				"iferr",
 				"gotestsum",
+				-- if necessary, install gopls manually with  go install -v golang.org/x/tools/gopls@latest
+				"gopls",
 			})
 		end,
 	},

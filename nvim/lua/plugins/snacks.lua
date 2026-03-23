@@ -3,7 +3,7 @@ local quotes = {
 	"Il faut chercher à être fier de ses ennemis.\n\t\t\t\t\t\t\tFriedrich Nietzsche",
 	"Ce qui a un prix n'a guère de valeur.\n\t\t\t\t\t\t\tFriedrich Nietzsche",
 	"Les hommes en général jugent plus par les yeux que par les main\n\t\t\t\t\t\t\tMachiavel",
-	"Il y a si loin de la façon dont on vie à celle dont on devrait vivre, \nque celui qui laisse ce qui se fait pour ce qui se devrait faire \napprend plutôt à se détruire qu'à se préserver\n\t\t\t\t\t\t\tMachiavel",
+	"Il y a si loin de la façon dont on vit à celle dont on devrait vivre, \nque celui qui laisse ce qui se fait pour ce qui se devrait faire \napprend plutôt à se détruire qu'à se préserver\n\t\t\t\t\t\t\tMachiavel",
 }
 -- needed, otherwise, math.random always return the same value
 math.randomseed(os.time())

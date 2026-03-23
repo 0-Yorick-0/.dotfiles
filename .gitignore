@@ -2,6 +2,6 @@ scratch
 #ignore all vim backup files
 *.*~
 
+.gitconfig
 tags
-
 tmp

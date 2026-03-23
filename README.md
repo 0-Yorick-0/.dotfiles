@@ -49,6 +49,12 @@ Sur Mac
 
 see [here](https://stackoverflow.com/questions/72039019/pcre2-h-no-such-file-or-directory)
 
+#### Install graphicmagick
+
+- `brew install GraphicsMagick`
+- `pecl install gmagick-2.0.6RC1`
+- when graphicmagick config path requested : `/opt/homebrew/Cellar/graphicsmagick/1.3.46_1/`
+
 #### Install PHP DAP
 
 - go to $VIMCONFIG/share/nvim/lazy/vs-code-php-debug
@@ -69,3 +75,7 @@ see [here](https://stackoverflow.com/questions/72039019/pcre2-h-no-such-file-or-
 #### How to hide menu bar
 
 [here](https://www.howtogeek.com/700398/how-to-automatically-hide-or-show-the-menu-bar-on-a-mac/)
+
+#### Markdown Preview Troubleshooting
+
+If nothing on `MarkdownPreview` call `:call mkdp#util#install()`

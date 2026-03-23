@@ -15,7 +15,15 @@ return {
 		"nvimtools/none-ls.nvim",
 		opts = function(_, opts)
 			local nls = require("null-ls")
-			-- table.insert(opts.sources, nls.builtins.formatting.biome)
+			table.insert(
+			    opts.sources,
+			    nls.builtins.formatting.biome.with({
+					extra_args = {
+                        "--indent-style", "space",
+                        "--indent-width", "4"
+                    },
+                })
+            )
 		end,
 	},
 	{
@@ -34,6 +42,7 @@ return {
 						json = {
 							format = {
 								enable = true,
+                                indentStyle = "space",
 							},
 							validate = { enable = true },
 						},

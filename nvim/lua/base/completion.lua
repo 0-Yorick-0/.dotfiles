@@ -253,7 +253,7 @@ return {
 						enabled = true,
 						module = "blink-cmp-copilot",
 						min_keyword_length = 4,
-						score_offset = -100, -- the higher the number, the higher the priority
+						score_offset = 50, -- the higher the number, the higher the priority
 						async = true,
 					},
 				},
