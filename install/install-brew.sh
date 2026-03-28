@@ -46,7 +46,7 @@ brew install yq
 #use gawk instead of awk
 brew install gawk
 brew list python3 || brew install python3
-brew in fd
+brew install fd
 brew install ripgrep
 brew install ssed
 brew install tldr

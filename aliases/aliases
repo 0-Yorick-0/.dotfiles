@@ -29,7 +29,7 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index #directory stack
 
 alias ls='ls -G'
 # alias ll='ls -lahF'
-alias ll='eza --long --color=always --icons=always'
+alias ll='eza --long --color=always --icons=always --all'
 alias lls='ls -lahFtr'
 alias lk='lk --icons'
 
