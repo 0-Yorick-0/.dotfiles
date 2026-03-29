@@ -90,17 +90,6 @@ end
 --         gopls = function(_,_)
 function M.setupServer(servers, current_server, server_config, opts)
 	local server_capabilities
-	-- opts[current_server].capabilities, if defined
-	-- if server_config and server_config.capabilities then
-	-- 	server_capabilities = require("blink.cmp").get_lsp_capabilities(server_config.server_capabilities)
-	-- else
-	-- 	server_capabilities = require("blink.cmp").get_lsp_capabilities()
-	-- end
-	-- -- With blink.cmp, Neovim has more capabilities which are communicated
-	-- -- to the LSP servers.
-	-- local server_opts = vim.tbl_deep_extend("force", {
-	-- 	capabilities = server_capabilities,
-	-- }, servers[current_server] or {})
 
 	if opts.setup[current_server] then
 		if opts.setup[current_server](current_server, server_opts) then

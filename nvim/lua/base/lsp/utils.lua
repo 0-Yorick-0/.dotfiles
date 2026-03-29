@@ -26,8 +26,6 @@ function M.on_attach(on_attach)
 			local bufnr = args.buf
 			---@type vim.lsp.Client
 			local client = vim.lsp.get_client_by_id(args.data.client_id)
-			-- @TODO remove this if useless
-			-- vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
 			-- then call format and keymap functions for current buffer
 			on_attach(client, bufnr)
 		end,

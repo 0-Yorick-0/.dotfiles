@@ -19,6 +19,7 @@ return {
 				"markdown",
 				"markdown_inline",
 				"query",
+				"gotmpl",
 				"regex",
 				"latex",
 				"vim",
