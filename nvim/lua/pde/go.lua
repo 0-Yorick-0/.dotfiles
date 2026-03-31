@@ -34,6 +34,7 @@ return {
 			local nls = require("null-ls")
 			table.insert(opts.sources, nls.builtins.formatting.goimports)
 			table.insert(opts.sources, nls.builtins.formatting.gofumpt)
+			table.insert(opts.sources, nls.builtins.diagnostics.golangci_lint)
 		end,
 	},
 	{

@@ -27,13 +27,13 @@ if [[ ! -d "$MY_NEOVIM/spell" ]]; then
 	mkdir "$MY_NEOVIM/spell"
 	mkdir "$MY_NEOVIM/dictionaries"
 fi
-ln -sF "$DOTFILES/nvim/spell" "$MY_NEOVIM"
-ln -sF "$DOTFILES/dictionaries" "$MY_NEOVIM"
+ln -sF "$DOTFILES/nvim/spell" "$MY_NEOVIM/"
+ln -sF "$DOTFILES/dictionaries" "$MY_NEOVIM/"
 
 if [[ ! -d "$MY_NEOVIM/after" ]]; then
 	mkdir "$MY_NEOVIM/after"
 fi
-ln -sF "$DOTFILES/nvim/after" "$MY_NEOVIM"
+ln -sF "$DOTFILES/nvim/after" "$MY_NEOVIM/"
 # Install all mandatory folders if they don't exist already
 mkdir -p "$MY_NEOVIM/undo"
 

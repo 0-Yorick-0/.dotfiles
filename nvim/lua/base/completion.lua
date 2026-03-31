@@ -228,8 +228,8 @@ return {
 							dictionary_directories = { vim.fn.expand("$MY_NEOVIM/dictionaries") },
 							-- Notice I'm also adding the words I add to the spell dictionary
 							dictionary_files = {
-								vim.fn.expand("$MY_NEOVIM/spell/en.utf-8.add"),
-								vim.fn.expand("$MY_NEOVIM/spell/fr.utf-8.add"),
+								vim.fn.expand("$MY_NEOVIM/nvim/spell/en.utf-8.add"),
+								vim.fn.expand("$MY_NEOVIM/nvim/spell/fr.utf-8.add"),
 							},
 							-- --  NOTE: To disable the definitions uncomment this section below
 							--

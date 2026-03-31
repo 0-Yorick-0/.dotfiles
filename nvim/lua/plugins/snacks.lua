@@ -1,5 +1,6 @@
 local quotes = {
 	"Il ne faut pas chercher à être le médecin des incurables.\n\t\t\t\t\t\t\tFriedrich Nietzsche",
+	"La morale des esclaves est avant tout morale d'utilité.\n\t\t\t\t\t\t\tFriedrich Nietzsche",
 	"Il faut chercher à être fier de ses ennemis.\n\t\t\t\t\t\t\tFriedrich Nietzsche",
 	"Ce qui a un prix n'a guère de valeur.\n\t\t\t\t\t\t\tFriedrich Nietzsche",
 	"Les hommes en général jugent plus par les yeux que par les main\n\t\t\t\t\t\t\tMachiavel",
