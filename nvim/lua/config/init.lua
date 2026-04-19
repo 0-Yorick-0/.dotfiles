@@ -3,6 +3,7 @@ return {
 		go = true,
 		json = true,
 		php = true,
+		python = true,
 		markdown = true,
 		java = true,
 		terraform = true,

@@ -8,6 +8,7 @@
 --
 
 -- Variables
+vim = vim
 opt = vim.opt
 g = vim.g
 kmap = vim.keymap
@@ -23,5 +24,6 @@ vim.api.nvim_create_autocmd("User", {
 	callback = function()
 		require("config.autocmds")
 		require("config.keymaps")
+		require("config.text-objects")
 	end,
 })

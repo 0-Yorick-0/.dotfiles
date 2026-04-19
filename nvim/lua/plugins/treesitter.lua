@@ -8,26 +8,15 @@ return {
 			sync_install = false,
 			auto_install = true,
 			ensure_installed = {
-				--"help",
-				"javascript",
-				"python",
 				"rust",
-				"tsx",
-				"typescript",
 				"bash",
 				"html",
-				"markdown",
 				"markdown_inline",
 				"query",
-				"gotmpl",
 				"regex",
 				"latex",
-				"vim",
-				"vimdoc",
 				"yaml",
 			},
-			highlight = { enable = true },
-			indent = { enable = true, disable = { "python" } },
 			incremental_selection = {
 				enable = true,
 				keymaps = {
@@ -108,7 +97,7 @@ return {
 					return true
 				end, opts.ensure_installed)
 			end
-			require("nvim-treesitter.configs").setup(opts)
+			require("nvim-treesitter.config").setup(opts)
 		end,
 	},
 	{ "ngynkvn/gotmpl.nvim", opts = {} },

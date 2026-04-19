@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Yorick Ferlin
-	email = yorick.ferlin@bedrockstreaming.com 
+	email = yorickferlin@pm.me
 [core]
     excludesfile = /Users/yferlin/.gitignore_global
 [push]
