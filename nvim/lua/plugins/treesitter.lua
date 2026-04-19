@@ -108,7 +108,7 @@ return {
 					return true
 				end, opts.ensure_installed)
 			end
-			require("nvim-treesitter.configs").setup(opts)
+			require("nvim-treesitter.config").setup(opts)
 		end,
 	},
 	{ "ngynkvn/gotmpl.nvim", opts = {} },
