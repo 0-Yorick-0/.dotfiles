@@ -34,6 +34,17 @@ return {
 		end,
 	},
 	{
+		"FabijanZulj/blame.nvim",
+		lazy = false,
+		config = function()
+			vim.keymap.set("n", "<leader>gbl", "<Cmd>BlameToggle<CR>")
+			require("blame").setup({})
+		end,
+		opts = {
+			-- blame_options = { "-w" },
+		},
+	},
+	{
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
 		keys = {
