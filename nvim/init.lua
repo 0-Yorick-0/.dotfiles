@@ -8,6 +8,7 @@
 --
 
 -- Variables
+vim = vim
 opt = vim.opt
 g = vim.g
 kmap = vim.keymap

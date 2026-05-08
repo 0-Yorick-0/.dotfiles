@@ -26,23 +26,15 @@ return {
 			vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 		end,
 	},
-	"airblade/vim-gitgutter",
 	{
-		"f-person/git-blame.nvim",
+		"lewis6991/gitsigns.nvim",
 		config = function()
-			vim.keymap.set("n", "<leader>gb", "<Cmd>GitBlameToggle<CR>")
+			vim.keymap.set("n", "<leader>gb", "<Cmd>Gitsigns blame<CR>")
+			vim.keymap.set("n", "<leader>gbt", "<Cmd>Gitsigns toggle_current_line_blame<CR>")
+			require("gitsigns").setup({
+				current_line_blame = true,
+			})
 		end,
-	},
-	{
-		"FabijanZulj/blame.nvim",
-		lazy = false,
-		config = function()
-			vim.keymap.set("n", "<leader>gbl", "<Cmd>BlameToggle<CR>")
-			require("blame").setup({})
-		end,
-		opts = {
-			-- blame_options = { "-w" },
-		},
 	},
 	{
 		"sindrets/diffview.nvim",
