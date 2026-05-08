@@ -35,6 +35,9 @@ return {
 				{ section = "startup" },
 			},
 		},
+		gitbrowse = {
+			enabled = true,
+		},
 		bigfile = { enabled = true },
 		notifier = {
 			enabled = true,
@@ -45,6 +48,9 @@ return {
 		words = { enabled = true },
 		styles = {
 			notification = {
+				wo = { wrap = true }, -- Wrap notifications
+			},
+			notification_history = {
 				wo = { wrap = true }, -- Wrap notifications
 			},
 		},

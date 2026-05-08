@@ -13,10 +13,8 @@ return {
 		"folke/noice.nvim",
 		config = function()
 			require("noice").setup({
-				cmdline = {
-					format = {
-						input = { view = "cmdline" },
-					},
+				presets = {
+					long_message_to_split = true, -- long messages will be sent to a split
 				},
 				routes = {
 					{
@@ -31,13 +29,27 @@ return {
 				lsp = {
 					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+						["vim.lsp.util.convert_input_to_markdown_lines"] = false,
 						["vim.lsp.util.stylize_markdown"] = true,
 						["cmp.entry.get_documentation"] = true,
 					},
 				},
 				messages = {
-					enabled = false,
+					enabled = true,
+				},
+				views = {
+					cmdline_input = {
+						win_options = {
+							wrap = true,
+							linebreak = true,
+						},
+					},
+					confirm = {
+						win_options = {
+							wrap = true,
+							linebreak = true,
+						},
+					},
 				},
 			})
 		end,
