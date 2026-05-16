@@ -15,20 +15,40 @@ return {
 	},
 	config = function()
 		local ok, telescope = pcall(require, "telescope")
+		local actions = require("telescope.actions")
 		local lga_actions = require("telescope-live-grep-args.actions")
+		local action_layout = require("telescope.actions.layout")
 		if not ok then
 			print(string.format("Someting happend on calling telescope in %s", vim.fn.expand("%:p")))
 		end
 
 		telescope.setup({
 			defaults = {
+				layout_strategy = "vertical",
+				layout_config = {
+					vertical = {
+						width = vim.o.columns,
+						height = vim.o.lines,
+						prompt_position = "top",
+						preview_cutoff = 10,
+					},
+				},
 				file_ignore_patterns = { "%.git/" },
 				color_devicons = true,
 				mappings = {
 					-- extend mappings
 					i = {
-						["<C-k>"] = lga_actions.quote_prompt(),
+						["<C-s>"] = lga_actions.quote_prompt(),
 						["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+						["<C-u>"] = false,
+						["<S-p>"] = action_layout.toggle_preview,
+						["<C-k>"] = actions.preview_scrolling_up,
+						["<C-j>"] = actions.preview_scrolling_down,
+					},
+					n = {
+						["<S-p>"] = action_layout.toggle_preview,
+						["<C-k>"] = actions.preview_scrolling_up,
+						["<C-j>"] = actions.preview_scrolling_down,
 					},
 				},
 			},
@@ -44,17 +64,17 @@ return {
 						auto_quoting = true, -- enable/disable auto-quoting
 						-- define mappings, e.g.
 					},
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({
-							layout_strategy = "vertical",
-							layout_config = "bottom",
-							prompt_position = "bottom",
-							vertical = {
-								width = 0.5,
-								height = 20,
-							},
-						}),
-					},
+					-- ["ui-select"] = {
+					-- 	require("telescope.themes").get_dropdown({
+					-- 		layout_strategy = "vertical",
+					-- 		layout_config = "bottom",
+					-- 		prompt_position = "bottom",
+					-- 		vertical = {
+					-- 			width = 0.6,
+					-- 			height = 20,
+					-- 		},
+					-- 	}),
+					-- },
 				},
 				pickers = {
 					find_files = {
@@ -98,6 +118,7 @@ return {
 
 		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "[F]ind in [G]it files" })
 		vim.keymap.set("n", "<leader>ç", builtin.oldfiles, { desc = "[ç] Find recently opened files" })
+		vim.keymap.set("n", "<leader>fc", builtin.command_history, { desc = "[c] Find recently used commands" })
 		vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "Find Buffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
 		vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymap" })
