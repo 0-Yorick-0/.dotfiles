@@ -16,11 +16,19 @@ export PATH="$HOME/go/bin/:$PATH"
 # | NAVIGATION |
 # +------------+
 
-setopt AUTO_CD			# Go to the folder path without cd
+setopt AUTOCD			# Go to the folder path without cd
+setopt NOBEEP 
+setopt NUMERIC_GLOB_SORT # ensure that 10 is set after 9
 
 setopt AUTO_PUSHD		# Push the current directory visited on the stack
 setopt PUSHD_IGNORE_DUPS	# Do not store duplicates in the stack
 setopt PUSHD_SILENT		# Do not print the directory stack after push or popd
+
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS	
+setopt HIST_IGNORE_SPACE
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
 
 
 # Jumping to a parent directory easily
@@ -114,13 +122,20 @@ for km in viopp visual; do
 	done
 done
 
-
 # +---------------------+
 # | SYNTAX HIGHLIGHTING |
 # +---------------------+
 
-# Syntax HighLighting
-source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $DOTFILES/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# +------------------+
+# | SUBSTRING SEARCH |
+# +------------------+
+
+source $DOTFILES/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+# Up/Down -> history search by substring (^[[A/^[[B are up/down arrow escape codes)
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # +------+
 # | BREW |
@@ -167,13 +182,10 @@ big_letters() {
 # | AUTO-SUGGESTIONS |
 # +------------------+
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#008080,underline"
 # CTRL + ENTER to accept suggestion
 bindkey '^y' autosuggest-accept
 
 # FUCK
 eval $(thefuck --alias)
-
-
-

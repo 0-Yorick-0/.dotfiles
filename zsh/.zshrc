@@ -2,19 +2,14 @@
 
 fpath=($DOTFILES/zsh/plugins $fpath)
 
-# +---------+
-# | PLUGINS |
-# +---------+
-# take tike to measure boot time
-#bootTimeStart=$(gdate +%s%N 2>/dev/null || date +%s%N)
-
+# +--------------+
+# | CONFIG FILES |
+# +--------------+
 # typeset -ga sources
 
 # Get personnal config file
 sources=($DOTFILES/zsh/config/*.zsh)
 
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit; compinit
 # needed because the script is launched outside of a Terminal
 # so it doesn't has access to stuff in ~/.profile
 gdate=/opt/homebrew/bin/gdate
@@ -25,6 +20,7 @@ if [ ! -x $gdate ]; then
 	echo "FATAL ERROR: $gdate not found." >&2
 	exit 1
 fi
+
 # try to include all sources
 foreach file (`echo $sources`)
     if [[ -a $file ]]; then
@@ -34,18 +30,13 @@ foreach file (`echo $sources`)
         echo $sourceIncludeDuration ms runtime for $file
     fi
 end
-#bootTimeEnd=$(gdate +%s%N 2>/dev/null || date +%s%N)
-#bootTimeDuration=$((($bootTimeEnd - $bootTimeStart)/1000000))
-#echo $bootTimeDuration ms overall boot duration
+
 
 #launch tmux at startup
 if [ -z "$TMUX" ]; then tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf; fi
 
-#launch yabai at startup
-yabai --start-service
-
 #loading ssh-key to keychain
-eval $(keychain --eval --quiet id_rsa ~/.ssh/id_ed25519_perso)
+eval $(keychain --eval --quiet id_rsa ~/.ssh/id_*)
 
 # +--------+
 # | PROMPT |
@@ -67,12 +58,20 @@ source $DOTFILES/aliases/aliases
 
 source $DOTFILES/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
 
-autoload -U compinit; compinit
-_comp_options+=(globdots) # With hidden files
-source $DOTFILES/zsh/plugins/completion.zsh
+autoload bashcompinit && bashcompinit
+# Load completion system
+autoload -Uz compinit
+# initialize completion with cached metadata file
+compinit -d "XDG_CACHE_HOME/zsh/zcompdump"
 
-# Command Completion
-fpath=($DOTFILES/zsh/plugins/zsh-completions/src $fpath)
+# Enable interactive completion menu selection
+zstyle ':completion:*' menu select
+
+# Make completion case-insensitive
+# Exemple : "doc" can complete to "Document"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+_comp_options+=(globdots) # With hidden files
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -81,3 +80,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # | STARSHIP |
 # +----------+
 eval "$(starship init zsh)"
+
+# +--------+
+# | ZOXIDE |
+# +--------+
+eval "$(zoxide init zsh)"

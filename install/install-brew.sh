@@ -72,6 +72,8 @@ brew install keychain
 brew install grep
 brew install ncdu
 brew install eza
+brew install zoxide
+brew install fzf
 
 # +-------+
 # | FONTS |
