@@ -4,9 +4,6 @@
 [submodule "zsh/plugins/fzf"]
 	path = zsh/plugins/fzf
 	url = git@github.com:junegunn/fzf.git
-[submodule "fast-syntax-highlighting"]
-	path = fast-syntax-highlighting
-	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
 [submodule "zsh/plugins/fast-syntax-highlighting"]
 	path = zsh/plugins/fast-syntax-highlighting
 	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
@@ -16,3 +13,9 @@
 [submodule "zsh/plugins/zsh-history-substring-search"]
 	path = zsh/plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule "ubersicht/widgets/simple-bar"]
+	path = ubersicht/widgets/simple-bar
+	url = https://github.com/Jean-Tinland/simple-bar
+[submodule "zsh/plugins/fzf-git.sh"]
+	path = zsh/plugins/fzf-git.sh
+	url = https://github.com/junegunn/fzf-git.sh
