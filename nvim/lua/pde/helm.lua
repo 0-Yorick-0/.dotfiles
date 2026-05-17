@@ -42,7 +42,11 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
-				helm_ls = {},
+				helm_ls = {
+					settings = {
+						filetypes = { "helm", "gotmpl" },
+					},
+				},
 			},
 		},
 	},

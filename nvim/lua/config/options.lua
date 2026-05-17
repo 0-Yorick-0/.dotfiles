@@ -62,3 +62,6 @@ set.spelllang = "en_us"
 
 -- auto read file when changed outside of vim
 set.autoread = true
+
+-- turn regexes off for syntax highlighting
+set.syntax = "off"
