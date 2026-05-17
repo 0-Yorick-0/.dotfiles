@@ -12,19 +12,24 @@ return {
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
-			vim.list_extend(
-				opts.ensure_installed,
-				{ "phpactor", "php-cs-fixer", "phpcbf", "phpcs", "phpmd", "phpstan", "pretty-php" }
-			)
+			vim.list_extend(opts.ensure_installed, {
+				"phpactor",
+				"php-cs-fixer",
+				"phpcbf",
+				"phpcs",
+				"phpmd",
+				"phpstan",
+				"pretty-php",
+			})
 		end,
 	},
 	{
 		"nvimtools/none-ls.nvim",
 		opts = function(_, opts)
 			local nls = require("null-ls")
-			-- table.insert(opts.sources, nls.builtins.formatting.phpcs)
-			-- table.insert(opts.sources, nls.builtins.formatting.phpcbf)
-			-- table.insert(opts.sources, nls.builtins.formatting.phpcsfixer)
+			table.insert(opts.sources, nls.builtins.diagnostics.phpcs)
+			table.insert(opts.sources, nls.builtins.formatting.phpcbf)
+			table.insert(opts.sources, nls.builtins.formatting.phpcsfixer)
 			-- table.insert(
 			-- 	opts.sources,
 			-- 	nls.builtins.formatting.pretty_php.with({
