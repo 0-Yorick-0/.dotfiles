@@ -62,6 +62,9 @@ autoload bashcompinit && bashcompinit
 # Load completion system
 autoload -Uz compinit
 # initialize completion with cached metadata file
+if [[ ! "$XDG_CONFIG_HOME/zsh" ]]; then
+    mkdir -p "XDG_CACHE_HOME/zsh/zcompdump"
+fi
 compinit -d "XDG_CACHE_HOME/zsh/zcompdump"
 
 # Enable interactive completion menu selection
