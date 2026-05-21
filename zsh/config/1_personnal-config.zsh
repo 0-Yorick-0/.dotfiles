@@ -150,6 +150,12 @@ export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:/opt/homebrew/opt/php@7.4/bin/"
 export PATH="$PATH:/opt/homebrew/opt/rabbitmq/sbin"
 
+# +-----+
+# | GO  |
+# +-----+
+
+export PATH="$PATH:$(go env GOPATH)/bin"
+
 
 # +------+
 # | FZF  |

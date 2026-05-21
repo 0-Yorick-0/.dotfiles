@@ -15,7 +15,9 @@ return {
 			vim.list_extend(opts.ensure_installed, {
 				"bash-language-server",
 				"shfmt",
+				"dotenv-linter",
 				"shellcheck",
+				"shellharden",
 				"beautysh",
 			})
 		end,
@@ -25,8 +27,8 @@ return {
 		opts = function(_, opts)
 			local nls = require("null-ls")
 			table.insert(opts.sources, nls.builtins.formatting.shfmt)
-			table.insert(opts.sources, nls.builtins.formatting.beautysh)
-			table.insert(opts.sources, nls.builtins.formatting.shellcheck)
+			table.insert(opts.sources, nls.builtins.formatting.shellharden)
+			table.insert(opts.sources, nls.builtins.diagnostics.dotenv_linter)
 		end,
 	},
 	{
