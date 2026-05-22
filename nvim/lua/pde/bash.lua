@@ -6,6 +6,17 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = function(_, opts)
+			vim.filetype.add({
+				extension = {
+					zsh = "zsh",
+				},
+				pattern = {
+					[".*%.zsh"] = "sh",
+					-- TODO : doesn't work. Gotta find the right regex
+					-- in order to catch .zshrc file
+					["^%.zsh*"] = "sh",
+				},
+			})
 			vim.list_extend(opts.ensure_installed, { "bash" })
 		end,
 	},
@@ -36,7 +47,9 @@ return {
 		opts = {
 			servers = {
 				bash_lsp_server = {
-					settings = {},
+					settings = {
+						filetypes = { "sh", "zsh", "zshrc" },
+					},
 				},
 			},
 			setup = {

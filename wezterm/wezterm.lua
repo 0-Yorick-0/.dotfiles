@@ -25,8 +25,8 @@ config.colors = {
 	cursor_fg = "#011423",
 	selection_bg = "#2b676b",
 	selection_fg = "#CBE0F0",
-	ansi = { "#E6E6E6", "#2b676b", "#2b676b", "#B47808", "#E6E6E6", "#08B422", "#B49A81", "#E6E6E6" },
-	brights = { "#858585", "#973D19", "#2b676b", "#B47808", "#E6E6E6", "#08B422", "#089AB4", "#B49A81" },
+	ansi = { "#050505", "#2b676b", "#2b676b", "#CBE0F0", "#E6E6E6", "#08B422", "#2b676b", "#E6E6E6" },
+	brights = { "#858585", "#973D19", "#2b676b", "#CBE0F0", "#E6E6E6", "#08B422", "#089AB4", "#B49A81" },
 }
 
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
@@ -39,5 +39,4 @@ config.window_background_opacity = 0.9
 
 config.macos_window_background_blur = 10
 
--- and finally, return the configuration to wezterm
 return config

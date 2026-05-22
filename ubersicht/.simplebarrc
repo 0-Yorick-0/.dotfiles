@@ -32,13 +32,13 @@
   "themes": {
     "lightTheme": "GruvboxLight",
     "darkTheme": "MaterialOcean",
-    "colorMain": "#050505",
+    "colorMain": "#E6E6E6",
     "colorMainAlt": "#B49A81",
-    "colorMinor": "#B49A81",
+    "colorMinor": "#E6E6E6",
     "colorAccent": "#050505",
     "colorRed": "#2b676b",
     "colorGreen": "#973D19",
-    "colorYellow": "#2b676b",
+    "colorYellow": "#050505",
     "colorOrange": "#2b676b",
     "colorBlue": "#2b676b",
     "colorMagenta": "#2b676b",
@@ -46,7 +46,7 @@
     "colorBlack": "#050505",
     "colorWhite": "#858585",
     "colorForeground": "#2b676b",
-    "colorBackground": "#050505"
+    "colorBackground": "#E6E6E6"
   },
   "process": {
     "showOnDisplay": "",

@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-
 export BAT_THEME="Dracula"
 
 #update PATH
@@ -34,11 +32,12 @@ setopt HIST_FIND_NO_DUPS
 # Jumping to a parent directory easily
 autoload -Uz bd; bd
 
+
 # +---------+
 # | ALIASES |
 # +---------+
 
-source $DOTFILES/aliases/aliases
+source "$DOTFILES"/aliases/aliases
 
 # +-----+
 # | VIM |
@@ -69,24 +68,23 @@ bindkey -M vicmd v edit-command-line
 
 # Changing Cursor
 cursor_mode() {
-    # See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursors
     cursor_block='\e[2 q'
     cursor_beam='\e[6 q'
 
     function zle-keymap-select {
         if [[ ${KEYMAP} == vicmd ]] ||
         [[ $1 = 'block' ]]; then
-            echo -ne $cursor_block
+            echo -ne "$cursor_block"
         elif [[ ${KEYMAP} == main ]] ||
         [[ ${KEYMAP} == viins ]] ||
         [[ ${KEYMAP} = '' ]] ||
         [[ $1 = 'beam' ]]; then
-            echo -ne $cursor_beam
+            echo -ne "$cursor_beam"
         fi
     }
 
     zle-line-init() {
-        echo -ne $cursor_beam
+        echo -ne "$cursor_beam"
     }
 
     # If you have a problem with End and Home key
@@ -113,12 +111,12 @@ autoload -Uz select-bracketed select-quoted
 zle -N select-quoted
 zle -N select-bracketed
 for km in viopp visual; do
-    bindkey -M $km -- '-' vi-up-line-or-history
-    for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
-        bindkey -M $km $c select-quoted
+    bindkey -M "$km" -- '-' vi-up-line-or-history
+    for c in {a,i}"${(s..)^:-\'\"\`\|,./:;=+@}"; do
+        bindkey -M "$km" "$c" select-quoted
     done
-    for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-        bindkey -M $km $c select-bracketed
+    for c in {a,i}"${(s..)^:-'()[]{}<>bB'}"; do
+        bindkey -M "$km" "$c" select-bracketed
     done
 done
 
@@ -126,13 +124,13 @@ done
 # | SYNTAX HIGHLIGHTING |
 # +---------------------+
 
-source $DOTFILES/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source "$DOTFILES"/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # +------------------+
 # | SUBSTRING SEARCH |
 # +------------------+
 
-source $DOTFILES/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source "$DOTFILES"/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Up/Down -> history search by substring (^[[A/^[[B are up/down arrow escape codes)
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -180,7 +178,7 @@ function lk {
 
 big_letters() {
     arg="$1"
-    echo $1 | sed -r 's/(\w)/:alphabet_yellow_\1:/g' | sed 's/ /      /g' | sed 's/?/:alphabet-yellow-question:/' | sed 's/!/:alphabet-yellow-exclamation:/g' | sed 's/yellow/white/g'
+    echo "$1" | sed -r 's/(\w)/:alphabet_yellow_\1:/g' | sed 's/ /      /g' | sed 's/?/:alphabet-yellow-question:/' | sed 's/!/:alphabet-yellow-exclamation:/g' | sed 's/yellow/white/g'
 }
 
 
@@ -188,10 +186,10 @@ big_letters() {
 # | AUTO-SUGGESTIONS |
 # +------------------+
 
-source $DOTFILES/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$DOTFILES"/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#008080,underline"
 # CTRL + ENTER to accept suggestion
 bindkey '^y' autosuggest-accept
 
 # FUCK
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"

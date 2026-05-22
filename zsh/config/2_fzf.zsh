@@ -1,7 +1,7 @@
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == *$DOTFILES/zsh/plugins/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}$DOTFILES/zsh/plugins/fzf/bin"
+    PATH="${PATH:+${PATH}:}$DOTFILES/zsh/plugins/fzf/bin"
 fi
 
 # Auto-completion
@@ -18,7 +18,7 @@ source "$DOTFILES/zsh/plugins/fzf/shell/key-bindings.zsh"
 
 ## necessary to not being in conflict with vi command mode
 ## see https://github.com/junegunn/fzf-git.sh/issues/23
-bindkey -r '^G'  
+bindkey -r '^G'
 # Fzf-git
 source "$DOTFILES/zsh/plugins/fzf-git.sh/fzf-git.sh"
 
@@ -28,9 +28,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 
 export FZF_DEFAULT_OPTS="
---height 70% 
---layout=default 
---border 
+--height 70%
+--layout=default
+--border
 --color=hl:#2dd4bf
 --preview 'bat --style=numbers --color=always {}'
 "

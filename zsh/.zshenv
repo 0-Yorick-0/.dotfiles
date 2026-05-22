@@ -36,11 +36,11 @@ export PATH="$HOME/.local/bin:$PATH"
 # ------------- TMUX -----------------------
 export TMUX_CONFIG_DIR="$XDG_CONFIG_HOME/tmux"
 case "${machine}" in
-	Mac) export TMUX_COPY_PIPE_CONFIG='copy-pipe "reattach-to-user-namespace pbcopy"';;	
-	Linux) export TMUX_COPY_PIPE_CONFIG='copy-pipe-and-cancel \"xsel --clipboard\"';;
-	#Mac) export TMUX_COPY_PIPE_CONFIG='copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"';;	
-	#Linux) export TMUX_COPY_PIPE_CONFIG='copy-pipe-and-cancel "xsel --clipboard"';;
-	*) echo "Dude, I'm sorry, may be you should install reattach-to-user-namesapce if you're on mac ?";;
+    Mac) export TMUX_COPY_PIPE_CONFIG='copy-pipe "reattach-to-user-namespace pbcopy"' ;;
+    Linux) export TMUX_COPY_PIPE_CONFIG='copy-pipe-and-cancel \"xsel --clipboard\"' ;;
+        #Mac) export TMUX_COPY_PIPE_CONFIG='copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"' ;;
+        #Linux) export TMUX_COPY_PIPE_CONFIG='copy-pipe-and-cancel "xsel --clipboard"' ;;
+    *) echo "Dude, I'm sorry, may be you should install reattach-to-user-namesapce if you're on mac ?" ;;
 esac
 
 # other software
