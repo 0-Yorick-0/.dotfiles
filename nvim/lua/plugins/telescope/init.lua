@@ -27,8 +27,10 @@ return {
 				layout_strategy = "vertical",
 				layout_config = {
 					vertical = {
-						width = vim.o.columns,
-						height = vim.o.lines,
+						-- width = vim.o.columns,
+						-- height = vim.o.lines,
+						width = 0.9,
+						height = 0.9,
 						prompt_position = "top",
 						preview_cutoff = 10,
 					},

@@ -5,7 +5,7 @@
 # 	"$(brew ls --versions | ggrep -E 'php(@.*)?\s' | ggrep -oP '(?<=\s)\d\.\d' | uniq | sort)"
 # )
 
-installedPhpVersions=("7.4" "8.1" "8.5")
+installedPhpVersions=("7.4" "8.1" "8.3" "8.5")
 echo "${installedPhpVersions[@]}"
 
 # create alias for every version of PHP installed with HomeBrew

@@ -53,6 +53,10 @@ Sur Mac
 
 see [here](https://stackoverflow.com/questions/72039019/pcre2-h-no-such-file-or-directory)
 
+- brew install pcre2
+- ln -s /opt/homebrew/opt/pcre2/include/pcre2.h /opt/homebrew/opt/php@8.1/include/php/ext/pcre/
+- pecl install apcu
+
 #### Install graphicmagick
 
 - `brew install GraphicsMagick`
