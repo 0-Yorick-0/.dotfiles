@@ -10,6 +10,7 @@ return {
 		helm = true,
 		docker = true,
 		lua = true,
+		bash = true,
 		-- typescript = true,
 	},
 }

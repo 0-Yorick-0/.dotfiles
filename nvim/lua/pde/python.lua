@@ -25,9 +25,8 @@ return {
 		"nvimtools/none-ls.nvim",
 		opts = function(_, opts)
 			local nls = require("null-ls")
-			table.insert(opts.sources, nls.builtins.formatting.mypy)
-			table.insert(opts.sources, nls.builtins.formatting.pydoclint)
-			table.insert(opts.sources, nls.builtins.formatting.pylint)
+			table.insert(opts.sources, nls.builtins.diagnostics.mypy)
+			table.insert(opts.sources, nls.builtins.diagnostics.pylint)
 			table.insert(opts.sources, nls.builtins.formatting.black)
 		end,
 	},
