@@ -15,18 +15,12 @@ return {
 			sections = {
 				lualine_a = {
 					{
-						"mode",
-						separator = { left = "", right = "" },
+						"filename",
 						icons_enabled = true,
 						icon = "",
-						symbols = {
-							modified = "",
-							readonly = "",
-						},
-					},
-					{
-						"filename",
+						separator = { left = "", right = "" },
 						file_status = true, -- Displays file status (readonly status, modified status)
+
 						newfile_status = false, -- Display new file status (new file means no write after created)
 						path = 0, -- 0: Just the filename
 						-- 1: Relative path
@@ -43,12 +37,6 @@ return {
 							newfile = "[New]", -- Text to show for newly created file before first write
 						},
 					},
-					{
-						"filetype",
-						colored = true, -- displays filetype highlight (if available)
-						icon_only = true,
-						icon = { align = "right" },
-					},
 				},
 				lualine_b = {},
 				lualine_c = {
@@ -64,13 +52,13 @@ return {
 				lualine_y = {
 					{
 						"progress",
-						separator = { left = "", right = "" },
+						separator = { left = "", right = "" },
 					},
 				},
 				lualine_z = {
 					{
 						"location",
-						separator = { left = "", right = "" },
+						separator = { left = "", right = "" },
 					},
 				},
 			},

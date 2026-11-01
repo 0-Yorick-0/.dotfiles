@@ -21,6 +21,9 @@ map("n", "<leader>n", ":tab drop ~/tmp/notes.md<CR>", { desc = "open [n]otes fil
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '>-2<CR>gv=gv")
 
+map("n", "<leader>m", "]m", { desc = "go to next method" })
+map("n", "<leader>M", "[m", { desc = "go to previous method" })
+
 -- keep cursor in middle of viewport while navigating
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
