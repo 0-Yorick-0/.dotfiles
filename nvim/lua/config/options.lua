@@ -64,4 +64,4 @@ set.spelllang = "en_us"
 set.autoread = true
 
 -- turn regexes off for syntax highlighting
-set.syntax = "off"
+-- set.syntax = "off"

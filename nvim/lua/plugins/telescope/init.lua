@@ -43,7 +43,7 @@ return {
 						["<C-s>"] = lga_actions.quote_prompt(),
 						["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
 						["<C-u>"] = false,
-						["<S-p>"] = action_layout.toggle_preview,
+						["<S-v>"] = action_layout.toggle_preview,
 						["<C-k>"] = actions.preview_scrolling_up,
 						["<C-j>"] = actions.preview_scrolling_down,
 					},

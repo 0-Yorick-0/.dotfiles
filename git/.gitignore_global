@@ -16,3 +16,7 @@ scratch
 tmp
 
 kulala
+
+[rerere]
+	enabled = 1
+

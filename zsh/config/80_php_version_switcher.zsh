@@ -8,6 +8,8 @@
 installedPhpVersions=("7.4" "8.1" "8.3" "8.5")
 echo "${installedPhpVersions[@]}"
 
+brew trust shivammathur/php
+
 # create alias for every version of PHP installed with HomeBrew
 for phpVersion in "${installedPhpVersions[@]}"; do
 	value="{"
